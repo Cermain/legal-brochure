@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESOP Decision Map — Cermain Cheung · OLN Startup Tech</title>
+
+<template id="__bundler_thumbnail" data-bg-color="#fbfbfd">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="900" cy="240" r="320" fill="none" stroke="#7A9B8E" stroke-opacity="0.30" stroke-width="3"/>
+    <circle cx="900" cy="240" r="220" fill="none" stroke="#7A9B8E" stroke-opacity="0.45" stroke-width="3"/>
+    <circle cx="900" cy="240" r="130" fill="none" stroke="#7A9B8E" stroke-opacity="0.55" stroke-width="3"/>
+    <circle cx="900" cy="240" r="10" fill="#7A9B8E"/>
+    <text x="200" y="480" font-family="Georgia, serif" font-style="italic" font-size="280" font-weight="400" fill="#1F3864">CC</text>
+    <text x="200" y="560" font-family="Inter, sans-serif" font-size="36" letter-spacing="6" fill="#7A9B8E" font-weight="600">OLN · STARTUP TECH</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-deep: #14264a;
+    --sage: #7A9B8E;
+    --sage-deep: #52786b;
+    --sage-soft: rgba(122, 155, 142, 0.10);
+    --sage-line: rgba(122, 155, 142, 0.30);
+    --cream: #fbfbfd;
+    --cream-warm: #f5f3ee;
+    --ink: #15161a;
+    --muted: #6b6f78;
+    --rule: #e7e6e2;
+    --amber: #9a6a1c;
+    --amber-tint: #f7efdd;
+    --amber-line: #e3cf9c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ----- TOP CHROME ----- */
+  .chrome {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 251, 253, 0.92);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .chrome-inner {
+    max-width: 1180px; margin: 0 auto; padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .chrome .brand { color: var(--navy); font-weight: 600; display: flex; align-items: center; gap: 14px; }
+  .chrome .brand-logo { height: 34px; width: auto; display: block; }
+  .chrome .brand .assoc { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0.02em; font-size: 11px; padding-left: 14px; border-left: 1px solid var(--rule); }
+  @media (max-width: 640px) { .chrome .brand .assoc { display: none; } }
+  .lang-tag { font-size: 11px; letter-spacing: 0.1em; color: var(--navy); border: 1px solid var(--navy); border-radius: 999px; padding: 4px 12px; font-weight: 600; }
+
+  /* ----- TOPIC NAV ----- */
+  .topic-nav { border-top: 1px solid var(--rule); }
+  .topic-nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; align-items: stretch; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .topic-nav-inner::-webkit-scrollbar { display: none; }
+  .tnav { position: relative; padding: 11px 15px; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .15s ease, border-color .15s ease; display: inline-flex; align-items: center; gap: 7px; }
+  .tnav:hover { color: var(--navy); }
+  .tnav.is-current { color: var(--navy); border-bottom-color: var(--sage); }
+  .tnav.soon { color: #b4b8c1; cursor: default; }
+  .tnav.soon i { font-style: normal; font-size: 8px; letter-spacing: 0.1em; color: var(--sage); border: 1px solid var(--sage-line); border-radius: 999px; padding: 1px 5px; line-height: 1; }
+  .tnav:first-child { padding-left: 0; }
+  @media print { .topic-nav { display: none !important; } }
+
+  section { padding: 96px 32px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 18px; }
+  .section-title { font-size: clamp(30px, 3.2vw, 46px); font-weight: 300; color: var(--navy); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+  .section-lead { font-size: 18px; line-height: 1.6; color: var(--ink); max-width: 720px; }
+  .section-lead em { font-style: italic; color: var(--navy); }
+
+  /* ----- HERO ----- */
+  .hero {
+    padding: 130px 32px 96px;
+    background:
+      linear-gradient(rgba(31, 56, 100, 0.035) 1px, transparent 1px) 0 0 / 100% 56px,
+      linear-gradient(90deg, rgba(31, 56, 100, 0.035) 1px, transparent 1px) 0 0 / 56px 100%,
+      var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+  .back-overview { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.04em; color: var(--sage); text-decoration: none; font-weight: 600; margin-bottom: 28px; transition: color 0.15s ease; }
+  .back-overview:hover { color: var(--navy); }
+  @media print { .back-overview { display: none; } }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 26px; }
+  .hero h1 {
+    font-family: 'Lora', Georgia, serif; font-weight: 400; color: var(--navy);
+    font-size: clamp(40px, 5.6vw, 74px); line-height: 1.04; letter-spacing: -0.018em;
+    max-width: 16ch;
+  }
+  .hero h1 em { font-style: italic; color: var(--sage); }
+  .hero-thesis { margin-top: 36px; max-width: 640px; }
+  .hero-thesis p { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--ink); font-weight: 400; }
+  .hero-thesis p .q { color: var(--sage); font-style: italic; font-family: 'Lora', Georgia, serif; }
+  .hero-thesis p.small { font-size: clamp(15px, 1.2vw, 17px); color: var(--muted); margin-top: 16px; line-height: 1.6; }
+  .hero-thesis p.small em { color: var(--navy); font-style: italic; }
+  .hero-byline {
+    margin-top: 40px; display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center;
+    font-size: 12.5px; letter-spacing: 0.03em; color: var(--muted);
+    padding-top: 24px; border-top: 1px solid var(--rule);
+  }
+  .hero-byline b { color: var(--navy); font-weight: 600; }
+  .hero-byline .sep { color: var(--sage); }
+
+  /* ----- THE MAP ----- */
+  .map { background: white; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .branch {
+    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px;
+    padding: 44px 0; border-top: 1px solid var(--rule); align-items: start;
+  }
+  .branch:first-of-type { border-top: none; }
+  .branch-head { position: relative; }
+  .branch-num { font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 46px; font-weight: 400; color: var(--sage); line-height: 1; font-variant-numeric: oldstyle-nums; }
+  .branch-tag { display: block; margin-top: 14px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage-deep); font-weight: 600; }
+  .branch-q { margin-top: 6px; font-size: clamp(21px, 2vw, 27px); font-weight: 400; color: var(--navy); letter-spacing: -0.015em; line-height: 1.16; }
+  .branch-q em { font-style: italic; color: var(--sage); }
+  .branch-frame { margin-top: 16px; font-size: 14.5px; line-height: 1.6; color: var(--muted); max-width: 38ch; }
+  .branch-list { list-style: none; }
+  .branch-list li { position: relative; padding: 16px 0 16px 22px; border-top: 1px dotted var(--rule); }
+  .branch-list li:first-child { border-top: none; padding-top: 4px; }
+  .branch-list li:first-child::before { top: 11px; }
+  .branch-list li::before { content: ''; position: absolute; left: 0; top: 23px; width: 8px; height: 1.5px; background: var(--sage); }
+  .branch-list .lt { font-weight: 600; color: var(--navy); font-size: 15.5px; }
+  .branch-list .ld { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 3px; }
+
+  /* feature branch (Vehicle) */
+  .branch.feature { background: var(--sage-soft); margin: 0 -32px; padding: 48px 32px; border-radius: 0; }
+  .branch.feature .branch-num,
+  .branch.feature .branch-tag { color: var(--sage-deep); }
+  .branch.feature .branch-list li::before { background: var(--sage-deep); width: 10px; }
+  .branch.feature .branch-flag-lead { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage-deep); font-weight: 600; }
+  .branch.feature .branch-flag-lead::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage-deep); }
+
+  /* verify flag */
+  .flag {
+    display: inline-block; font-size: 10px; letter-spacing: 0.04em; font-weight: 600;
+    color: var(--amber); background: var(--amber-tint); border: 1px solid var(--amber-line);
+    border-radius: 3px; padding: 1px 7px; margin-left: 4px; vertical-align: middle;
+    white-space: nowrap; text-transform: uppercase;
+  }
+
+  /* ----- COMMUNICATION FOUNDATION ----- */
+  .comms { background: var(--navy); color: white; }
+  .comms .section-eyebrow { color: rgba(255,255,255,0.55); }
+  .comms h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 300; color: white; letter-spacing: -0.02em; line-height: 1.12; max-width: 22ch; }
+  .comms h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
+  .comms .lead { margin-top: 22px; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.82); max-width: 660px; }
+  .comms .lead em { color: var(--sage); font-style: italic; }
+  .comms-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.16); }
+  .comms-grid li { padding: 32px 28px 32px 0; border-right: 1px solid rgba(255,255,255,0.16); border-bottom: 1px solid rgba(255,255,255,0.16); }
+  .comms-grid li:nth-child(3n) { border-right: none; padding-right: 0; }
+  .comms-grid .k { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); font-weight: 600; display: block; margin-bottom: 10px; }
+  .comms-grid h4 { font-size: 19px; font-weight: 500; color: white; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .comms-grid p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.68); font-weight: 300; }
+  @media (max-width: 760px) { .comms-grid { grid-template-columns: 1fr; } .comms-grid li { border-right: none; padding-right: 0; } }
+
+  /* ----- TENSION ----- */
+  .tension { background: var(--cream-warm); }
+  .tension h2 { font-size: clamp(26px, 2.8vw, 38px); font-weight: 300; color: var(--navy); letter-spacing: -0.02em; line-height: 1.14; max-width: 24ch; }
+  .tri { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 44px; }
+  .tri li { padding: 0 28px 0 0; border-top: 2px solid var(--sage); padding-top: 16px; border-right: 1px solid var(--rule); margin-right: 0; }
+  .tri li:nth-child(3) { border-right: none; padding-right: 0; }
+  .tri li + li { padding-left: 28px; }
+  .tri h4 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .tri p { font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+  @media (max-width: 760px) { .tri { grid-template-columns: 1fr; gap: 8px; } .tri li, .tri li + li { padding: 16px 0 0; border-right: none; } }
+
+  /* ----- INSIGHT BAND ----- */
+  .insight { background: white; border-top: 1px solid var(--rule); }
+  .insight .container { max-width: 880px; }
+  .insight .kicker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 22px; }
+  .insight p { font-family: 'Lora', Georgia, serif; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.4; color: var(--navy); font-weight: 400; letter-spacing: -0.01em; }
+  .insight p em { color: var(--sage); font-style: italic; }
+  .insight .sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: var(--muted); margin-top: 24px; max-width: 60ch; }
+
+  /* ----- CTA ----- */
+  .cta-bottom { background: var(--cream); text-align: center; padding: 110px 32px; }
+  .cta-bottom .container { max-width: 720px; }
+  .cta-bottom h2 { font-size: clamp(34px, 4vw, 54px); font-weight: 300; color: var(--navy); letter-spacing: -0.02em; line-height: 1.06; margin-bottom: 22px; }
+  .cta-bottom h2 em { font-style: italic; color: var(--sage); }
+  .cta-bottom .lead { color: var(--muted); font-size: 17px; margin-bottom: 40px; max-width: 56ch; margin-left: auto; margin-right: auto; }
+  .cta-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .cta-pill { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: all 0.2s ease; }
+  .cta-pill.primary { background: var(--navy); color: white; }
+  .cta-pill.primary:hover { background: var(--navy-deep); transform: translateY(-2px); }
+  .cta-pill.secondary { background: white; color: var(--navy); border: 1px solid var(--navy); }
+  .cta-pill.secondary:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+  .cta-pill .arrow { color: inherit; }
+
+  /* ----- DISCLAIMER ----- */
+  .disclaimer { background: var(--cream); padding: 0 32px 80px; }
+  .disclaimer .container { max-width: 1100px; border-top: 1px solid var(--rule); padding-top: 28px; }
+  .legend { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; font-size: 12px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend .sw { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+  .disclaimer p { font-size: 12.5px; line-height: 1.65; color: var(--muted); max-width: 90ch; }
+  .disclaimer p b { color: var(--ink); font-weight: 600; }
+
+  /* ----- FOOTER ----- */
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); padding: 60px 32px; font-size: 13px; line-height: 1.6; }
+  footer .container { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  footer .col { display: flex; flex-direction: column; gap: 4px; }
+  footer .firm { color: white; font-weight: 600; letter-spacing: 0.02em; }
+  footer .tagline { font-style: italic; color: var(--sage); margin-top: 8px; }
+  footer .meta { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ----- REVEAL ----- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ----- RESPONSIVE ----- */
+  @media (max-width: 880px) {
+    section { padding: 64px 24px; }
+    .hero { padding: 80px 24px 56px; }
+    .branch { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+    .branch.feature { margin: 0 -24px; padding: 36px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .reveal { transition: none; } }
+
+  /* ----- PRINT ----- */
+  .print-header, .print-running-footer { display: none; }
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @page { size: A4; margin: 16mm 14mm 18mm; }
+    html, body { background: white; }
+    .chrome { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    section { padding: 22px 0 !important; }
+    .container, .hero-inner { max-width: 100% !important; }
+    .comms, .firstaid { background: var(--navy) !important; }
+    footer { background: var(--navy-deep) !important; }
+    .branch, .comms-grid li, .tri li { break-inside: avoid; page-break-inside: avoid; }
+  }
+</style>
+
+<style id="artsy-v4">
+  /* ===== OLN v4 skin (screen only) ===== */
+  @media screen {
+    :root { --paper: #f4efe5; }
+    html { background: var(--paper); }
+    body { background: transparent; position: relative; }
+    .artsy-ambient { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .artsy-ambient svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+    .hero, .map, .insight, .tension, .cta-bottom, .disclaimer {
+      background: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+    .comms {
+      margin-left: clamp(12px, 3vw, 56px); margin-right: clamp(12px, 3vw, 56px);
+      border-radius: 36px; box-shadow: 0 50px 100px -55px rgba(20, 38, 74, 0.55);
+    }
+    .section-title {
+      font-size: clamp(36px, 4.6vw, 66px) !important; line-height: 1.04 !important;
+      font-family: 'Lora', Georgia, serif !important; font-weight: 400 !important; letter-spacing: -0.02em !important;
+    }
+    .cta-bottom h2, .comms h2, .tension h2 { font-family: 'Lora', Georgia, serif !important; font-weight: 400 !important; }
+    .cta-bottom h2 { font-style: italic !important; }
+    .section-eyebrow { position: relative; padding-left: 36px; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 26px; height: 1px; background: var(--sage); }
+    section { padding-top: 120px !important; padding-bottom: 120px !important; }
+  }
+  @media print { .artsy-ambient { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="artsy-ambient" aria-hidden="true">
+  <svg viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="bloomA" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#7A9B8E" stop-opacity="0.16"></stop>
+        <stop offset="100%" stop-color="#7A9B8E" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient id="bloomB" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1F3864" stop-opacity="0.07"></stop>
+        <stop offset="100%" stop-color="#1F3864" stop-opacity="0"></stop>
+      </radialGradient>
+    </defs>
+    <circle cx="1240" cy="120" r="560" fill="url(#bloomA)"></circle>
+    <circle cx="120" cy="900" r="600" fill="url(#bloomB)"></circle>
+  </svg>
+</div>
+
+<div class="chrome">
+  <div class="chrome-inner">
+    <div class="brand">
+      <img class="brand-logo" src="assets/oln-logo.png" alt="OLN — Oldham, Li & Nie">
+      <span class="assoc">In Association with Watson &amp; Band</span>
+    </div>
+    <span class="lang-tag">EN</span>
+  </div>
+  <nav class="topic-nav" aria-label="Startup Tech topics">
+    <div class="topic-nav-inner">
+      <a class="tnav" href="index.html">How we work</a>
+      <a class="tnav" href="fundraising.html">Fundraising</a>
+      <a class="tnav is-current" href="esop-framework.html">ESOP · Framework</a>
+      <a class="tnav" href="esop-roadmap.html">ESOP · Roadmap</a>
+      <span class="tnav soon">Agreements <i>soon</i></span>
+      <span class="tnav soon">Hiring <i>soon</i></span>
+      <span class="tnav soon">Collaboration <i>soon</i></span>
+      <span class="tnav soon">Expansion <i>soon</i></span>
+    </div>
+  </nav>
+</div>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <a class="back-overview reveal" href="index.html">← Back to how we work</a>
+    <p class="hero-eyebrow reveal">ESOP · How to think about it</p>
+    <h1 class="reveal">How to think about equity <em>before you give it away.</em></h1>
+    <div class="hero-thesis reveal">
+      <p>Hong Kong has minted its own unicorns — and the best of them made people genuinely rich through equity. Every founder draws the same lesson — <span class="q">equity is how you glue a team together.</span></p>
+      <p class="small">Is it, though? Look at what was actually built, not the headline: a deliberate mix of instruments, a real path to cash before any exit, adjusted as the company grew. <em>An omelette — not a boiled egg.</em> Most founders treat an ESOP as a document to copy. It isn't. It's five decisions that pull against each other — and one thing that sits beneath all of them. This is the map I walk founders through.</p>
+    </div>
+    <div class="hero-byline reveal">
+      <span><b>Cermain Cheung</b> · 蔣昭嵐</span>
+      <span class="sep">·</span>
+      <span>Corporate · Startup · Founder governance</span>
+      <span class="sep">·</span>
+      <span>Founder side only</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE MAP ===== -->
+<section class="map">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">The decision map</p>
+      <h2 class="section-title">Five decisions, made in order.</h2>
+      <p class="section-lead">Each decision constrains the next. The mistake founders make is jumping straight to the instrument — <em>"options or RSUs?"</em> — without answering <em>why</em> and <em>who</em> first, and skipping the structure entirely.</p>
+    </div>
+
+    <!-- 01 PURPOSE -->
+    <div class="branch reveal">
+      <div class="branch-head">
+        <span class="branch-num">01</span>
+        <span class="branch-tag">Why · Purpose</span>
+        <h3 class="branch-q">What is this equity actually for?</h3>
+        <p class="branch-frame">The decision everyone skips. Purpose dictates instrument, terms and vehicle — get this wrong and the rest is guesswork.</p>
+      </div>
+      <ul class="branch-list">
+        <li><span class="lt">Retain</span><span class="ld">Long build, no near exit → long vesting + a liquidity path</span></li>
+        <li><span class="lt">Recruit</span><span class="ld">Can't match market cash → a grant the hire values today</span></li>
+        <li><span class="lt">Reward</span><span class="ld">Pay back early risk → weighting toward first believers</span></li>
+        <li><span class="lt">Align</span><span class="ld">Get everyone pulling one way → broad, understood ownership</span></li>
+      </ul>
+    </div>
+
+    <!-- 02 SELECTION -->
+    <div class="branch reveal">
+      <div class="branch-head">
+        <span class="branch-num">02</span>
+        <span class="branch-tag">Who · Selection</span>
+        <h3 class="branch-q">Who gets a grant — and can you defend it?</h3>
+        <p class="branch-frame">The branch that turns personal later. Two failure modes: everyone gets the same regardless of contribution, or grants by gut with no logic you can stand behind when asked.</p>
+      </div>
+      <ul class="branch-list">
+        <li><span class="lt">Identify</span><span class="ld">Who actually moves the company — not just who's senior or early</span></li>
+        <li><span class="lt">Differentiate</span><span class="ld">A defensible logic for why one number differs from another</span></li>
+        <li><span class="lt">Tier</span><span class="ld">Founders, key hires, broad base — different instruments fit different tiers</span></li>
+        <li><span class="lt">Refresh</span><span class="ld">Who gets a second grant, and on what trigger</span></li>
+      </ul>
+    </div>
+
+    <!-- 03 INSTRUMENT -->
+    <div class="branch reveal">
+      <div class="branch-head">
+        <span class="branch-num">03</span>
+        <span class="branch-tag">What · Instrument</span>
+        <h3 class="branch-q">Which instrument fits the purpose?</h3>
+        <p class="branch-frame">The layer everyone fixates on. Each carries a trade-off between cash cost to the employee, tax timing, and dilution.</p>
+      </div>
+      <ul class="branch-list">
+        <li><span class="lt">Share options</span><span class="ld">Right to buy later at today's price. Whether HK mirrors the US ISO/NSO split <span class="flag">Pending HK research</span></span></li>
+        <li><span class="lt">RSUs</span><span class="ld">Shares on vesting — no cash to exercise</span></li>
+        <li><span class="lt">Restricted share awards</span><span class="ld">Real shares now, subject to forfeit</span></li>
+        <li><span class="lt">Phantom / cash-settled</span><span class="ld">Upside without touching the cap table — often right for SMEs</span></li>
+        <li><span class="lt">Growth / hurdle shares</span><span class="ld">Only value created above a threshold</span></li>
+      </ul>
+    </div>
+
+    <!-- 04 MECHANICS -->
+    <div class="branch reveal">
+      <div class="branch-head">
+        <span class="branch-num">04</span>
+        <span class="branch-tag">How much · On what terms</span>
+        <h3 class="branch-q">The terms that decide if it works.</h3>
+        <p class="branch-frame">Where good intentions become a plan — or a trap. The cells founders copy from US templates without checking local reality.</p>
+      </div>
+      <ul class="branch-list">
+        <li><span class="lt">Pool size</span><span class="ld">% set aside + how it's topped up <span class="flag">Pending HK norms</span></span></li>
+        <li><span class="lt">Vesting</span><span class="ld">Cliff, schedule, time vs milestone</span></li>
+        <li><span class="lt">Strike price</span><span class="ld">How it's set — valuation discipline matters</span></li>
+        <li><span class="lt">Leaver terms</span><span class="ld">Good vs bad leaver; vested vs unvested <span class="flag">Pending HK employment</span></span></li>
+        <li><span class="lt">Liquidity</span><span class="ld">Buyback, secondary, tender — or wait for exit</span></li>
+      </ul>
+    </div>
+
+    <!-- 05 VEHICLE (feature) -->
+    <div class="branch feature reveal">
+      <div class="branch-head">
+        <span class="branch-num">05</span>
+        <span class="branch-tag">Through what structure · Vehicle</span>
+        <h3 class="branch-q">Where does the equity <em>actually sit?</em></h3>
+        <p class="branch-frame">The branch most founder advice ignores — and the one that quietly governs your cap table, your tax, and your next raise.</p>
+        <span class="branch-flag-lead">The differentiator</span>
+      </div>
+      <ul class="branch-list">
+        <li><span class="lt">Direct on OpCo</span><span class="ld">Simplest — but every holder touches the real cap table</span></li>
+        <li><span class="lt">HoldCo / ParentCo</span><span class="ld">Grant above the operating entity; OpCo stays clean</span></li>
+        <li><span class="lt">ESOP trust / nominee</span><span class="ld">Trustee holds shares, staff hold beneficial interest <span class="flag">Pending HK trust + stamp duty</span></span></li>
+        <li><span class="lt">Pooling SPV / LP</span><span class="ld">Many small holders → one line on the cap table</span></li>
+        <li><span class="lt">Offshore parent</span><span class="ld">Cayman / BVI vs HK — ties into red-chip / dual-track <span class="flag">Pending structuring research</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMUNICATION FOUNDATION ===== -->
+<section class="comms">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Beneath all five — the part no document fixes</p>
+      <h2>Equity is a relationship, <em>communicated.</em> Not a grant letter, filed.</h2>
+      <p class="lead">You can get instrument, terms, vehicle and selection all right and still have equity fail — because the person holding it doesn't understand what they have. <em>A grant nobody understands builds no loyalty.</em> This layer runs under every branch above.</p>
+    </div>
+    <ul class="comms-grid reveal">
+      <li>
+        <span class="k">Communicate the plan</span>
+        <h4>What they actually hold</h4>
+        <p>What the instrument is, what it could be worth, what it could cost them to realise — and the honest risks. Plain language, not the plan summary.</p>
+      </li>
+      <li>
+        <span class="k">Communicate the decision</span>
+        <h4>Why this number, for them</h4>
+        <p>The logic behind their grant relative to others. Silence here is what breeds resentment — not the size of the number itself.</p>
+      </li>
+      <li>
+        <span class="k">Communicate expectations</span>
+        <h4>What it's in return for</h4>
+        <p>What ownership asks of them, over what horizon. Equity is a two-way document — most founders only state one side.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== TENSION ===== -->
+<section class="tension">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">The decision underneath the decision</p>
+      <h2>The vehicle is pulled three ways at once. There's no clean answer — only the right trade for your stage.</h2>
+    </div>
+    <ul class="tri reveal">
+      <li>
+        <h4>Cap-table cleanliness</h4>
+        <p>How many small holders, how visible to investors, how easy to administer and buy back.</p>
+      </li>
+      <li>
+        <h4>Tax efficiency</h4>
+        <p>For the company and the employee — and the timing of the taxable moment, which differs by instrument. <span class="flag">Pending HK salaries tax</span></p>
+      </li>
+      <li>
+        <h4>Financing &amp; exit readiness</h4>
+        <p>Whether the structure helps or hinders the next raise, a cross-border flip, or an eventual listing.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== INSIGHT ===== -->
+<section class="insight">
+  <div class="container reveal">
+    <p class="kicker">The point most founder advice misses</p>
+    <p>Founders argue options vs RSUs while ignoring that <em>where the equity sits</em> is what actually governs their next raise, their tax exposure, and whether the plan survives a cross-border flip.</p>
+    <p class="sub">The omelette-vs-boiled-egg point applies to <strong>structure</strong>, not just the instrument. Get the structure right and every other decision has room to breathe.</p>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-bottom">
+  <div class="container">
+    <h2 class="reveal">Get these wrong and equity doesn't glue anyone. <em>It quietly breeds resentment.</em></h2>
+    <p class="lead reveal">If you're designing or refreshing your equity plan and want to think it through for your stage, your team, and your structure — that's a conversation I'm always happy to have.</p>
+    <div class="cta-row reveal">
+      <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com?subject=ESOP%20enquiry">Talk it through <span class="arrow">→</span></a>
+      <a class="cta-pill secondary" href="esop-roadmap.html">See how a scheme comes together <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DISCLAIMER ===== -->
+<section class="disclaimer">
+  <div class="container reveal">
+    <div class="legend">
+      <span><i class="sw" style="background:var(--sage)"></i> Structure layer — the differentiator</span>
+      <span><i class="sw" style="background:var(--amber-tint);border:1px solid var(--amber-line)"></i> <span style="color:var(--amber)">Pending = jurisdiction fact awaiting sourced confirmation</span></span>
+    </div>
+    <p><b>Educational framework only — not legal advice.</b> Items marked <i>Pending</i> are jurisdiction-specific points that require sourced confirmation before they form part of any advice or public statement. They are shown here as questions to resolve, not as settled positions. For advice on your own scheme, speak to us directly.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="col">
+      <span class="firm">OLN — Oldham, Li &amp; Nie</span>
+      <span>In Association with Watson &amp; Band</span>
+      <span class="tagline">Practical Legal Solutions — On Time — No Excuses</span>
+    </div>
+    <div class="col">
+      <span>Suite 503, St. George's Building</span>
+      <span>2 Ice House Street, Central, Hong Kong</span>
+      <span>Tel +852 2868 0696 · info@oln-law.com</span>
+    </div>
+    <div class="col">
+      <span class="meta">ESOP Decision Map · OLN Startup Tech</span>
+      <span class="meta">oln-law.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

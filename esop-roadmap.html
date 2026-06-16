@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESOP Roadmap — Cermain Cheung · OLN Startup Tech</title>
+
+<template id="__bundler_thumbnail" data-bg-color="#fbfbfd">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sage rings echoing the hero -->
+    <circle cx="900" cy="240" r="320" fill="none" stroke="#7A9B8E" stroke-opacity="0.30" stroke-width="3"/>
+    <circle cx="900" cy="240" r="220" fill="none" stroke="#7A9B8E" stroke-opacity="0.45" stroke-width="3"/>
+    <circle cx="900" cy="240" r="130" fill="none" stroke="#7A9B8E" stroke-opacity="0.55" stroke-width="3"/>
+    <circle cx="900" cy="240" r="10" fill="#7A9B8E"/>
+    <!-- Initials, navy -->
+    <text x="200" y="480" font-family="Georgia, serif" font-style="italic" font-size="280" font-weight="400" fill="#1F3864">CC</text>
+    <!-- OLN tagline, sage -->
+    <text x="200" y="560" font-family="Inter, sans-serif" font-size="36" letter-spacing="6" fill="#7A9B8E" font-weight="600">OLN · STARTUP TECH</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-deep: #14264a;
+    --sage: #7A9B8E;
+    --sage-soft: rgba(122, 155, 142, 0.10);
+    --sage-line: rgba(122, 155, 142, 0.28);
+    --cream: #fbfbfd;
+    --cream-warm: #f5f3ee;
+    --ink: #15161a;
+    --muted: #6b6f78;
+    --rule: #e7e6e2;
+    --mimicu-purple: #2A1B6F;
+    --mimicu-blue: #5FC3F2;
+    --serif-en: 'Inter', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  html[lang^="zh"] body { font-family: 'Noto Sans TC', 'Noto Sans SC', 'Inter', sans-serif; }
+  html[lang="zh-hans"] body { font-family: 'Noto Sans SC', 'Noto Sans TC', 'Inter', sans-serif; }
+
+  /* ----- TOP CHROME ----- */
+  .chrome {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 251, 253, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .chrome-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .chrome .brand { color: var(--navy); font-weight: 600; display: flex; align-items: center; gap: 14px; }
+  .chrome .brand-logo { height: 34px; width: auto; display: block; }
+  .chrome .brand .dot { color: var(--sage); margin: 0 6px; }
+  .chrome .brand .assoc { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0.02em; font-size: 11px; padding-left: 14px; border-left: 1px solid var(--rule); }
+  @media (max-width: 640px) { .chrome .brand .assoc { display: none; } }
+  .lang-toggle { display: flex; gap: 4px; align-items: center; }
+  .lang-toggle button {
+    background: transparent; border: 1px solid transparent;
+    padding: 5px 11px; font-family: inherit; font-size: 12px;
+    letter-spacing: 0.08em; color: var(--muted);
+    cursor: pointer; border-radius: 999px;
+    transition: all 0.15s ease;
+  }
+  .lang-toggle button:hover { color: var(--navy); }
+  .lang-toggle button.is-active {
+    color: var(--navy); border-color: var(--navy); background: white;
+    font-weight: 600;
+  }
+
+  /* ----- TOPIC NAV ----- */
+  .topic-nav { border-top: 1px solid var(--rule); }
+  .topic-nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; align-items: stretch; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .topic-nav-inner::-webkit-scrollbar { display: none; }
+  .tnav { position: relative; padding: 11px 15px; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .15s ease, border-color .15s ease; display: inline-flex; align-items: center; gap: 7px; }
+  .tnav:hover { color: var(--navy); }
+  .tnav.is-current { color: var(--navy); border-bottom-color: var(--sage); }
+  .tnav.soon { color: #b4b8c1; cursor: default; }
+  .tnav.soon i { font-style: normal; font-size: 8px; letter-spacing: 0.1em; color: var(--sage); border: 1px solid var(--sage-line); border-radius: 999px; padding: 1px 5px; line-height: 1; }
+  .tnav:first-child { padding-left: 0; }
+  @media print { .topic-nav { display: none !important; } }
+
+  /* ----- LAYOUT ----- */
+  main { display: block; }
+  section { padding: 100px 32px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .container-narrow { max-width: 820px; margin: 0 auto; }
+
+  /* ----- HERO ----- */
+  .hero {
+    padding: 140px 32px 120px;
+    background:
+      /* faint blueprint grid */
+      linear-gradient(rgba(31, 56, 100, 0.035) 1px, transparent 1px) 0 0 / 100% 56px,
+      linear-gradient(90deg, rgba(31, 56, 100, 0.035) 1px, transparent 1px) 0 0 / 56px 100%,
+      var(--cream);
+    position: relative; overflow: hidden;
+  }
+  /* abstract decorative layer */
+  .hero-deco {
+    position: absolute; inset: 0; pointer-events: none;
+    z-index: 0;
+  }
+  .hero-deco svg { display: block; width: 100%; height: 100%; }
+
+  /* left-edge ruled scale: I · II · III · IV (echoes the four lenses) */
+  .hero-scale {
+    position: absolute;
+    top: 140px; bottom: 120px;
+    left: calc((100% - 1180px) / 2 - 56px);
+    width: 36px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (max-width: 1320px) {
+    .hero-scale { display: none; }
+  }
+  .hero-scale::before {
+    content: '';
+    position: absolute;
+    left: 11px; top: 14px; bottom: 14px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      var(--sage-line) 8%,
+      var(--sage-line) 92%,
+      transparent 100%);
+  }
+  .hero-scale-mark {
+    position: relative;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--sage);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-scale-mark::before {
+    content: '';
+    width: 8px; height: 8px;
+    border: 1px solid var(--sage);
+    border-radius: 50%;
+    background: var(--cream);
+    flex-shrink: 0;
+    margin-left: 7px;
+    box-sizing: border-box;
+  }
+  .hero-scale-mark.is-active { color: var(--navy); }
+  .hero-scale-mark.is-active::before {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .hero-grid {
+    max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 80px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero h1 {
+    display: flex; flex-direction: column;
+    gap: 28px;
+    margin: 0;
+    position: relative;
+  }
+  /* small numeric prefix on the active row */
+  .hero-row {
+    display: flex; flex-direction: column;
+    gap: 2px;
+    position: relative;
+  }
+  .hero-row::before {
+    content: attr(data-roman);
+    position: absolute;
+    left: -54px; top: 6px;
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--sage);
+    opacity: 0.55;
+    letter-spacing: 0.04em;
+    font-variant-numeric: oldstyle-nums;
+  }
+  @media (max-width: 1080px) {
+    .hero-row::before { display: none; }
+  }
+  .hero-row .me {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(42px, 5.4vw, 76px);
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.012em;
+    line-height: 1.02;
+  }
+  .hero-row .them {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-style: normal;
+    font-size: clamp(11px, 0.85vw, 13px);
+    font-weight: 500;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .hero-row.accent .me { color: var(--sage); }
+
+  .hero-thesis {
+    margin-top: 32px;
+    font-size: clamp(20px, 1.85vw, 26px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+  }
+  .hero-thesis em { color: var(--sage); font-style: italic; font-weight: 500; }
+  .hero-kicker {
+    margin-top: 26px;
+    font-size: clamp(14px, 1.05vw, 17px);
+    font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+  .hero-sub {
+    margin-top: 36px;
+    font-size: clamp(17px, 1.55vw, 21px);
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 540px;
+    font-weight: 400;
+  }
+  .hero-sub em { color: var(--navy); font-style: italic; }
+
+  .hero-meta {
+    margin-top: 48px;
+    display: flex; flex-wrap: wrap; gap: 32px;
+    font-size: 13px; letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .hero-meta div { display: flex; flex-direction: column; gap: 4px; }
+  .hero-meta label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage); font-weight: 600; }
+  .hero-meta span { color: var(--ink); font-size: 14px; }
+
+  .hero-portrait-wrap {
+    position: relative;
+  }
+  /* abstract "lens" rings sitting behind the portrait */
+  .hero-portrait-rings {
+    position: absolute;
+    inset: -36px -28px -28px -56px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-portrait-rings svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .hero-portrait {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 4 / 5;
+    background: var(--cream-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(31, 56, 100, 0.25);
+  }
+  .hero-portrait img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(0.92);
+  }
+  .hero-portrait::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(31, 56, 100, 0.12) 100%);
+    pointer-events: none;
+  }
+  .hero-portrait-caption {
+    margin-top: 14px;
+    font-size: 12px; letter-spacing: 0.06em;
+    color: var(--muted);
+    text-align: right;
+  }
+  .hero-portrait-caption strong { color: var(--navy); font-weight: 600; }
+
+  /* ----- LENSES ----- */
+  .lenses { background: white; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .lenses .container { max-width: 1100px; }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(32px, 3.4vw, 48px);
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 18px; line-height: 1.55; color: var(--ink);
+    max-width: 680px; margin-bottom: 56px;
+  }
+  .section-lead em { font-style: italic; color: var(--navy); }
+
+  .lens-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .lens {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .lens:hover { border-color: var(--sage-line); }
+  .lens.is-open {
+    background: white;
+    border-color: var(--navy);
+    box-shadow: 0 20px 40px -28px rgba(31, 56, 100, 0.25);
+  }
+  .lens-head {
+    display: grid; grid-template-columns: 60px 1fr auto; align-items: center;
+    gap: 28px; padding: 28px 32px;
+  }
+  .lens-num {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--sage);
+    line-height: 1;
+    font-variant-numeric: oldstyle-nums;
+  }
+  .lens-title {
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 400; color: var(--navy);
+    letter-spacing: -0.015em;
+  }
+  .lens.is-open .lens-title { font-weight: 500; }
+  .lens-tease {
+    font-size: 14px; color: var(--muted);
+    margin-top: 4px;
+  }
+  .lens-toggle {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+    color: var(--muted);
+    background: transparent;
+    flex-shrink: 0;
+  }
+  .lens:hover .lens-toggle { border-color: var(--sage); color: var(--sage); }
+  .lens.is-open .lens-toggle { background: var(--navy); border-color: var(--navy); color: white; transform: rotate(45deg); }
+  .lens-toggle::before {
+    content: '+';
+    font-size: 20px; font-weight: 300; line-height: 1;
+  }
+
+  .lens-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .lens.is-open .lens-body { max-height: 800px; }
+  .lens-body-inner {
+    padding: 0 32px 36px 120px;
+    max-width: 760px;
+  }
+  .lens-body-inner p {
+    font-size: 17px; line-height: 1.65; color: var(--ink);
+  }
+  .lens-body-inner p strong { color: var(--navy); font-weight: 600; }
+  .lens-case {
+    border-left: 2px solid var(--sage);
+    padding: 4px 0 4px 22px;
+  }
+  .lens-case-eyebrow {
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600;
+    display: block; margin-bottom: 10px;
+  }
+  .lens-case p { font-size: 15px; line-height: 1.6; color: var(--muted); }
+  .lens-case p strong { color: var(--ink); font-weight: 500; }
+
+  /* ----- PRINCIPLES ----- */
+  .principles { background: var(--cream); }
+  .principles .container { max-width: 1100px; }
+  .principle-list {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 8px;
+  }
+  .principle-list li {
+    padding: 32px 28px 32px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 44px 1fr; gap: 20px; align-items: baseline;
+    font-size: 18px; line-height: 1.5;
+    color: var(--ink);
+  }
+  .principle-list li:nth-child(odd) { padding-right: 40px; border-right: 1px solid var(--rule); }
+  .principle-list li:nth-child(even) { padding-left: 32px; }
+  .principle-list .pnum {
+    font-size: 13px; letter-spacing: 0.1em; color: var(--sage); font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .principle-list strong { color: var(--navy); font-weight: 600; }
+
+  /* ----- SERVICES + WHO ----- */
+  .services { background: var(--navy); color: white; }
+  .services .section-eyebrow { color: rgba(255,255,255,0.55); }
+  .services .section-title { color: white; }
+  .service-grid {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .service-grid li {
+    padding: 36px 28px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 19px; font-weight: 400;
+    color: white;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .service-grid li:nth-child(3n) { border-right: none; }
+  .service-grid li:last-child:nth-child(3n+1) { border-right: none; }
+  .service-grid .snum { font-size: 11px; letter-spacing: 0.14em; color: var(--sage); font-weight: 600; }
+  .service-grid .sdesc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; font-weight: 300; }
+
+  /* ----- WHO ----- */
+  .who { background: white; }
+  .who .container { max-width: 1100px; }
+  .who-list {
+    list-style: none;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    margin-top: 40px;
+  }
+  .who-list li {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 38px 1fr; gap: 16px; align-items: baseline;
+  }
+  .who-list li:nth-child(odd) { padding-right: 40px; border-right: 1px solid var(--rule); padding-left: 0; }
+  .who-list li:nth-child(even) { padding-left: 40px; }
+  .who-num {
+    font-size: 12px; color: var(--sage); font-weight: 600;
+    letter-spacing: 0.08em; font-variant-numeric: tabular-nums;
+  }
+  .who-list strong { display: block; color: var(--navy); font-weight: 600; font-size: 17px; margin-bottom: 4px; }
+  .who-list p { font-size: 15px; color: var(--muted); line-height: 1.5; }
+
+  .industries {
+    margin-top: 56px; padding-top: 36px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px; color: var(--muted); line-height: 1.7;
+  }
+  .industries-label { display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 12px; }
+  .industries-items { color: var(--ink); }
+  .industries-items span { display: inline-block; margin-right: 18px; }
+
+  /* ----- MATTERS ----- */
+  .matters { background: var(--cream-warm); }
+  .matters .container { max-width: 1100px; }
+  .matter-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+  .matter {
+    background: white;
+    padding: 36px 32px;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .matter-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600;
+    align-self: flex-start;
+  }
+  .matter-tag::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+  }
+  .matter h3 {
+    font-size: 19px; font-weight: 500; color: var(--navy); line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+  .matter p { font-size: 15px; color: var(--ink); line-height: 1.6; }
+  .matter .stats { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ----- FIRST AID ----- */
+  .firstaid { background: var(--navy); color: white; padding: 110px 32px; }
+  .firstaid .container { max-width: 920px; }
+  .firstaid-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600; display: block; margin-bottom: 20px;
+  }
+  .firstaid h2 {
+    font-size: clamp(34px, 4vw, 56px);
+    font-weight: 300; line-height: 1.05; color: white;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .firstaid h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
+  .firstaid p {
+    font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.85);
+    max-width: 680px;
+    margin-bottom: 36px;
+  }
+  .firstaid-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 16px 28px;
+    background: white; color: var(--navy);
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .firstaid-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(0,0,0,0.4); }
+  .firstaid-cta .arrow { font-size: 18px; line-height: 1; }
+
+  /* ----- TEAM ----- */
+  .team { background: white; }
+  .team .container { max-width: 1100px; }
+  .team-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+    margin-top: 56px;
+  }
+  .member { display: flex; flex-direction: column; gap: 18px; }
+  .member-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 4px; overflow: hidden;
+    background: var(--cream-warm);
+    box-shadow: 0 20px 40px -28px rgba(31, 56, 100, 0.2);
+  }
+  .member-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.92); }
+  .member-name { font-size: 26px; font-weight: 500; color: var(--navy); letter-spacing: -0.015em; }
+  .member-role { font-size: 13px; letter-spacing: 0.05em; color: var(--sage); font-weight: 600; text-transform: uppercase; margin-top: -10px; }
+  .member-bio { font-size: 15px; line-height: 1.65; color: var(--ink); }
+  .member-meta {
+    display: flex; flex-direction: column; gap: 6px;
+    margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--rule);
+    font-size: 13px; color: var(--muted);
+  }
+  .member-meta a { color: var(--navy); text-decoration: none; }
+  .member-meta a:hover { text-decoration: underline; }
+  .member-meta strong { color: var(--ink); font-weight: 500; }
+
+  /* ----- PERSONAL ----- */
+  .personal { background: var(--cream-warm); padding: 90px 32px; }
+  .personal .container { max-width: 760px; text-align: center; }
+  .personal p {
+    font-size: clamp(22px, 2.3vw, 30px);
+    font-weight: 300; color: var(--navy);
+    line-height: 1.45; font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  .personal .sig {
+    margin-top: 24px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600; font-style: normal;
+  }
+
+  /* ----- CTA BOTTOM ----- */
+  .cta-bottom { background: var(--cream); padding: 110px 32px; text-align: center; }
+  .cta-bottom .container { max-width: 720px; }
+  .cta-bottom h2 {
+    font-size: clamp(40px, 4.5vw, 60px);
+    font-weight: 300; color: var(--navy);
+    letter-spacing: -0.02em; line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .cta-bottom .lead { color: var(--muted); font-size: 17px; margin-bottom: 44px; }
+  .cta-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .cta-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 4px;
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+  }
+  .cta-pill.primary { background: var(--navy); color: white; }
+  .cta-pill.primary:hover { background: var(--navy-deep); transform: translateY(-2px); }
+  .cta-pill.secondary { background: white; color: var(--navy); border: 1px solid var(--navy); }
+  .cta-pill.secondary:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+  .cta-pill.tertiary { background: transparent; color: var(--navy); border: 1px solid var(--rule); }
+  .cta-pill.tertiary:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+  /* ----- FOOTER ----- */
+  footer {
+    background: var(--navy-deep); color: rgba(255,255,255,0.7);
+    padding: 60px 32px;
+    font-size: 13px; line-height: 1.6;
+  }
+  footer .container { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  footer .col { display: flex; flex-direction: column; gap: 4px; }
+  footer .firm { color: white; font-weight: 600; letter-spacing: 0.02em; }
+  footer .tagline { font-style: italic; color: var(--sage); margin-top: 8px; }
+  footer .meta { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ----- MIMICU SIDE PROJECT ----- */
+  .mimicu { background: var(--cream); padding: 90px 32px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .mimicu .container { max-width: 1000px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .mimicu-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 600; display: block; margin-bottom: 14px; }
+  .mimicu h2 { font-size: clamp(26px, 2.4vw, 36px); font-weight: 300; color: var(--navy); letter-spacing: -0.015em; line-height: 1.15; }
+  .mimicu h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
+  .mimicu-body p { font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 18px; }
+  .mimicu-card { background: white; border: 1px solid var(--rule); border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .mimicu-card .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .mimicu-card .name-row { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+  .mimicu-card .mascot { width: 56px; height: 56px; flex-shrink: 0; object-fit: contain; display: block; }
+  .mimicu-card .name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    color: var(--mimicu-purple);
+  }
+  .mimicu-card .name .brand-u { color: var(--mimicu-blue); }
+  .mimicu-card a .name-inline { font-family: 'Lora', Georgia, serif; font-weight: 500; color: var(--mimicu-purple); letter-spacing: -0.005em; }
+  .mimicu-card a .name-inline .brand-u { color: var(--mimicu-blue); }
+  .mimicu-card .pitch { font-size: 15px; line-height: 1.55; color: var(--ink); font-style: italic; }
+  .mimicu-card a { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; margin-top: 4px; transition: gap 0.2s ease; }
+  .mimicu-card a:hover { gap: 14px; }
+  .mimicu-card a .arrow { color: var(--sage); }
+  @media (max-width: 900px) { .mimicu .container { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ----- REVEAL ANIMATIONS ----- */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.20s; }
+  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.25s; }
+  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.30s; }
+  .reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.35s; }
+
+  /* ----- RESPONSIVE ----- */
+  @media (max-width: 900px) {
+    section { padding: 70px 24px; }
+    .hero { padding: 80px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-portrait { max-width: 360px; }
+    .lens-head { grid-template-columns: 44px 1fr auto; gap: 16px; padding: 22px 22px; }
+    .lens-body-inner { grid-template-columns: 1fr; gap: 24px; padding: 0 22px 28px 82px; }
+    .principle-list, .who-list, .service-grid, .matter-list, .team-grid { grid-template-columns: 1fr !important; }
+    .principle-list li, .who-list li {
+      padding: 22px 0 !important;
+      border-right: none !important;
+    }
+    .service-grid li:nth-child(n) { border-right: none; }
+  }
+
+  /* ----- PRINT / PDF ----- */
+  .print-header, .print-running-footer { display: none; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @page { size: A4; margin: 16mm 14mm 18mm; }
+
+    html, body { background: white; }
+    .chrome, .lang-toggle, .lens-toggle { display: none !important; }
+    a { color: inherit; text-decoration: none; }
+    .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+    /* Branded masthead — once, top of page 1 */
+    .print-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 12px; margin-bottom: 8px;
+      border-bottom: 2px solid var(--navy);
+    }
+    .print-header img { height: 34px; width: auto; }
+    .print-header-meta { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; }
+
+    /* Running footer — repeats on every printed page */
+    .print-running-footer {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding-top: 5px; border-top: 1px solid var(--rule);
+      font-size: 8.5px; letter-spacing: 0.04em; color: var(--muted);
+    }
+    .print-running-footer .prf-tag { font-style: italic; color: var(--sage); }
+
+    /* Section rhythm */
+    section { padding: 22px 0 !important; }
+    .container { max-width: 100% !important; padding: 0 !important; }
+    .hero { padding: 4px 0 22px !important; }
+    .hero-deco, .hero-portrait-rings { display: none !important; }
+    .hero-grid { grid-template-columns: 1.25fr 0.85fr !important; gap: 34px !important; align-items: center; }
+    .hero-portrait { max-width: 300px; box-shadow: none; border: 1px solid var(--rule); }
+    h1, .hero-row { break-after: avoid; }
+    .section-title, .section-eyebrow { break-after: avoid; }
+
+    /* Keep colour blocks */
+    .firstaid, .services { background: var(--navy) !important; }
+    .bridge, .voices, .lenses { background: var(--cream-warm) !important; }
+    footer { background: var(--navy-deep) !important; color: rgba(255,255,255,0.78) !important; }
+
+    /* Don't split atomic blocks across pages */
+    .lens, .bridge-row, .principle-list li, .service-grid li, .who-list li,
+    .engage-card, .voice-card, .member, .mimicu-card, .service-pm, .engage-rate,
+    .hero-portrait-wrap, .matter { break-inside: avoid; page-break-inside: avoid; }
+    .lens .lens-body { max-height: none !important; overflow: visible !important; }
+    .lens-body-inner { padding-bottom: 18px !important; }
+
+    /* Major chapters start fresh for a designed feel */
+    .services, .voices, .team { break-before: page; }
+
+    /* Multi-column quote grid → 2 even columns that page-break cleanly */
+    .voice-grid { columns: 2; column-gap: 20px; }
+    .voice-card { box-shadow: none; }
+
+    /* Tame oversized screen type for A4 */
+    .section-title { font-size: 26px !important; line-height: 1.15 !important; }
+    .lens-title { font-size: 18px !important; }
+    .voice-quote { font-size: 14px !important; line-height: 1.5 !important; }
+    .voice-card.feature .voice-quote { font-size: 16px !important; }
+    .bridge-face p { font-size: 14px !important; }
+    .bridge-fix p { font-size: 13px !important; }
+
+    /* Footer prints once at the very end, above the running footer */
+    footer { padding: 28px 0 !important; margin-bottom: 14px; }
+  }
+
+  /* ----- BRIDGE (challenges) ----- */
+  .bridge { background: var(--cream-warm); }
+  .bridge .container { max-width: 1100px; }
+  .bridge-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 44px; border-bottom: 1px solid var(--navy); }
+  .bridge-heads span { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; padding-bottom: 12px; }
+  .bridge-heads .h-face { color: var(--muted); }
+  .bridge-heads .h-fix { color: var(--sage); padding-left: 48px; }
+  .bridge-list { list-style: none; }
+  .bridge-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .bridge-face { padding: 28px 48px 28px 0; }
+  .bridge-fix { padding: 28px 0 28px 48px; border-left: 1px solid var(--rule); }
+  .bridge-num { font-size: 12px; letter-spacing: 0.1em; color: var(--sage); font-weight: 600; font-variant-numeric: tabular-nums; display: block; margin-bottom: 10px; }
+  .bridge-face p { font-size: 17px; line-height: 1.5; color: var(--ink); font-weight: 400; letter-spacing: -0.005em; }
+  .bridge-face p strong { color: var(--navy); font-weight: 600; }
+  .bridge-fix p { font-size: 15px; line-height: 1.6; color: var(--muted); }
+  .bridge-fix p strong { color: var(--navy); font-weight: 600; }
+  @media (max-width: 900px) {
+    .bridge-heads { display: none; }
+    .bridge-row { grid-template-columns: 1fr; }
+    .bridge-face { padding: 22px 0 12px; }
+    .bridge-fix { padding: 0 0 22px; border-left: none; }
+    .bridge-fix::before { content: '→ '; color: var(--sage); font-weight: 600; }
+  }
+
+  /* ----- SERVICE PM BAND ----- */
+  .service-pm {
+    margin-top: 40px;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 6px;
+    padding: 34px 36px;
+    display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
+    background: rgba(255,255,255,0.04);
+  }
+  .service-pm .pm-mark { font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 40px; color: var(--sage); line-height: 1; }
+  .service-pm .pm-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; display: block; margin-bottom: 8px; }
+  .service-pm p { font-size: 18px; line-height: 1.5; color: white; font-weight: 300; letter-spacing: -0.005em; }
+  .service-pm p strong { font-weight: 600; }
+  @media (max-width: 900px) { .service-pm { grid-template-columns: 1fr; gap: 14px; padding: 26px 24px; } }
+
+  /* ----- ENGAGEMENT (three ways) ----- */
+  .engage-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .engage-card { padding: 36px 30px 34px; border-right: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; gap: 12px; }
+  .engage-card:last-child { border-right: none; }
+  .engage-card .e-num { font-size: 11px; letter-spacing: 0.14em; color: var(--sage); font-weight: 600; }
+  .engage-card h3 { font-size: 22px; font-weight: 400; color: white; letter-spacing: -0.01em; line-height: 1.15; }
+  .engage-card .e-tag { font-size: 12px; letter-spacing: 0.04em; color: var(--sage); font-weight: 600; font-style: italic; }
+  .engage-card p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); font-weight: 300; }
+  .engage-card.feature { background: rgba(122,155,142,0.16); }
+  .engage-rate {
+    margin-top: 30px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px;
+    font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 300; line-height: 1.6;
+  }
+  .engage-rate strong { color: white; font-weight: 600; }
+  .engage-rate .note { color: var(--sage); font-style: italic; }
+  @media (max-width: 900px) { .engage-grid { grid-template-columns: 1fr; } .engage-card { border-right: none; } }
+
+  /* ----- CV LINK (team) ----- */
+  .cv-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.02em; transition: gap 0.2s ease; }
+  .cv-link:hover { gap: 14px; }
+  .cv-link .arrow { color: var(--sage); }
+
+  /* ----- VOICES (testimonials) ----- */
+  .voices { background: var(--cream-warm); border-top: 1px solid var(--rule); }
+  .voices .container { max-width: 1180px; }
+  .voice-grid { columns: 2; column-gap: 28px; margin-top: 52px; }
+  .voice-card {
+    break-inside: avoid; display: inline-block; width: 100%;
+    background: white; border: 1px solid var(--rule); border-radius: 8px;
+    padding: 34px 34px 30px; margin-bottom: 28px;
+  }
+  .voice-card.feature { border-color: var(--sage); background: #fff; }
+  .voice-mark { font-family: 'Lora', Georgia, serif; font-size: 46px; line-height: 0.5; color: var(--sage); display: block; height: 22px; }
+  .voice-quote {
+    font-family: 'Lora', Georgia, serif; font-size: 18px; line-height: 1.62;
+    color: var(--ink); margin: 14px 0 22px; font-weight: 400; text-wrap: pretty;
+  }
+  .voice-card.feature .voice-quote { font-size: 21px; line-height: 1.55; }
+  :lang(zh-hant) .voice-quote, :lang(zh-hans) .voice-quote { font-family: 'Noto Serif TC','Lora',serif; font-size: 16.5px; line-height: 1.85; }
+  .voice-attr { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .voice-name { font-weight: 600; font-size: 14px; color: var(--navy); letter-spacing: -0.005em; }
+  .voice-role { font-size: 13px; color: var(--muted); }
+  .voice-tag {
+    margin-left: auto; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600; color: var(--sage); border: 1px solid var(--sage-line);
+    border-radius: 100px; padding: 4px 11px; white-space: nowrap;
+  }
+  .voice-note { margin-top: 30px; font-size: 12.5px; color: var(--muted); font-style: italic; }
+  @media (max-width: 820px) { .voice-grid { columns: 1; } }
+
+  /* ----- LANG-SPECIFIC TWEAKS ----- */
+  html[lang="zh-hant"] .hero h1,
+  html[lang="zh-hans"] .hero h1 { letter-spacing: 0; }
+  html[lang="zh-hant"] body,
+  html[lang="zh-hans"] body { letter-spacing: 0.005em; }
+</style>
+
+<style id="artsy-v4">
+  /* ===== OLN v4 skin: warm paper, serif titles, floating cards (screen only) ===== */
+  @media screen {
+    :root { --paper: #f4efe5; --paper-warm: #efe7d9; }
+    html { background: var(--paper); }
+    body { background: transparent; position: relative; }
+    .artsy-ambient { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .artsy-ambient svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+    .lenses, .principles, .who, .bridge, .voices, .team, .personal, .cta-bottom, .mimicu, .matters, .roadmap {
+      background: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+    .services, .firstaid {
+      margin-left: clamp(12px, 3vw, 56px); margin-right: clamp(12px, 3vw, 56px);
+      border-radius: 36px; box-shadow: 0 50px 100px -55px rgba(20, 38, 74, 0.55);
+    }
+    .lens, .voice-card, .mimicu-card, .matter {
+      background: rgba(255,255,255,0.62) !important; border: 1px solid rgba(255,255,255,0.75) !important;
+      border-radius: 18px !important; box-shadow: 0 26px 54px -36px rgba(31,56,100,0.30) !important;
+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    }
+    .lens.is-open { background: rgba(255,255,255,0.92) !important; }
+
+    .section-title {
+      font-family: 'Lora', Georgia, serif !important;
+      font-size: clamp(40px, 5.4vw, 78px) !important; line-height: 1.0 !important;
+      font-weight: 400 !important; letter-spacing: -0.022em !important;
+    }
+    .cta-bottom h2 {
+      font-family: 'Lora', Georgia, serif !important; font-size: clamp(44px, 6vw, 86px) !important;
+      font-weight: 400 !important; font-style: italic !important; line-height: 1.0 !important;
+    }
+    .firstaid h2, .mimicu h2 { font-family: 'Lora', Georgia, serif; font-weight: 400; }
+
+    .section-eyebrow { position: relative; padding-left: 36px; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 26px; height: 1px; background: var(--sage); }
+
+    section { padding-top: 128px !important; padding-bottom: 128px !important; }
+  }
+  @media print { .artsy-ambient { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="artsy-ambient" aria-hidden="true">
+  <svg viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="bloomA" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#7A9B8E" stop-opacity="0.16"></stop>
+        <stop offset="100%" stop-color="#7A9B8E" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient id="bloomB" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1F3864" stop-opacity="0.07"></stop>
+        <stop offset="100%" stop-color="#1F3864" stop-opacity="0"></stop>
+      </radialGradient>
+    </defs>
+    <circle cx="1240" cy="120" r="560" fill="url(#bloomA)"></circle>
+    <circle cx="120" cy="900" r="600" fill="url(#bloomB)"></circle>
+  </svg>
+</div>
+
+<div class="chrome">
+  <div class="chrome-inner">
+    <div class="brand">
+      <img class="brand-logo" src="assets/oln-logo.png" alt="OLN — Oldham, Li & Nie">
+      <span class="assoc" data-en="In Association with Watson & Band" data-zh-hant="與華誠律師事務所聯營" data-zh-hans="与华诚律师事务所联营">In Association with Watson & Band</span>
+    </div>
+    <div class="lang-toggle" role="tablist" aria-label="Language">
+      <button data-lang="en" class="is-active">EN</button>
+      <button data-lang="zh-hant">繁</button>
+      <button data-lang="zh-hans">简</button>
+    </div>
+  </div>
+  <nav class="topic-nav" aria-label="Startup Tech topics">
+    <div class="topic-nav-inner">
+      <a class="tnav" href="index.html"><span data-en="How we work" data-zh-hant="合作方式" data-zh-hans="合作方式">How we work</span></a>
+      <a class="tnav" href="fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
+      <a class="tnav" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
+      <a class="tnav is-current" href="esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
+      <span class="tnav soon"><span data-en="Agreements" data-zh-hant="合約審閱" data-zh-hans="合约审阅">Agreements</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+      <span class="tnav soon"><span data-en="Hiring" data-zh-hant="聘用" data-zh-hans="聘用">Hiring</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+      <span class="tnav soon"><span data-en="Collaboration" data-zh-hant="合作" data-zh-hans="合作">Collaboration</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+      <span class="tnav soon"><span data-en="Expansion" data-zh-hant="業務擴張" data-zh-hans="业务扩张">Expansion</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+    </div>
+  </nav>
+</div>
+
+<main>
+
+<div class="print-header" aria-hidden="true">
+  <img src="assets/oln-logo.png" alt="OLN — Oldham, Li & Nie">
+  <span class="print-header-meta">Startup Tech</span>
+</div>
+
+<!-- ===== FUNDRAISING ROADMAP (interactive, trilingual) ===== -->
+<style>
+#oln-fr{--navy:#1F3864;--navy-tint:#eaeef6;--sage:#7A9B8E;--sage-deep:#52786b;--sage-pale:#f6f9f6;--ink:#1a1f2b;--ink-2:#3a4150;--ink-3:#5e6678;--ink-4:#8a91a0;--rule:#dfe2e8;--amber:#9a6a1c;--amber-tint:#f9f3e8;font-family:"Inter",-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.55;max-width:1000px;margin:0 auto;padding:28px 20px 40px;-webkit-font-smoothing:antialiased;box-sizing:border-box}
+#oln-fr *{box-sizing:border-box}
+#oln-fr .hint{font-size:13px;color:var(--ink-4);margin:0 0 4px}
+#oln-fr .sech{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:600;margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+#oln-fr .sech::after{content:"";flex:1;height:1px;background:var(--rule)}
+#oln-fr .tabs{display:flex;gap:10px;flex-wrap:wrap}
+#oln-fr .tab{flex:1;min-width:150px;text-align:left;cursor:pointer;border:1px solid var(--rule);border-radius:10px;padding:14px 16px;background:#fff;transition:.15s;border-top-width:3px;font-family:inherit}
+#oln-fr .tab .nm{font-weight:600;font-size:16px}
+#oln-fr .tab .tg{font-size:12px;color:var(--ink-3);display:block;margin-top:2px}
+#oln-fr .tab[data-i="safe"]{border-top-color:var(--sage)}
+#oln-fr .tab[data-i="conv"]{border-top-color:var(--amber)}
+#oln-fr .tab[data-i="eq"]{border-top-color:var(--navy)}
+#oln-fr .tab.on{box-shadow:0 6px 18px -10px rgba(20,28,48,.4);transform:translateY(-1px)}
+#oln-fr .tab.on[data-i="safe"]{background:var(--sage-pale)}
+#oln-fr .tab.on[data-i="conv"]{background:var(--amber-tint)}
+#oln-fr .tab.on[data-i="eq"]{background:var(--navy-tint)}
+#oln-fr .panelwrap{border:1px solid var(--rule);border-radius:12px;padding:20px 22px;margin-top:14px;background:#fff}
+#oln-fr .ip{display:none}#oln-fr .ip.on{display:block;animation:frfade .2s ease}
+@keyframes frfade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+#oln-fr .ip .best{color:var(--ink-2);margin:0 0 14px}#oln-fr .ip .best b{color:var(--ink)}
+#oln-fr .ip ol{margin:0 0 14px;padding-left:0;list-style:none;counter-reset:s}
+#oln-fr .ip ol li{counter-increment:s;position:relative;padding:6px 0 6px 30px;border-top:1px solid var(--rule);font-size:14px}
+#oln-fr .ip ol li:first-child{border-top:0}
+#oln-fr .ip ol li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:6px;font-size:11px;font-weight:700;color:var(--ink-4);border:1px solid var(--rule);border-radius:4px;padding:1px 5px}
+#oln-fr .meta{display:flex;flex-wrap:wrap;gap:10px 26px;padding-top:14px;border-top:1px solid var(--rule);font-size:13px}
+#oln-fr .meta div span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);font-weight:600;margin-bottom:2px}
+#oln-fr .meta div b{font-weight:600;color:var(--ink)}
+#oln-fr .terms{font-size:12px;color:var(--ink-3);margin-top:12px}
+#oln-fr .note{font-size:12px;color:var(--ink-4);margin-top:8px}
+#oln-fr .banner{background:var(--navy);color:#fff;border-radius:12px;border-left:4px solid var(--sage);padding:18px 22px;margin:8px 0 16px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+#oln-fr .banner .big{font-size:18px;font-weight:600;flex:1;min-width:240px}
+#oln-fr .banner .big i{color:#cfe0d8;font-style:normal}
+#oln-fr .banner .sub{font-size:13px;color:#cdd6e6;max-width:46ch}
+#oln-fr .phase{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:700;margin:16px 0 8px}
+#oln-fr .step{border:1px solid var(--rule);border-left:3px solid var(--navy);border-radius:0 8px 8px 0;margin-bottom:8px;background:#fff;overflow:hidden}
+#oln-fr .step.early{border-left-color:var(--sage)}
+#oln-fr .step .sh{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer}
+#oln-fr .step .no{font-size:11px;font-weight:700;color:var(--navy);border:1px solid var(--navy);border-radius:4px;padding:1px 6px}
+#oln-fr .step.early .no{color:var(--sage-deep);border-color:var(--sage)}
+#oln-fr .step .st{font-weight:600;flex:1;font-size:15px}
+#oln-fr .step .chev{color:var(--ink-4);transition:.2s;font-size:13px}
+#oln-fr .step.open .chev{transform:rotate(90deg)}
+#oln-fr .step .sd{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 16px}
+#oln-fr .step.open .sd{max-height:240px;padding:0 16px 14px}
+#oln-fr .step .sd p{margin:0 0 8px;font-size:14px;color:var(--ink-2)}
+#oln-fr .chips{display:flex;gap:6px;flex-wrap:wrap}
+#oln-fr .chip{font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+#oln-fr .chip.oln{background:var(--navy-tint);color:var(--navy)}
+#oln-fr .chip.fdr{background:var(--sage-pale);color:var(--sage-deep)}
+#oln-fr .chip.inv{background:#eef0f3;color:var(--ink-3)}
+#oln-fr .qwrap{background:var(--amber-tint);border:1px solid #e2cfa6;border-left:3px solid var(--amber);border-radius:12px;padding:20px 22px}
+#oln-fr .q{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed #e2cfa6;cursor:pointer}
+#oln-fr .q:first-of-type{border-top:0}
+#oln-fr .qbox{flex:none;width:22px;height:22px;border:1.5px solid var(--amber);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;background:#fff;transition:.15s;font-weight:700}
+#oln-fr .q.got .qbox{background:var(--sage-deep);border-color:var(--sage-deep)}
+#oln-fr .q.got .qbox::after{content:"\2713"}
+#oln-fr .q .qt{font-size:14px;color:var(--ink-2)}#oln-fr .q.got .qt{color:var(--ink-4);text-decoration:line-through}
+#oln-fr .qfoot{margin-top:16px;padding-top:14px;border-top:1px dashed #e2cfa6;font-size:15px}
+#oln-fr .qfoot b{color:var(--amber)}
+#oln-fr .assume{font-size:12px;color:var(--ink-3);margin-top:24px;padding-top:14px;border-top:1px solid var(--rule)}
+#oln-fr .assume b{color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:600;margin-right:4px}
+@media(max-width:560px){#oln-fr .banner .big{font-size:16px}#oln-fr .tab{min-width:0}}
+.roadmap{background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.roadmap .container{max-width:1100px;}
+.roadmap #oln-fr{max-width:none;margin:0;padding:0;}
+.roadmap #oln-fr .sech:first-of-type{margin-top:6px;}
+@media print{#oln-fr .step .sd{max-height:none !important;padding:0 16px 14px !important}#oln-fr .ip{display:block !important}#oln-fr .hint{display:none}}
+</style>
+<section class="roadmap" data-screen-label="ESOP roadmap">
+  <div class="container">
+    <a class="fr-back" href="index.html" data-en="← Back to how we work" data-zh-hant="← 返回合作方式" data-zh-hans="← 返回合作方式" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--sage);text-decoration:none;font-weight:600;margin-bottom:24px;">← Back to how we work</a>
+    <div class="reveal">
+      <p class="section-eyebrow" data-en="ESOP · Step by step" data-zh-hant="員工持股 · 逐步進行" data-zh-hans="员工持股 · 逐步进行">ESOP · Step by step</p>
+      <h2 class="section-title" data-en="Building your ESOP, step by step." data-zh-hant="一步步建立你的員工持股計劃。" data-zh-hans="一步步建立你的员工持股计划。">Building your ESOP, step by step.</h2>
+      <p class="section-lead" data-en="Equity is the strongest tool a startup has to attract and keep great people — but only when the scheme is built right. Here's how an ESOP comes together with OLN beside you." data-zh-hant="股權是初創公司吸引並留住優秀人才最有力的工具——但前提是方案要設計得當。以下是有 OLN 陪你走，一套員工持股計劃是怎麼建立起來的。" data-zh-hans="股权是初创公司吸引并留住优秀人才最有力的工具——但前提是方案要设计得当。以下是有 OLN 陪你走，一套员工持股计划是怎么建立起来的。">Equity is the strongest tool a startup has to attract and keep great people — but only when the scheme is built right. Here's how an ESOP comes together with OLN beside you.</p>
+    </div>
+
+    <div id="oln-fr">
+      <p class="hint" data-en="Interactive — pick a scheme type, open any step, and tick off the self-check below." data-zh-hant="互動內容——選擇方案類型、展開任一步驟，並勾選下方的自我檢查。" data-zh-hans="互动内容——选择方案类型、展开任一步骤，并勾选下方的自我检查。">Interactive — pick a scheme type, open any step, and tick off the self-check below.</p>
+
+      <div class="sech" data-en="1 · Choose your scheme" data-zh-hant="1 · 選擇你的方案" data-zh-hans="1 · 选择你的方案">1 · Choose your scheme</div>
+      <div class="tabs">
+        <button class="tab on" data-i="safe"><span class="nm" data-en="Share options" data-zh-hant="購股權" data-zh-hans="购股权">Share options</span><span class="tg" data-en="Right to buy shares later" data-zh-hant="日後可購股的權利" data-zh-hans="日后可购股的权利">Right to buy shares later</span></button>
+        <button class="tab" data-i="conv"><span class="nm" data-en="Restricted shares / RSU" data-zh-hant="限制性股份／受限股份單位" data-zh-hans="限制性股份／受限股份单位">Restricted shares / RSU</span><span class="tg" data-en="Shares now, vesting over time" data-zh-hant="現在給股，按期歸屬" data-zh-hans="现在给股，按期归属">Shares now, vesting over time</span></button>
+        <button class="tab" data-i="eq"><span class="nm" data-en="Phantom / cash-settled" data-zh-hant="影子股權／現金結算" data-zh-hans="影子股权／现金结算">Phantom / cash-settled</span><span class="tg" data-en="Cash that mirrors equity" data-zh-hant="模擬股權價值的現金" data-zh-hans="模拟股权价值的现金">Cash that mirrors equity</span></button>
+      </div>
+      <div class="panelwrap">
+        <div class="ip on" data-i="safe">
+          <p class="best" data-en="<b>Best when</b> — the default for most HK startups; you want to give upside without handing over shares or cash today." data-zh-hant="<b>適用時機</b>——大多數香港初創的首選；你想給予回報，但今天不必交出股份或現金。" data-zh-hans="<b>适用时机</b>——大多数香港初创的首选；你想给予回报，但今天不必交出股份或现金。"><b>Best when</b> — the default for most HK startups; you want to give upside without handing over shares or cash today.</p>
+          <ol>
+            <li data-en="Set the option pool size and exercise price" data-zh-hant="設定期權池大小與行使價" data-zh-hans="设定期权池大小与行使价">Set the option pool size and exercise price</li>
+            <li data-en="Adopt scheme rules and pass board approval" data-zh-hant="採納方案規則並通過董事會批准" data-zh-hans="采纳方案规则并通过董事会批准">Adopt scheme rules and pass board approval</li>
+            <li data-en="Grant option agreements and update the register" data-zh-hant="授予購股權協議並更新登記冊" data-zh-hans="授予购股权协议并更新登记册">Grant option agreements and update the register</li>
+          </ol>
+          <p class="terms" data-en="<b>Key terms:</b> exercise price · vesting · cliff · exercise window · leaver terms" data-zh-hant="<b>關鍵條款：</b>行使價 · 歸屬 · 懸崖期 · 行使窗口 · 離職者條款" data-zh-hans="<b>关键条款：</b>行使价 · 归属 · 悬崖期 · 行使窗口 · 离职者条款"><b>Key terms:</b> exercise price · vesting · cliff · exercise window · leaver terms</p>
+          <div class="meta">
+            <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee · on request" data-zh-hant="固定費用 · 可查詢" data-zh-hans="固定费用 · 可咨询">Fixed fee · on request</b></div>
+            <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~2–4 weeks" data-zh-hant="約 2–4 週" data-zh-hans="约 2–4 周">~2–4 weeks</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Options vest over time, exercised later" data-zh-hant="購股權按期歸屬，日後行使" data-zh-hans="购股权按期归属，日后行使">Options vest over time, exercised later</b></div>
+          </div>
+        </div>
+        <div class="ip" data-i="conv">
+          <p class="best" data-en="<b>Best when</b> — you want recipients to hold (or be promised) real shares now, subject to vesting and buy-back if they leave." data-zh-hant="<b>適用時機</b>——你希望獲授人現在就持有（或獲承諾）真正的股份，但須按歸屬條件，離職時可被回購。" data-zh-hans="<b>适用时机</b>——你希望获授人现在就持有（或获承诺）真正的股份，但须按归属条件，离职时可被回购。"><b>Best when</b> — you want recipients to hold (or be promised) real shares now, subject to vesting and buy-back if they leave.</p>
+          <ol>
+            <li data-en="Decide shares vs RSUs, and the vesting shape" data-zh-hant="決定用股份還是受限股份單位，以及歸屬方式" data-zh-hans="决定用股份还是受限股份单位，以及归属方式">Decide shares vs RSUs, and the vesting shape</li>
+            <li data-en="Board and shareholder approvals" data-zh-hant="董事會與股東批准" data-zh-hans="董事会与股东批准">Board and shareholder approvals</li>
+            <li data-en="Issue / allot and document buy-back rights" data-zh-hant="發行／配發並訂明回購權" data-zh-hans="发行／配发并订明回购权">Issue / allot and document buy-back rights</li>
+          </ol>
+          <p class="terms" data-en="<b>Key terms:</b> vesting · reverse vesting · buy-back · transfer restrictions" data-zh-hant="<b>關鍵條款：</b>歸屬 · 反向歸屬 · 回購 · 轉讓限制" data-zh-hans="<b>关键条款：</b>归属 · 反向归属 · 回购 · 转让限制"><b>Key terms:</b> vesting · reverse vesting · buy-back · transfer restrictions</p>
+          <div class="meta">
+            <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee · on request" data-zh-hant="固定費用 · 可查詢" data-zh-hans="固定费用 · 可咨询">Fixed fee · on request</b></div>
+            <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~3–6 weeks" data-zh-hant="約 3–6 週" data-zh-hans="约 3–6 周">~3–6 weeks</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Shares held or promised, subject to vesting" data-zh-hant="股份已持有或獲承諾，須按歸屬" data-zh-hans="股份已持有或获承诺，须按归属">Shares held or promised, subject to vesting</b></div>
+          </div>
+        </div>
+        <div class="ip" data-i="eq">
+          <p class="best" data-en="<b>Best when</b> — you want to mirror equity upside in cash, without touching the cap table — simplest to run, no dilution." data-zh-hant="<b>適用時機</b>——你想以現金模擬股權回報，而不觸動股權結構表——最易管理，且不造成稀釋。" data-zh-hans="<b>适用时机</b>——你想以现金模拟股权回报，而不触动股权结构表——最易管理，且不造成稀释。"><b>Best when</b> — you want to mirror equity upside in cash, without touching the cap table — simplest to run, no dilution.</p>
+          <ol>
+            <li data-en="Define the phantom unit and trigger events" data-zh-hant="定義影子單位與觸發事件" data-zh-hans="定义影子单位与触发事件">Define the phantom unit and trigger events</li>
+            <li data-en="Board approval of the plan" data-zh-hant="董事會批准計劃" data-zh-hans="董事会批准计划">Board approval of the plan</li>
+            <li data-en="Issue award letters to recipients" data-zh-hant="向獲授人發出授予函" data-zh-hans="向获授人发出授予函">Issue award letters to recipients</li>
+          </ol>
+          <p class="terms" data-en="<b>Key terms:</b> phantom units · valuation basis · trigger events · payout cap" data-zh-hant="<b>關鍵條款：</b>影子單位 · 估值基準 · 觸發事件 · 派付上限" data-zh-hans="<b>关键条款：</b>影子单位 · 估值基准 · 触发事件 · 派付上限"><b>Key terms:</b> phantom units · valuation basis · trigger events · payout cap</p>
+          <div class="meta">
+            <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee · on request" data-zh-hant="固定費用 · 可查詢" data-zh-hans="固定费用 · 可咨询">Fixed fee · on request</b></div>
+            <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~2–4 weeks" data-zh-hant="約 2–4 週" data-zh-hans="约 2–4 周">~2–4 weeks</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Cash tied to value, paid on a trigger" data-zh-hant="與價值掛鉤的現金，於觸發時派付" data-zh-hans="与价值挂钩的现金，于触发时派付">Cash tied to value, paid on a trigger</b></div>
+          </div>
+        </div>
+      </div>
+      <p class="note" data-en="No surprises on cost — we work on a fixed fee or capped range, confirmed in writing before we start. Just ask for a quote." data-zh-hant="費用沒有意外——我們採固定費用或設上限的範圍，開始之前以書面確認。歡迎向我們索取報價。" data-zh-hans="费用没有意外——我们采固定费用或设上限的范围，开始之前以书面确认。欢迎向我们索取报价。">No surprises on cost — we work on a fixed fee or capped range, confirmed in writing before we start. Just ask for a quote.</p>
+
+      <div class="sech" data-en="2 · How a scheme comes together" data-zh-hant="2 · 一套方案如何建立" data-zh-hans="2 · 一套方案如何建立">2 · How a scheme comes together</div>
+      <div class="banner"><div class="big" data-en="Design it once — <i>before the grants go out</i>." data-zh-hant="一次設計到位——<i>在授予發出之前</i>。" data-zh-hans="一次设计到位——<i>在授予发出之前</i>。">Design it once — <i>before the grants go out</i>.</div><div class="sub" data-en="Re-papering an ESOP after options are promised is painful and expensive. Get the pool, the vesting and the leaver terms right the first time." data-zh-hant="在已承諾期權之後再重做文件，既痛苦又昂貴。把期權池、歸屬與離職者條款一次做對。" data-zh-hans="在已承诺期权之后再重做文件，既痛苦又昂贵。把期权池、归属与离职者条款一次做对。">Re-papering an ESOP after options are promised is painful and expensive. Get the pool, the vesting and the leaver terms right the first time.</div></div>
+
+      <div class="phase" data-en="Design" data-zh-hant="設計" data-zh-hans="设计">Design</div>
+      <div class="step early"><div class="sh"><span class="no">01</span><span class="st" data-en="Strategy &amp; pool sizing" data-zh-hant="策略與期權池規模" data-zh-hans="策略与期权池规模">Strategy &amp; pool sizing</span><span class="chev">▸</span></div><div class="sd"><p data-en="Decide how much equity the team should get, model the dilution, and pick the instrument before you promise anything. The best time to bring OLN in." data-zh-hant="決定團隊應分得多少股權、模擬稀釋影響，並在承諾任何事之前選好工具。這是讓 OLN 加入的最佳時機。" data-zh-hans="决定团队应分得多少股权、模拟稀释影响，并在承诺任何事之前选好工具。这是让 OLN 加入的最佳时机。">Decide how much equity the team should get, model the dilution, and pick the instrument before you promise anything. The best time to bring OLN in.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">02</span><span class="st" data-en="Scheme design" data-zh-hant="方案設計" data-zh-hans="方案设计">Scheme design</span><span class="chev">▸</span></div><div class="sd"><p data-en="Set vesting, cliff, exercise price and good-leaver / bad-leaver terms so the scheme behaves the way you intend." data-zh-hant="設定歸屬、懸崖期、行使價，以及「好／壞離職者」條款，讓方案按你的意圖運作。" data-zh-hans="设定归属、悬崖期、行使价，以及「好／坏离职者」条款，让方案按你的意图运作。">Set vesting, cliff, exercise price and good-leaver / bad-leaver terms so the scheme behaves the way you intend.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">03</span><span class="st" data-en="Dilution &amp; cap table impact" data-zh-hant="稀釋與股權結構影響" data-zh-hans="稀释与股权结构影响">Dilution &amp; cap table impact</span><span class="chev">▸</span></div><div class="sd"><p data-en="Model how the pool affects founders and investors, and reflect the reserved pool in your cap table." data-zh-hant="模擬期權池對創辦人與投資人的影響，並在股權結構表中反映預留的池子。" data-zh-hans="模拟期权池对创办人与投资人的影响，并在股权结构表中反映预留的池子。">Model how the pool affects founders and investors, and reflect the reserved pool in your cap table.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip inv" data-en="Investor" data-zh-hant="投資人" data-zh-hans="投资人">Investor</span></div></div></div>
+      <div class="phase" data-en="Documentation" data-zh-hant="文件" data-zh-hans="文件">Documentation</div>
+      <div class="step"><div class="sh"><span class="no">04</span><span class="st" data-en="Scheme rules" data-zh-hant="方案規則" data-zh-hans="方案规则">Scheme rules</span><span class="chev">▸</span></div><div class="sd"><p data-en="Draft the master scheme rules that govern every grant — the single source of truth for the plan." data-zh-hant="起草規範每一筆授予的主方案規則——整套計劃的唯一依據。" data-zh-hans="起草规范每一笔授予的主方案规则——整套计划的唯一依据。">Draft the master scheme rules that govern every grant — the single source of truth for the plan.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">05</span><span class="st" data-en="Grant documents" data-zh-hant="授予文件" data-zh-hans="授予文件">Grant documents</span><span class="chev">▸</span></div><div class="sd"><p data-en="Option agreements, award letters or RSU documents for each recipient, ready to issue." data-zh-hant="為每位獲授人準備購股權協議、授予函或受限股份文件，隨時可發放。" data-zh-hans="为每位获授人准备购股权协议、授予函或受限股份文件，随时可发放。">Option agreements, award letters or RSU documents for each recipient, ready to issue.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">06</span><span class="st" data-en="Board &amp; shareholder approvals" data-zh-hant="董事會與股東批准" data-zh-hans="董事会与股东批准">Board &amp; shareholder approvals</span><span class="chev">▸</span></div><div class="sd"><p data-en="Board and, where needed, shareholder approvals to adopt the scheme and reserve the pool." data-zh-hant="取得董事會、以及在需要時的股東批准，以採納方案並預留期權池。" data-zh-hans="取得董事会、以及在需要时的股东批准，以采纳方案并预留期权池。">Board and, where needed, shareholder approvals to adopt the scheme and reserve the pool.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="phase" data-en="Rollout" data-zh-hant="推行" data-zh-hans="推行">Rollout</div>
+      <div class="step"><div class="sh"><span class="no">07</span><span class="st" data-en="Communicating to the team" data-zh-hant="向團隊說明" data-zh-hans="向团队说明">Communicating to the team</span><span class="chev">▸</span></div><div class="sd"><p data-en="Plain-language summaries so recipients understand the upside — not just the legal terms." data-zh-hant="以淺白語言撰寫摘要，讓獲授人理解其中的回報，而不只是法律條款。" data-zh-hans="以浅白语言撰写摘要，让获授人理解其中的回报，而不只是法律条款。">Plain-language summaries so recipients understand the upside — not just the legal terms.</p><div class="chips"><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">08</span><span class="st" data-en="Granting &amp; records" data-zh-hant="授予與記錄" data-zh-hans="授予与记录">Granting &amp; records</span><span class="chev">▸</span></div><div class="sd"><p data-en="Issue the grants, update the option register and keep statutory records in order." data-zh-hant="發放授予、更新購股權登記冊，並讓法定記錄保持完整。" data-zh-hans="发放授予、更新购股权登记册，并让法定记录保持完整。">Issue the grants, update the option register and keep statutory records in order.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">09</span><span class="st" data-en="Ongoing administration" data-zh-hant="持續管理" data-zh-hans="持续管理">Ongoing administration</span><span class="chev">▸</span></div><div class="sd"><p data-en="Handle exercises, leavers, buy-backs and what happens to the pool at an exit." data-zh-hant="處理行使、離職者、回購，以及退出時期權池的處置。" data-zh-hans="处理行使、离职者、回购，以及退出时期权池的处置。">Handle exercises, leavers, buy-backs and what happens to the pool at an exit.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+
+      <div class="sech" data-en="3 · Ask yourself" data-zh-hant="3 · 問問自己" data-zh-hans="3 · 问问自己">3 · Ask yourself</div>
+      <div class="qwrap" id="fr-q">
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know how big your option pool should be — and how it dilutes you and your investors?" data-zh-hant="你知道期權池應該多大——以及它會如何稀釋你和投資人的股權嗎？" data-zh-hans="你知道期权池应该多大——以及它会如何稀释你和投资人的股权吗？">Do you know how big your option pool should be — and how it dilutes you and your investors?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you understand vesting, cliffs and what happens when someone leaves — good leaver vs bad leaver?" data-zh-hant="你了解歸屬、懸崖期，以及有人離職時會怎樣嗎——「好離職者」與「壞離職者」之分？" data-zh-hans="你了解归属、悬崖期，以及有人离职时会怎样吗——「好离职者」与「坏离职者」之分？">Do you understand vesting, cliffs and what happens when someone leaves — good leaver vs bad leaver?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know the difference between options, restricted shares and phantom equity — and which fits your team?" data-zh-hant="你分得清購股權、限制性股份與影子股權嗎——哪一種最適合你的團隊？" data-zh-hans="你分得清购股权、限制性股份与影子股权吗——哪一种最适合你的团队？">Do you know the difference between options, restricted shares and phantom equity — and which fits your team?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Can you explain the scheme to a candidate so it feels like real upside — not just paperwork?" data-zh-hant="你能向應徵者解釋這套方案，讓它感覺像真正的回報，而不只是文件嗎？" data-zh-hans="你能向应聘者解释这套方案，让它感觉像真正的回报，而不只是文件吗？">Can you explain the scheme to a candidate so it feels like real upside — not just paperwork?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know when and how options get exercised — and what it costs the employee and the company?" data-zh-hant="你知道購股權在何時、如何行使——以及這對員工和公司各有什麼成本嗎？" data-zh-hans="你知道购股权在何时、如何行使——以及这对员工和公司各有什么成本吗？">Do you know when and how options get exercised — and what it costs the employee and the company?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Have you thought about what happens to unvested equity at an exit, acquisition or down round?" data-zh-hant="你想過在退出、被收購或估值下調時，未歸屬的股權會怎樣嗎？" data-zh-hans="你想过在退出、被收购或估值下调时，未归属的股权会怎样吗？">Have you thought about what happens to unvested equity at an exit, acquisition or down round?</div></div>
+        <div class="qfoot" id="fr-qfoot">Tap each one you're confident about. <b>Not sure on any? That's exactly what we handle.</b></div>
+      </div>
+
+      <p class="assume" data-en="<b>Assumptions</b> English documents · Hong Kong law only · scope as agreed · timelines vary by scheme type. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · tax advice for the company or employees (incl. stamp duty) · payroll set-up · contentious matters." data-zh-hant="<b>假設前提</b>英文文件 · 僅就香港法律 · 範圍依約定 · 時程因方案類型而異。 &nbsp; <b>不包括</b>公司成立及秘書申報 · 公司或員工的稅務意見（含印花稅）· 薪資系統設置 · 爭議事項。" data-zh-hans="<b>假设前提</b>英文文件 · 仅就香港法律 · 范围依约定 · 时程因方案类型而异。 &nbsp; <b>不包括</b>公司成立及秘书申报 · 公司或员工的税务意见（含印花税）· 薪资系统设置 · 争议事项。"><b>Assumptions</b> English documents · Hong Kong law only · scope as agreed · timelines vary by scheme type. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · tax advice for the company or employees (incl. stamp duty) · payroll set-up · contentious matters.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <div class="container">
+    <h2 class="reveal" data-en="Set up the scheme before you promise the equity." data-zh-hant="在承諾股權之前，先把方案建好。" data-zh-hans="在承诺股权之前，先把方案建好。">Set up the scheme before you promise the equity.</h2>
+    <p class="lead reveal" data-en="Whichever scheme fits, we design it, document it and keep it clean as your team grows. I quote up front." data-zh-hant="無論哪一種方案適合，我們都會為你設計、撰寫，並在團隊成長時維持清晰。我會事先報價。" data-zh-hans="无论哪一种方案适合，我们都会为你设计、撰写，并在团队成长时维持清晰。我会事先报价。">Whichever scheme fits, we design it, document it and keep it clean as your team grows. I quote up front.</p>
+    <div class="cta-row reveal">
+      <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com?subject=ESOP%20enquiry">cermain.cheung@oln-law.com</a>
+      <a class="cta-pill secondary" href="https://www.linkedin.com/in/cermain-cheung-56476030/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<div class="print-running-footer" aria-hidden="true">
+  <span>Oldham, Li &amp; Nie · In Association with Watson &amp; Band</span>
+  <span class="prf-tag">Practical Legal Solutions — On Time — No Excuses</span>
+  <span>oln-law.com</span>
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="col">
+      <span class="firm" data-en="OLN — Oldham, Li & Nie" data-zh-hant="高李嚴律師行" data-zh-hans="高李严律师行">OLN — Oldham, Li & Nie</span>
+      <span data-en="In Association with Watson & Band" data-zh-hant="與華誠律師事務所聯營" data-zh-hans="与华诚律师事务所联营">In Association with Watson & Band</span>
+      <span class="tagline" data-en="Practical Legal Solutions — On Time — No Excuses" data-zh-hant="務實的法律方案 —— 準時交付 —— 沒有藉口" data-zh-hans="务实的法律方案 —— 准时交付 —— 没有借口">Practical Legal Solutions — On Time — No Excuses</span>
+    </div>
+    <div class="col">
+      <span data-en="Suite 503, St. George's Building" data-zh-hant="香港中環雪廠街 2 號聖佐治大廈 503 室" data-zh-hans="香港中环雪厂街 2 号圣佐治大厦 503 室">Suite 503, St. George's Building</span>
+      <span data-en="2 Ice House Street, Central, Hong Kong" data-zh-hant="香港中環雪廠街 2 號" data-zh-hans="香港中环雪厂街 2 号">2 Ice House Street, Central, Hong Kong</span>
+      <span>Tel +852 2868 0696 · info@oln-law.com</span>
+    </div>
+    <div class="col">
+      <span class="meta" data-en="ESOP Roadmap · OLN Startup Tech" data-zh-hant="員工持股計劃・OLN Startup Tech" data-zh-hans="员工持股计划・OLN Startup Tech">ESOP Roadmap · OLN Startup Tech</span>
+      <span class="meta" data-en="oln-law.com" data-zh-hant="oln-law.com" data-zh-hans="oln-law.com">oln-law.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ----- LANGUAGE TOGGLE -----
+  const STORAGE_KEY = 'oln-brochure-lang';
+  const buttons = document.querySelectorAll('.lang-toggle button');
+
+  function setLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+    const attr = 'data-' + lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const val = el.getAttribute(attr);
+      if (val !== null) el.innerHTML = val;
+    });
+    buttons.forEach(b => b.classList.toggle('is-active', b.dataset.lang === lang));
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // Restore last language
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && ['en','zh-hant','zh-hans'].includes(saved)) setLang(saved);
+  } catch (e) {}
+
+  // ----- LENS EXPANSION -----
+  document.querySelectorAll('.lens').forEach(lens => {
+    const head = lens.querySelector('.lens-head');
+    head.addEventListener('click', (e) => {
+      lens.classList.toggle('is-open');
+    });
+  });
+
+  // ----- SCROLL REVEALS -----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  // ----- FUNDRAISING ROADMAP -----
+  (function(){
+    var root = document.getElementById('oln-fr');
+    if (!root) return;
+    root.querySelectorAll('.tab').forEach(function(t){
+      t.addEventListener('click', function(){
+        var i = t.getAttribute('data-i');
+        root.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on', x === t); });
+        root.querySelectorAll('.ip').forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-i') === i); });
+      });
+    });
+    root.querySelectorAll('.step .sh').forEach(function(sh){
+      sh.addEventListener('click', function(){ sh.parentElement.classList.toggle('open'); });
+    });
+    var qs = root.querySelectorAll('#fr-q .q');
+    var foot = document.getElementById('fr-qfoot');
+    var T = {
+      'en': { init: "Tap each one you're confident about. <b>Not sure on any? That's exactly what we handle.</b>",
+              part: function(g,n,u){ return "Confident on "+g+" of "+n+". <b>The other "+u+"? That's exactly what we handle \u2014 let's talk before you grant.</b>"; },
+              all: "Confident on all six \u2014 impressive. <b>When you're ready, we'll make sure the paperwork matches.</b>" },
+      'zh-hant': { init: "\u628a\u4f60\u6709\u4fe1\u5fc3\u7684\u90fd\u9ede\u4e00\u4e0b\u3002<b>\u6709\u4efb\u4f55\u4e0d\u78ba\u5b9a\uff1f\u90a3\u6b63\u662f\u6211\u5011\u8655\u7406\u7684\u4e8b\u3002</b>",
+              part: function(g,n,u){ return "\u4f60\u5c0d "+n+" \u9805\u4e2d\u7684 "+g+" \u9805\u6709\u4fe1\u5fc3\u3002<b>\u53e6\u5916 "+u+" \u9805\uff1f\u90a3\u6b63\u662f\u6211\u5011\u8655\u7406\u7684\u4e8b\u2014\u2014\u5728\u767c\u653e\u524d\u804a\u804a\u5427\u3002</b>"; },
+              all: "\u516d\u9805\u5168\u90fd\u6709\u4fe1\u5fc3\u2014\u2014\u4e86\u4e0d\u8d77\u3002<b>\u7b49\u4f60\u6e96\u5099\u597d\uff0c\u6211\u5011\u6703\u78ba\u4fdd\u6587\u4ef6\u8ddf\u5f97\u4e0a\u3002</b>" },
+      'zh-hans': { init: "\u628a\u4f60\u6709\u4fe1\u5fc3\u7684\u90fd\u70b9\u4e00\u4e0b\u3002<b>\u6709\u4efb\u4f55\u4e0d\u786e\u5b9a\uff1f\u90a3\u6b63\u662f\u6211\u4eec\u5904\u7406\u7684\u4e8b\u3002</b>",
+              part: function(g,n,u){ return "\u4f60\u5bf9 "+n+" \u9879\u4e2d\u7684 "+g+" \u9879\u6709\u4fe1\u5fc3\u3002<b>\u53e6\u5916 "+u+" \u9879\uff1f\u90a3\u6b63\u662f\u6211\u4eec\u5904\u7406\u7684\u4e8b\u2014\u2014\u5728\u53d1\u653e\u524d\u804a\u804a\u5427\u3002</b>"; },
+              all: "\u516d\u9879\u5168\u90fd\u6709\u4fe1\u5fc3\u2014\u2014\u4e86\u4e0d\u8d77\u3002<b>\u7b49\u4f60\u51c6\u5907\u597d\uff0c\u6211\u4eec\u4f1a\u786e\u4fdd\u6587\u4ef6\u8ddf\u5f97\u4e0a\u3002</b>" }
+    };
+    function curLang(){ var l = document.documentElement.getAttribute('lang'); return T[l] ? l : 'en'; }
+    function upd(){
+      var t = T[curLang()], n = qs.length, g = root.querySelectorAll('#fr-q .q.got').length, u = n - g;
+      foot.innerHTML = g === 0 ? t.init : (u === 0 ? t.all : t.part(g, n, u));
+    }
+    qs.forEach(function(q){ q.addEventListener('click', function(){ q.classList.toggle('got'); upd(); }); });
+    document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(upd, 0); }); });
+    upd();
+  })();
+</script>
+
+</body>
+</html>

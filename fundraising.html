@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fundraising Roadmap — Cermain Cheung · OLN Startup Tech</title>
+
+<template id="__bundler_thumbnail" data-bg-color="#fbfbfd">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sage rings echoing the hero -->
+    <circle cx="900" cy="240" r="320" fill="none" stroke="#7A9B8E" stroke-opacity="0.30" stroke-width="3"/>
+    <circle cx="900" cy="240" r="220" fill="none" stroke="#7A9B8E" stroke-opacity="0.45" stroke-width="3"/>
+    <circle cx="900" cy="240" r="130" fill="none" stroke="#7A9B8E" stroke-opacity="0.55" stroke-width="3"/>
+    <circle cx="900" cy="240" r="10" fill="#7A9B8E"/>
+    <!-- Initials, navy -->
+    <text x="200" y="480" font-family="Georgia, serif" font-style="italic" font-size="280" font-weight="400" fill="#1F3864">CC</text>
+    <!-- OLN tagline, sage -->
+    <text x="200" y="560" font-family="Inter, sans-serif" font-size="36" letter-spacing="6" fill="#7A9B8E" font-weight="600">OLN · STARTUP TECH</text>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-deep: #14264a;
+    --sage: #7A9B8E;
+    --sage-soft: rgba(122, 155, 142, 0.10);
+    --sage-line: rgba(122, 155, 142, 0.28);
+    --cream: #fbfbfd;
+    --cream-warm: #f5f3ee;
+    --ink: #15161a;
+    --muted: #6b6f78;
+    --rule: #e7e6e2;
+    --mimicu-purple: #2A1B6F;
+    --mimicu-blue: #5FC3F2;
+    --serif-en: 'Inter', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  html[lang^="zh"] body { font-family: 'Noto Sans TC', 'Noto Sans SC', 'Inter', sans-serif; }
+  html[lang="zh-hans"] body { font-family: 'Noto Sans SC', 'Noto Sans TC', 'Inter', sans-serif; }
+
+  /* ----- TOP CHROME ----- */
+  .chrome {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 251, 253, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .chrome-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .chrome .brand { color: var(--navy); font-weight: 600; display: flex; align-items: center; gap: 14px; }
+  .chrome .brand-logo { height: 34px; width: auto; display: block; }
+  .chrome .brand .dot { color: var(--sage); margin: 0 6px; }
+  .chrome .brand .assoc { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0.02em; font-size: 11px; padding-left: 14px; border-left: 1px solid var(--rule); }
+  @media (max-width: 640px) { .chrome .brand .assoc { display: none; } }
+  .lang-toggle { display: flex; gap: 4px; align-items: center; }
+  .lang-toggle button {
+    background: transparent; border: 1px solid transparent;
+    padding: 5px 11px; font-family: inherit; font-size: 12px;
+    letter-spacing: 0.08em; color: var(--muted);
+    cursor: pointer; border-radius: 999px;
+    transition: all 0.15s ease;
+  }
+  .lang-toggle button:hover { color: var(--navy); }
+  .lang-toggle button.is-active {
+    color: var(--navy); border-color: var(--navy); background: white;
+    font-weight: 600;
+  }
+
+  /* ----- TOPIC NAV ----- */
+  .topic-nav { border-top: 1px solid var(--rule); }
+  .topic-nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; align-items: stretch; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+  .topic-nav-inner::-webkit-scrollbar { display: none; }
+  .tnav { position: relative; padding: 11px 15px; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; color: var(--muted); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .15s ease, border-color .15s ease; display: inline-flex; align-items: center; gap: 7px; }
+  .tnav:hover { color: var(--navy); }
+  .tnav.is-current { color: var(--navy); border-bottom-color: var(--sage); }
+  .tnav.soon { color: #b4b8c1; cursor: default; }
+  .tnav.soon i { font-style: normal; font-size: 8px; letter-spacing: 0.1em; color: var(--sage); border: 1px solid var(--sage-line); border-radius: 999px; padding: 1px 5px; line-height: 1; }
+  .tnav:first-child { padding-left: 0; }
+  @media print { .topic-nav { display: none !important; } }
+
+  /* ----- LAYOUT ----- */
+  main { display: block; }
+  section { padding: 100px 32px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .container-narrow { max-width: 820px; margin: 0 auto; }
+
+  /* ----- HERO ----- */
+  .hero {
+    padding: 140px 32px 120px;
+    background:
+      /* faint blueprint grid */
+      linear-gradient(rgba(31, 56, 100, 0.035) 1px, transparent 1px) 0 0 / 100% 56px,
+      linear-gradient(90deg, rgba(31, 56, 100, 0.035) 1px, transparent 1px) 0 0 / 56px 100%,
+      var(--cream);
+    position: relative; overflow: hidden;
+  }
+  /* abstract decorative layer */
+  .hero-deco {
+    position: absolute; inset: 0; pointer-events: none;
+    z-index: 0;
+  }
+  .hero-deco svg { display: block; width: 100%; height: 100%; }
+
+  /* left-edge ruled scale: I · II · III · IV (echoes the four lenses) */
+  .hero-scale {
+    position: absolute;
+    top: 140px; bottom: 120px;
+    left: calc((100% - 1180px) / 2 - 56px);
+    width: 36px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (max-width: 1320px) {
+    .hero-scale { display: none; }
+  }
+  .hero-scale::before {
+    content: '';
+    position: absolute;
+    left: 11px; top: 14px; bottom: 14px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      var(--sage-line) 8%,
+      var(--sage-line) 92%,
+      transparent 100%);
+  }
+  .hero-scale-mark {
+    position: relative;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--sage);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-scale-mark::before {
+    content: '';
+    width: 8px; height: 8px;
+    border: 1px solid var(--sage);
+    border-radius: 50%;
+    background: var(--cream);
+    flex-shrink: 0;
+    margin-left: 7px;
+    box-sizing: border-box;
+  }
+  .hero-scale-mark.is-active { color: var(--navy); }
+  .hero-scale-mark.is-active::before {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .hero-grid {
+    max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 80px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero h1 {
+    display: flex; flex-direction: column;
+    gap: 28px;
+    margin: 0;
+    position: relative;
+  }
+  /* small numeric prefix on the active row */
+  .hero-row {
+    display: flex; flex-direction: column;
+    gap: 2px;
+    position: relative;
+  }
+  .hero-row::before {
+    content: attr(data-roman);
+    position: absolute;
+    left: -54px; top: 6px;
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--sage);
+    opacity: 0.55;
+    letter-spacing: 0.04em;
+    font-variant-numeric: oldstyle-nums;
+  }
+  @media (max-width: 1080px) {
+    .hero-row::before { display: none; }
+  }
+  .hero-row .me {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(42px, 5.4vw, 76px);
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.012em;
+    line-height: 1.02;
+  }
+  .hero-row .them {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-style: normal;
+    font-size: clamp(11px, 0.85vw, 13px);
+    font-weight: 500;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .hero-row.accent .me { color: var(--sage); }
+
+  .hero-thesis {
+    margin-top: 32px;
+    font-size: clamp(20px, 1.85vw, 26px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    max-width: 600px;
+  }
+  .hero-thesis em { color: var(--sage); font-style: italic; font-weight: 500; }
+  .hero-kicker {
+    margin-top: 26px;
+    font-size: clamp(14px, 1.05vw, 17px);
+    font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.06em;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+  .hero-sub {
+    margin-top: 36px;
+    font-size: clamp(17px, 1.55vw, 21px);
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 540px;
+    font-weight: 400;
+  }
+  .hero-sub em { color: var(--navy); font-style: italic; }
+
+  .hero-meta {
+    margin-top: 48px;
+    display: flex; flex-wrap: wrap; gap: 32px;
+    font-size: 13px; letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .hero-meta div { display: flex; flex-direction: column; gap: 4px; }
+  .hero-meta label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sage); font-weight: 600; }
+  .hero-meta span { color: var(--ink); font-size: 14px; }
+
+  .hero-portrait-wrap {
+    position: relative;
+  }
+  /* abstract "lens" rings sitting behind the portrait */
+  .hero-portrait-rings {
+    position: absolute;
+    inset: -36px -28px -28px -56px;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-portrait-rings svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .hero-portrait {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 4 / 5;
+    background: var(--cream-warm);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(31, 56, 100, 0.25);
+  }
+  .hero-portrait img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: saturate(0.92);
+  }
+  .hero-portrait::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(31, 56, 100, 0.12) 100%);
+    pointer-events: none;
+  }
+  .hero-portrait-caption {
+    margin-top: 14px;
+    font-size: 12px; letter-spacing: 0.06em;
+    color: var(--muted);
+    text-align: right;
+  }
+  .hero-portrait-caption strong { color: var(--navy); font-weight: 600; }
+
+  /* ----- LENSES ----- */
+  .lenses { background: white; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .lenses .container { max-width: 1100px; }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(32px, 3.4vw, 48px);
+    font-weight: 300;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 18px; line-height: 1.55; color: var(--ink);
+    max-width: 680px; margin-bottom: 56px;
+  }
+  .section-lead em { font-style: italic; color: var(--navy); }
+
+  .lens-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .lens {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .lens:hover { border-color: var(--sage-line); }
+  .lens.is-open {
+    background: white;
+    border-color: var(--navy);
+    box-shadow: 0 20px 40px -28px rgba(31, 56, 100, 0.25);
+  }
+  .lens-head {
+    display: grid; grid-template-columns: 60px 1fr auto; align-items: center;
+    gap: 28px; padding: 28px 32px;
+  }
+  .lens-num {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--sage);
+    line-height: 1;
+    font-variant-numeric: oldstyle-nums;
+  }
+  .lens-title {
+    font-size: clamp(22px, 2.2vw, 30px);
+    font-weight: 400; color: var(--navy);
+    letter-spacing: -0.015em;
+  }
+  .lens.is-open .lens-title { font-weight: 500; }
+  .lens-tease {
+    font-size: 14px; color: var(--muted);
+    margin-top: 4px;
+  }
+  .lens-toggle {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+    color: var(--muted);
+    background: transparent;
+    flex-shrink: 0;
+  }
+  .lens:hover .lens-toggle { border-color: var(--sage); color: var(--sage); }
+  .lens.is-open .lens-toggle { background: var(--navy); border-color: var(--navy); color: white; transform: rotate(45deg); }
+  .lens-toggle::before {
+    content: '+';
+    font-size: 20px; font-weight: 300; line-height: 1;
+  }
+
+  .lens-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .lens.is-open .lens-body { max-height: 800px; }
+  .lens-body-inner {
+    padding: 0 32px 36px 120px;
+    max-width: 760px;
+  }
+  .lens-body-inner p {
+    font-size: 17px; line-height: 1.65; color: var(--ink);
+  }
+  .lens-body-inner p strong { color: var(--navy); font-weight: 600; }
+  .lens-case {
+    border-left: 2px solid var(--sage);
+    padding: 4px 0 4px 22px;
+  }
+  .lens-case-eyebrow {
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600;
+    display: block; margin-bottom: 10px;
+  }
+  .lens-case p { font-size: 15px; line-height: 1.6; color: var(--muted); }
+  .lens-case p strong { color: var(--ink); font-weight: 500; }
+
+  /* ----- PRINCIPLES ----- */
+  .principles { background: var(--cream); }
+  .principles .container { max-width: 1100px; }
+  .principle-list {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 8px;
+  }
+  .principle-list li {
+    padding: 32px 28px 32px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 44px 1fr; gap: 20px; align-items: baseline;
+    font-size: 18px; line-height: 1.5;
+    color: var(--ink);
+  }
+  .principle-list li:nth-child(odd) { padding-right: 40px; border-right: 1px solid var(--rule); }
+  .principle-list li:nth-child(even) { padding-left: 32px; }
+  .principle-list .pnum {
+    font-size: 13px; letter-spacing: 0.1em; color: var(--sage); font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .principle-list strong { color: var(--navy); font-weight: 600; }
+
+  /* ----- SERVICES + WHO ----- */
+  .services { background: var(--navy); color: white; }
+  .services .section-eyebrow { color: rgba(255,255,255,0.55); }
+  .services .section-title { color: white; }
+  .service-grid {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .service-grid li {
+    padding: 36px 28px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 19px; font-weight: 400;
+    color: white;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .service-grid li:nth-child(3n) { border-right: none; }
+  .service-grid li:last-child:nth-child(3n+1) { border-right: none; }
+  .service-grid .snum { font-size: 11px; letter-spacing: 0.14em; color: var(--sage); font-weight: 600; }
+  .service-grid .sdesc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; font-weight: 300; }
+
+  /* ----- WHO ----- */
+  .who { background: white; }
+  .who .container { max-width: 1100px; }
+  .who-list {
+    list-style: none;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    margin-top: 40px;
+  }
+  .who-list li {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 38px 1fr; gap: 16px; align-items: baseline;
+  }
+  .who-list li:nth-child(odd) { padding-right: 40px; border-right: 1px solid var(--rule); padding-left: 0; }
+  .who-list li:nth-child(even) { padding-left: 40px; }
+  .who-num {
+    font-size: 12px; color: var(--sage); font-weight: 600;
+    letter-spacing: 0.08em; font-variant-numeric: tabular-nums;
+  }
+  .who-list strong { display: block; color: var(--navy); font-weight: 600; font-size: 17px; margin-bottom: 4px; }
+  .who-list p { font-size: 15px; color: var(--muted); line-height: 1.5; }
+
+  .industries {
+    margin-top: 56px; padding-top: 36px;
+    border-top: 1px solid var(--rule);
+    font-size: 14px; color: var(--muted); line-height: 1.7;
+  }
+  .industries-label { display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 12px; }
+  .industries-items { color: var(--ink); }
+  .industries-items span { display: inline-block; margin-right: 18px; }
+
+  /* ----- MATTERS ----- */
+  .matters { background: var(--cream-warm); }
+  .matters .container { max-width: 1100px; }
+  .matter-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+  .matter {
+    background: white;
+    padding: 36px 32px;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .matter-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600;
+    align-self: flex-start;
+  }
+  .matter-tag::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sage);
+  }
+  .matter h3 {
+    font-size: 19px; font-weight: 500; color: var(--navy); line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+  .matter p { font-size: 15px; color: var(--ink); line-height: 1.6; }
+  .matter .stats { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ----- FIRST AID ----- */
+  .firstaid { background: var(--navy); color: white; padding: 110px 32px; }
+  .firstaid .container { max-width: 920px; }
+  .firstaid-eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600; display: block; margin-bottom: 20px;
+  }
+  .firstaid h2 {
+    font-size: clamp(34px, 4vw, 56px);
+    font-weight: 300; line-height: 1.05; color: white;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+  }
+  .firstaid h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
+  .firstaid p {
+    font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.85);
+    max-width: 680px;
+    margin-bottom: 36px;
+  }
+  .firstaid-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 16px 28px;
+    background: white; color: var(--navy);
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    letter-spacing: 0.02em;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .firstaid-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(0,0,0,0.4); }
+  .firstaid-cta .arrow { font-size: 18px; line-height: 1; }
+
+  /* ----- TEAM ----- */
+  .team { background: white; }
+  .team .container { max-width: 1100px; }
+  .team-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px;
+    margin-top: 56px;
+  }
+  .member { display: flex; flex-direction: column; gap: 18px; }
+  .member-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 4px; overflow: hidden;
+    background: var(--cream-warm);
+    box-shadow: 0 20px 40px -28px rgba(31, 56, 100, 0.2);
+  }
+  .member-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.92); }
+  .member-name { font-size: 26px; font-weight: 500; color: var(--navy); letter-spacing: -0.015em; }
+  .member-role { font-size: 13px; letter-spacing: 0.05em; color: var(--sage); font-weight: 600; text-transform: uppercase; margin-top: -10px; }
+  .member-bio { font-size: 15px; line-height: 1.65; color: var(--ink); }
+  .member-meta {
+    display: flex; flex-direction: column; gap: 6px;
+    margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--rule);
+    font-size: 13px; color: var(--muted);
+  }
+  .member-meta a { color: var(--navy); text-decoration: none; }
+  .member-meta a:hover { text-decoration: underline; }
+  .member-meta strong { color: var(--ink); font-weight: 500; }
+
+  /* ----- PERSONAL ----- */
+  .personal { background: var(--cream-warm); padding: 90px 32px; }
+  .personal .container { max-width: 760px; text-align: center; }
+  .personal p {
+    font-size: clamp(22px, 2.3vw, 30px);
+    font-weight: 300; color: var(--navy);
+    line-height: 1.45; font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  .personal .sig {
+    margin-top: 24px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600; font-style: normal;
+  }
+
+  /* ----- CTA BOTTOM ----- */
+  .cta-bottom { background: var(--cream); padding: 110px 32px; text-align: center; }
+  .cta-bottom .container { max-width: 720px; }
+  .cta-bottom h2 {
+    font-size: clamp(40px, 4.5vw, 60px);
+    font-weight: 300; color: var(--navy);
+    letter-spacing: -0.02em; line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .cta-bottom .lead { color: var(--muted); font-size: 17px; margin-bottom: 44px; }
+  .cta-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .cta-pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 4px;
+    text-decoration: none; font-size: 14px; font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+  }
+  .cta-pill.primary { background: var(--navy); color: white; }
+  .cta-pill.primary:hover { background: var(--navy-deep); transform: translateY(-2px); }
+  .cta-pill.secondary { background: white; color: var(--navy); border: 1px solid var(--navy); }
+  .cta-pill.secondary:hover { background: var(--navy); color: white; transform: translateY(-2px); }
+  .cta-pill.tertiary { background: transparent; color: var(--navy); border: 1px solid var(--rule); }
+  .cta-pill.tertiary:hover { border-color: var(--navy); transform: translateY(-2px); }
+
+  /* ----- FOOTER ----- */
+  footer {
+    background: var(--navy-deep); color: rgba(255,255,255,0.7);
+    padding: 60px 32px;
+    font-size: 13px; line-height: 1.6;
+  }
+  footer .container { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  footer .col { display: flex; flex-direction: column; gap: 4px; }
+  footer .firm { color: white; font-weight: 600; letter-spacing: 0.02em; }
+  footer .tagline { font-style: italic; color: var(--sage); margin-top: 8px; }
+  footer .meta { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  /* ----- MIMICU SIDE PROJECT ----- */
+  .mimicu { background: var(--cream); padding: 90px 32px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .mimicu .container { max-width: 1000px; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+  .mimicu-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); font-weight: 600; display: block; margin-bottom: 14px; }
+  .mimicu h2 { font-size: clamp(26px, 2.4vw, 36px); font-weight: 300; color: var(--navy); letter-spacing: -0.015em; line-height: 1.15; }
+  .mimicu h2 em { font-style: italic; color: var(--sage); font-weight: 400; }
+  .mimicu-body p { font-size: 16px; line-height: 1.6; color: var(--ink); margin-bottom: 18px; }
+  .mimicu-card { background: white; border: 1px solid var(--rule); border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .mimicu-card .label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .mimicu-card .name-row { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+  .mimicu-card .mascot { width: 56px; height: 56px; flex-shrink: 0; object-fit: contain; display: block; }
+  .mimicu-card .name {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1;
+    color: var(--mimicu-purple);
+  }
+  .mimicu-card .name .brand-u { color: var(--mimicu-blue); }
+  .mimicu-card a .name-inline { font-family: 'Lora', Georgia, serif; font-weight: 500; color: var(--mimicu-purple); letter-spacing: -0.005em; }
+  .mimicu-card a .name-inline .brand-u { color: var(--mimicu-blue); }
+  .mimicu-card .pitch { font-size: 15px; line-height: 1.55; color: var(--ink); font-style: italic; }
+  .mimicu-card a { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.02em; margin-top: 4px; transition: gap 0.2s ease; }
+  .mimicu-card a:hover { gap: 14px; }
+  .mimicu-card a .arrow { color: var(--sage); }
+  @media (max-width: 900px) { .mimicu .container { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ----- REVEAL ANIMATIONS ----- */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.10s; }
+  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.15s; }
+  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.20s; }
+  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.25s; }
+  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.30s; }
+  .reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.35s; }
+
+  /* ----- RESPONSIVE ----- */
+  @media (max-width: 900px) {
+    section { padding: 70px 24px; }
+    .hero { padding: 80px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-portrait { max-width: 360px; }
+    .lens-head { grid-template-columns: 44px 1fr auto; gap: 16px; padding: 22px 22px; }
+    .lens-body-inner { grid-template-columns: 1fr; gap: 24px; padding: 0 22px 28px 82px; }
+    .principle-list, .who-list, .service-grid, .matter-list, .team-grid { grid-template-columns: 1fr !important; }
+    .principle-list li, .who-list li {
+      padding: 22px 0 !important;
+      border-right: none !important;
+    }
+    .service-grid li:nth-child(n) { border-right: none; }
+  }
+
+  /* ----- PRINT / PDF ----- */
+  .print-header, .print-running-footer { display: none; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @page { size: A4; margin: 16mm 14mm 18mm; }
+
+    html, body { background: white; }
+    .chrome, .lang-toggle, .lens-toggle { display: none !important; }
+    a { color: inherit; text-decoration: none; }
+    .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+    /* Branded masthead — once, top of page 1 */
+    .print-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 12px; margin-bottom: 8px;
+      border-bottom: 2px solid var(--navy);
+    }
+    .print-header img { height: 34px; width: auto; }
+    .print-header-meta { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; }
+
+    /* Running footer — repeats on every printed page */
+    .print-running-footer {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      padding-top: 5px; border-top: 1px solid var(--rule);
+      font-size: 8.5px; letter-spacing: 0.04em; color: var(--muted);
+    }
+    .print-running-footer .prf-tag { font-style: italic; color: var(--sage); }
+
+    /* Section rhythm */
+    section { padding: 22px 0 !important; }
+    .container { max-width: 100% !important; padding: 0 !important; }
+    .hero { padding: 4px 0 22px !important; }
+    .hero-deco, .hero-portrait-rings { display: none !important; }
+    .hero-grid { grid-template-columns: 1.25fr 0.85fr !important; gap: 34px !important; align-items: center; }
+    .hero-portrait { max-width: 300px; box-shadow: none; border: 1px solid var(--rule); }
+    h1, .hero-row { break-after: avoid; }
+    .section-title, .section-eyebrow { break-after: avoid; }
+
+    /* Keep colour blocks */
+    .firstaid, .services { background: var(--navy) !important; }
+    .bridge, .voices, .lenses { background: var(--cream-warm) !important; }
+    footer { background: var(--navy-deep) !important; color: rgba(255,255,255,0.78) !important; }
+
+    /* Don't split atomic blocks across pages */
+    .lens, .bridge-row, .principle-list li, .service-grid li, .who-list li,
+    .engage-card, .voice-card, .member, .mimicu-card, .service-pm, .engage-rate,
+    .hero-portrait-wrap, .matter { break-inside: avoid; page-break-inside: avoid; }
+    .lens .lens-body { max-height: none !important; overflow: visible !important; }
+    .lens-body-inner { padding-bottom: 18px !important; }
+
+    /* Major chapters start fresh for a designed feel */
+    .services, .voices, .team { break-before: page; }
+
+    /* Multi-column quote grid → 2 even columns that page-break cleanly */
+    .voice-grid { columns: 2; column-gap: 20px; }
+    .voice-card { box-shadow: none; }
+
+    /* Tame oversized screen type for A4 */
+    .section-title { font-size: 26px !important; line-height: 1.15 !important; }
+    .lens-title { font-size: 18px !important; }
+    .voice-quote { font-size: 14px !important; line-height: 1.5 !important; }
+    .voice-card.feature .voice-quote { font-size: 16px !important; }
+    .bridge-face p { font-size: 14px !important; }
+    .bridge-fix p { font-size: 13px !important; }
+
+    /* Footer prints once at the very end, above the running footer */
+    footer { padding: 28px 0 !important; margin-bottom: 14px; }
+  }
+
+  /* ----- BRIDGE (challenges) ----- */
+  .bridge { background: var(--cream-warm); }
+  .bridge .container { max-width: 1100px; }
+  .bridge-heads { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 44px; border-bottom: 1px solid var(--navy); }
+  .bridge-heads span { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; padding-bottom: 12px; }
+  .bridge-heads .h-face { color: var(--muted); }
+  .bridge-heads .h-fix { color: var(--sage); padding-left: 48px; }
+  .bridge-list { list-style: none; }
+  .bridge-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .bridge-face { padding: 28px 48px 28px 0; }
+  .bridge-fix { padding: 28px 0 28px 48px; border-left: 1px solid var(--rule); }
+  .bridge-num { font-size: 12px; letter-spacing: 0.1em; color: var(--sage); font-weight: 600; font-variant-numeric: tabular-nums; display: block; margin-bottom: 10px; }
+  .bridge-face p { font-size: 17px; line-height: 1.5; color: var(--ink); font-weight: 400; letter-spacing: -0.005em; }
+  .bridge-face p strong { color: var(--navy); font-weight: 600; }
+  .bridge-fix p { font-size: 15px; line-height: 1.6; color: var(--muted); }
+  .bridge-fix p strong { color: var(--navy); font-weight: 600; }
+  @media (max-width: 900px) {
+    .bridge-heads { display: none; }
+    .bridge-row { grid-template-columns: 1fr; }
+    .bridge-face { padding: 22px 0 12px; }
+    .bridge-fix { padding: 0 0 22px; border-left: none; }
+    .bridge-fix::before { content: '→ '; color: var(--sage); font-weight: 600; }
+  }
+
+  /* ----- SERVICE PM BAND ----- */
+  .service-pm {
+    margin-top: 40px;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 6px;
+    padding: 34px 36px;
+    display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
+    background: rgba(255,255,255,0.04);
+  }
+  .service-pm .pm-mark { font-family: 'Lora', Georgia, serif; font-style: italic; font-size: 40px; color: var(--sage); line-height: 1; }
+  .service-pm .pm-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; display: block; margin-bottom: 8px; }
+  .service-pm p { font-size: 18px; line-height: 1.5; color: white; font-weight: 300; letter-spacing: -0.005em; }
+  .service-pm p strong { font-weight: 600; }
+  @media (max-width: 900px) { .service-pm { grid-template-columns: 1fr; gap: 14px; padding: 26px 24px; } }
+
+  /* ----- ENGAGEMENT (three ways) ----- */
+  .engage-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .engage-card { padding: 36px 30px 34px; border-right: 1px solid rgba(255,255,255,0.15); border-bottom: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; gap: 12px; }
+  .engage-card:last-child { border-right: none; }
+  .engage-card .e-num { font-size: 11px; letter-spacing: 0.14em; color: var(--sage); font-weight: 600; }
+  .engage-card h3 { font-size: 22px; font-weight: 400; color: white; letter-spacing: -0.01em; line-height: 1.15; }
+  .engage-card .e-tag { font-size: 12px; letter-spacing: 0.04em; color: var(--sage); font-weight: 600; font-style: italic; }
+  .engage-card p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); font-weight: 300; }
+  .engage-card.feature { background: rgba(122,155,142,0.16); }
+  .engage-rate {
+    margin-top: 30px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px;
+    font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 300; line-height: 1.6;
+  }
+  .engage-rate strong { color: white; font-weight: 600; }
+  .engage-rate .note { color: var(--sage); font-style: italic; }
+  @media (max-width: 900px) { .engage-grid { grid-template-columns: 1fr; } .engage-card { border-right: none; } }
+
+  /* ----- CV LINK (team) ----- */
+  .cv-link { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.02em; transition: gap 0.2s ease; }
+  .cv-link:hover { gap: 14px; }
+  .cv-link .arrow { color: var(--sage); }
+
+  /* ----- VOICES (testimonials) ----- */
+  .voices { background: var(--cream-warm); border-top: 1px solid var(--rule); }
+  .voices .container { max-width: 1180px; }
+  .voice-grid { columns: 2; column-gap: 28px; margin-top: 52px; }
+  .voice-card {
+    break-inside: avoid; display: inline-block; width: 100%;
+    background: white; border: 1px solid var(--rule); border-radius: 8px;
+    padding: 34px 34px 30px; margin-bottom: 28px;
+  }
+  .voice-card.feature { border-color: var(--sage); background: #fff; }
+  .voice-mark { font-family: 'Lora', Georgia, serif; font-size: 46px; line-height: 0.5; color: var(--sage); display: block; height: 22px; }
+  .voice-quote {
+    font-family: 'Lora', Georgia, serif; font-size: 18px; line-height: 1.62;
+    color: var(--ink); margin: 14px 0 22px; font-weight: 400; text-wrap: pretty;
+  }
+  .voice-card.feature .voice-quote { font-size: 21px; line-height: 1.55; }
+  :lang(zh-hant) .voice-quote, :lang(zh-hans) .voice-quote { font-family: 'Noto Serif TC','Lora',serif; font-size: 16.5px; line-height: 1.85; }
+  .voice-attr { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .voice-name { font-weight: 600; font-size: 14px; color: var(--navy); letter-spacing: -0.005em; }
+  .voice-role { font-size: 13px; color: var(--muted); }
+  .voice-tag {
+    margin-left: auto; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600; color: var(--sage); border: 1px solid var(--sage-line);
+    border-radius: 100px; padding: 4px 11px; white-space: nowrap;
+  }
+  .voice-note { margin-top: 30px; font-size: 12.5px; color: var(--muted); font-style: italic; }
+  @media (max-width: 820px) { .voice-grid { columns: 1; } }
+
+  /* ----- LANG-SPECIFIC TWEAKS ----- */
+  html[lang="zh-hant"] .hero h1,
+  html[lang="zh-hans"] .hero h1 { letter-spacing: 0; }
+  html[lang="zh-hant"] body,
+  html[lang="zh-hans"] body { letter-spacing: 0.005em; }
+</style>
+
+<style id="artsy-v4">
+  /* ===== OLN v4 skin: warm paper, serif titles, floating cards (screen only) ===== */
+  @media screen {
+    :root { --paper: #f4efe5; --paper-warm: #efe7d9; }
+    html { background: var(--paper); }
+    body { background: transparent; position: relative; }
+    .artsy-ambient { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+    .artsy-ambient svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+    .lenses, .principles, .who, .bridge, .voices, .team, .personal, .cta-bottom, .mimicu, .matters, .roadmap {
+      background: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+    .services, .firstaid {
+      margin-left: clamp(12px, 3vw, 56px); margin-right: clamp(12px, 3vw, 56px);
+      border-radius: 36px; box-shadow: 0 50px 100px -55px rgba(20, 38, 74, 0.55);
+    }
+    .lens, .voice-card, .mimicu-card, .matter {
+      background: rgba(255,255,255,0.62) !important; border: 1px solid rgba(255,255,255,0.75) !important;
+      border-radius: 18px !important; box-shadow: 0 26px 54px -36px rgba(31,56,100,0.30) !important;
+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    }
+    .lens.is-open { background: rgba(255,255,255,0.92) !important; }
+
+    .section-title {
+      font-family: 'Lora', Georgia, serif !important;
+      font-size: clamp(40px, 5.4vw, 78px) !important; line-height: 1.0 !important;
+      font-weight: 400 !important; letter-spacing: -0.022em !important;
+    }
+    .cta-bottom h2 {
+      font-family: 'Lora', Georgia, serif !important; font-size: clamp(44px, 6vw, 86px) !important;
+      font-weight: 400 !important; font-style: italic !important; line-height: 1.0 !important;
+    }
+    .firstaid h2, .mimicu h2 { font-family: 'Lora', Georgia, serif; font-weight: 400; }
+
+    .section-eyebrow { position: relative; padding-left: 36px; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 26px; height: 1px; background: var(--sage); }
+
+    section { padding-top: 128px !important; padding-bottom: 128px !important; }
+  }
+  @media print { .artsy-ambient { display: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="artsy-ambient" aria-hidden="true">
+  <svg viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="bloomA" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#7A9B8E" stop-opacity="0.16"></stop>
+        <stop offset="100%" stop-color="#7A9B8E" stop-opacity="0"></stop>
+      </radialGradient>
+      <radialGradient id="bloomB" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1F3864" stop-opacity="0.07"></stop>
+        <stop offset="100%" stop-color="#1F3864" stop-opacity="0"></stop>
+      </radialGradient>
+    </defs>
+    <circle cx="1240" cy="120" r="560" fill="url(#bloomA)"></circle>
+    <circle cx="120" cy="900" r="600" fill="url(#bloomB)"></circle>
+  </svg>
+</div>
+
+<div class="chrome">
+  <div class="chrome-inner">
+    <div class="brand">
+      <img class="brand-logo" src="assets/oln-logo.png" alt="OLN — Oldham, Li & Nie">
+      <span class="assoc" data-en="In Association with Watson & Band" data-zh-hant="與華誠律師事務所聯營" data-zh-hans="与华诚律师事务所联营">In Association with Watson & Band</span>
+    </div>
+    <div class="lang-toggle" role="tablist" aria-label="Language">
+      <button data-lang="en" class="is-active">EN</button>
+      <button data-lang="zh-hant">繁</button>
+      <button data-lang="zh-hans">简</button>
+    </div>
+  </div>
+  <nav class="topic-nav" aria-label="Startup Tech topics">
+    <div class="topic-nav-inner">
+      <a class="tnav" href="index.html"><span data-en="How we work" data-zh-hant="合作方式" data-zh-hans="合作方式">How we work</span></a>
+      <a class="tnav is-current" href="fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
+      <a class="tnav" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
+      <a class="tnav" href="esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
+      <span class="tnav soon"><span data-en="Agreements" data-zh-hant="合約審閱" data-zh-hans="合约审阅">Agreements</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+      <span class="tnav soon"><span data-en="Hiring" data-zh-hant="聘用" data-zh-hans="聘用">Hiring</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+      <span class="tnav soon"><span data-en="Collaboration" data-zh-hant="合作" data-zh-hans="合作">Collaboration</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+      <span class="tnav soon"><span data-en="Expansion" data-zh-hant="業務擴張" data-zh-hans="业务扩张">Expansion</span><i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
+    </div>
+  </nav>
+</div>
+
+<main>
+
+<div class="print-header" aria-hidden="true">
+  <img src="assets/oln-logo.png" alt="OLN — Oldham, Li & Nie">
+  <span class="print-header-meta">Startup Tech</span>
+</div>
+
+<!-- ===== FUNDRAISING ROADMAP (interactive, trilingual) ===== -->
+<style>
+#oln-fr{--navy:#1F3864;--navy-tint:#eaeef6;--sage:#7A9B8E;--sage-deep:#52786b;--sage-pale:#f6f9f6;--ink:#1a1f2b;--ink-2:#3a4150;--ink-3:#5e6678;--ink-4:#8a91a0;--rule:#dfe2e8;--amber:#9a6a1c;--amber-tint:#f9f3e8;font-family:"Inter",-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.55;max-width:1000px;margin:0 auto;padding:28px 20px 40px;-webkit-font-smoothing:antialiased;box-sizing:border-box}
+#oln-fr *{box-sizing:border-box}
+#oln-fr .hint{font-size:13px;color:var(--ink-4);margin:0 0 4px}
+#oln-fr .sech{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:600;margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+#oln-fr .sech::after{content:"";flex:1;height:1px;background:var(--rule)}
+#oln-fr .tabs{display:flex;gap:10px;flex-wrap:wrap}
+#oln-fr .tab{flex:1;min-width:150px;text-align:left;cursor:pointer;border:1px solid var(--rule);border-radius:10px;padding:14px 16px;background:#fff;transition:.15s;border-top-width:3px;font-family:inherit}
+#oln-fr .tab .nm{font-weight:600;font-size:16px}
+#oln-fr .tab .tg{font-size:12px;color:var(--ink-3);display:block;margin-top:2px}
+#oln-fr .tab[data-i="safe"]{border-top-color:var(--sage)}
+#oln-fr .tab[data-i="conv"]{border-top-color:var(--amber)}
+#oln-fr .tab[data-i="eq"]{border-top-color:var(--navy)}
+#oln-fr .tab.on{box-shadow:0 6px 18px -10px rgba(20,28,48,.4);transform:translateY(-1px)}
+#oln-fr .tab.on[data-i="safe"]{background:var(--sage-pale)}
+#oln-fr .tab.on[data-i="conv"]{background:var(--amber-tint)}
+#oln-fr .tab.on[data-i="eq"]{background:var(--navy-tint)}
+#oln-fr .panelwrap{border:1px solid var(--rule);border-radius:12px;padding:20px 22px;margin-top:14px;background:#fff}
+#oln-fr .ip{display:none}#oln-fr .ip.on{display:block;animation:frfade .2s ease}
+@keyframes frfade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+#oln-fr .ip .best{color:var(--ink-2);margin:0 0 14px}#oln-fr .ip .best b{color:var(--ink)}
+#oln-fr .ip ol{margin:0 0 14px;padding-left:0;list-style:none;counter-reset:s}
+#oln-fr .ip ol li{counter-increment:s;position:relative;padding:6px 0 6px 30px;border-top:1px solid var(--rule);font-size:14px}
+#oln-fr .ip ol li:first-child{border-top:0}
+#oln-fr .ip ol li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:6px;font-size:11px;font-weight:700;color:var(--ink-4);border:1px solid var(--rule);border-radius:4px;padding:1px 5px}
+#oln-fr .meta{display:flex;flex-wrap:wrap;gap:10px 26px;padding-top:14px;border-top:1px solid var(--rule);font-size:13px}
+#oln-fr .meta div span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);font-weight:600;margin-bottom:2px}
+#oln-fr .meta div b{font-weight:600;color:var(--ink)}
+#oln-fr .terms{font-size:12px;color:var(--ink-3);margin-top:12px}
+#oln-fr .note{font-size:12px;color:var(--ink-4);margin-top:8px}
+#oln-fr .banner{background:var(--navy);color:#fff;border-radius:12px;border-left:4px solid var(--sage);padding:18px 22px;margin:8px 0 16px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+#oln-fr .banner .big{font-size:18px;font-weight:600;flex:1;min-width:240px}
+#oln-fr .banner .big i{color:#cfe0d8;font-style:normal}
+#oln-fr .banner .sub{font-size:13px;color:#cdd6e6;max-width:46ch}
+#oln-fr .phase{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:700;margin:16px 0 8px}
+#oln-fr .step{border:1px solid var(--rule);border-left:3px solid var(--navy);border-radius:0 8px 8px 0;margin-bottom:8px;background:#fff;overflow:hidden}
+#oln-fr .step.early{border-left-color:var(--sage)}
+#oln-fr .step .sh{display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer}
+#oln-fr .step .no{font-size:11px;font-weight:700;color:var(--navy);border:1px solid var(--navy);border-radius:4px;padding:1px 6px}
+#oln-fr .step.early .no{color:var(--sage-deep);border-color:var(--sage)}
+#oln-fr .step .st{font-weight:600;flex:1;font-size:15px}
+#oln-fr .step .chev{color:var(--ink-4);transition:.2s;font-size:13px}
+#oln-fr .step.open .chev{transform:rotate(90deg)}
+#oln-fr .step .sd{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 16px}
+#oln-fr .step.open .sd{max-height:240px;padding:0 16px 14px}
+#oln-fr .step .sd p{margin:0 0 8px;font-size:14px;color:var(--ink-2)}
+#oln-fr .chips{display:flex;gap:6px;flex-wrap:wrap}
+#oln-fr .chip{font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+#oln-fr .chip.oln{background:var(--navy-tint);color:var(--navy)}
+#oln-fr .chip.fdr{background:var(--sage-pale);color:var(--sage-deep)}
+#oln-fr .chip.inv{background:#eef0f3;color:var(--ink-3)}
+#oln-fr .qwrap{background:var(--amber-tint);border:1px solid #e2cfa6;border-left:3px solid var(--amber);border-radius:12px;padding:20px 22px}
+#oln-fr .q{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed #e2cfa6;cursor:pointer}
+#oln-fr .q:first-of-type{border-top:0}
+#oln-fr .qbox{flex:none;width:22px;height:22px;border:1.5px solid var(--amber);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;background:#fff;transition:.15s;font-weight:700}
+#oln-fr .q.got .qbox{background:var(--sage-deep);border-color:var(--sage-deep)}
+#oln-fr .q.got .qbox::after{content:"\2713"}
+#oln-fr .q .qt{font-size:14px;color:var(--ink-2)}#oln-fr .q.got .qt{color:var(--ink-4);text-decoration:line-through}
+#oln-fr .qfoot{margin-top:16px;padding-top:14px;border-top:1px dashed #e2cfa6;font-size:15px}
+#oln-fr .qfoot b{color:var(--amber)}
+#oln-fr .assume{font-size:12px;color:var(--ink-3);margin-top:24px;padding-top:14px;border-top:1px solid var(--rule)}
+#oln-fr .assume b{color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:600;margin-right:4px}
+@media(max-width:560px){#oln-fr .banner .big{font-size:16px}#oln-fr .tab{min-width:0}}
+.roadmap{background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.roadmap .container{max-width:1100px;}
+.roadmap #oln-fr{max-width:none;margin:0;padding:0;}
+.roadmap #oln-fr .sech:first-of-type{margin-top:6px;}
+@media print{#oln-fr .step .sd{max-height:none !important;padding:0 16px 14px !important}#oln-fr .ip{display:block !important}#oln-fr .hint{display:none}}
+</style>
+<section class="roadmap" data-screen-label="Fundraising roadmap">
+  <div class="container">
+    <a class="fr-back" href="index.html" data-en="← Back to how we work" data-zh-hant="← 返回合作方式" data-zh-hans="← 返回合作方式" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--sage);text-decoration:none;font-weight:600;margin-bottom:24px;">← Back to how we work</a>
+    <div class="reveal">
+      <p class="section-eyebrow" data-en="Fundraising roadmap" data-zh-hant="募資路線圖" data-zh-hans="募资路线图">Fundraising roadmap</p>
+      <h2 class="section-title" data-en="Raising your round, step by step." data-zh-hant="一步步完成你的融資。" data-zh-hans="一步步完成你的融资。">Raising your round, step by step.</h2>
+      <p class="section-lead" data-en="The instrument you raise on shapes everything that follows — choose it deliberately. Here's how a round runs with OLN beside you." data-zh-hant="你用哪種工具融資，會牽動之後的一切——要慎重選擇。以下是有 OLN 陪你走，一輪融資是怎麼進行的。" data-zh-hans="你用哪种工具融资，会牵动之后的一切——要慎重选择。以下是有 OLN 陪你走，一轮融资是怎么进行的。">The instrument you raise on shapes everything that follows — choose it deliberately. Here's how a round runs with OLN beside you.</p>
+    </div>
+
+    <div id="oln-fr">
+      <p class="hint" data-en="Interactive — tap an instrument, open any step, and tick off the self-check below." data-zh-hant="互動內容——點選工具、展開任一步驟，並勾選下方的自我檢查。" data-zh-hans="互动内容——点选工具、展开任一步骤，并勾选下方的自我检查。">Interactive — tap an instrument, open any step, and tick off the self-check below.</p>
+
+      <div class="sech" data-en="1 · Choose your instrument" data-zh-hant="1 · 選擇你的融資工具" data-zh-hans="1 · 选择你的融资工具">1 · Choose your instrument</div>
+      <div class="tabs">
+        <button class="tab on" data-i="safe"><span class="nm">SAFE</span><span class="tg" data-en="Simple Agreement for Future Equity" data-zh-hant="未來股權簡單協議" data-zh-hans="未来股权简单协议">Simple Agreement for Future Equity</span></button>
+        <button class="tab" data-i="conv"><span class="nm" data-en="Convertible note / bond" data-zh-hant="可轉換債券" data-zh-hans="可转换债券">Convertible note / bond</span><span class="tg" data-en="Debt that converts" data-zh-hant="可轉換的債務" data-zh-hans="可转换的债务">Debt that converts</span></button>
+        <button class="tab" data-i="eq"><span class="nm" data-en="Equity round" data-zh-hant="股權融資輪" data-zh-hans="股权融资轮">Equity round</span><span class="tg" data-en="Priced round — full documents" data-zh-hant="定價輪——完整文件" data-zh-hans="定价轮——完整文件">Priced round — full documents</span></button>
+      </div>
+      <div class="panelwrap">
+        <div class="ip on" data-i="safe">
+          <p class="best" data-en="<b>Best when</b> — earliest stage, speed matters, and you want to defer valuation." data-zh-hant="<b>適用時機</b>——最早期、講求速度，且你想延後估值。" data-zh-hans="<b>适用时机</b>——最早期、讲求速度，且你想延后估值。"><b>Best when</b> — earliest stage, speed matters, and you want to defer valuation.</p>
+          <ol>
+            <li data-en="Draft the SAFE — set valuation cap and/or discount" data-zh-hant="起草 SAFE——設定估值上限及／或折讓" data-zh-hans="起草 SAFE——设定估值上限及／或折让">Draft the SAFE — set valuation cap and/or discount</li>
+            <li data-en="Board approval and any side letter" data-zh-hant="董事會批准及任何附函" data-zh-hans="董事会批准及任何附函">Board approval and any side letter</li>
+            <li data-en="Sign, issue &amp; update the cap table" data-zh-hant="簽署、發行並更新股權結構表" data-zh-hans="签署、发行并更新股权结构表">Sign, issue &amp; update the cap table</li>
+          </ol>
+          <p class="terms" data-en="<b>Key terms:</b> valuation cap · discount · MFN · pro rata" data-zh-hant="<b>關鍵條款：</b>估值上限 · 折讓 · 最惠待遇 · 按比例認購權" data-zh-hans="<b>关键条款：</b>估值上限 · 折让 · 最惠待遇 · 按比例认购权"><b>Key terms:</b> valuation cap · discount · MFN · pro rata</p>
+          <div class="meta">
+            <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee · on request" data-zh-hant="固定費用 · 可查詢" data-zh-hans="固定费用 · 可咨询">Fixed fee · on request</b></div>
+            <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~1 week" data-zh-hant="約 1 週" data-zh-hans="约 1 周">~1 week</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Converts at your next priced round" data-zh-hant="於下一次定價輪轉換" data-zh-hans="于下一次定价轮转换">Converts at your next priced round</b></div>
+          </div>
+        </div>
+        <div class="ip" data-i="conv">
+          <p class="best" data-en="<b>Best when</b> — you want debt-like protection now and conversion later; a bridge to the next round." data-zh-hant="<b>適用時機</b>——你想先有類似債權的保障，日後再轉換；作為通往下一輪的橋樑。" data-zh-hans="<b>适用时机</b>——你想先有类似债权的保障，日后再转换；作为通往下一轮的桥梁。"><b>Best when</b> — you want debt-like protection now and conversion later; a bridge to the next round.</p>
+          <ol>
+            <li data-en="Draft the note — interest, maturity, discount, cap" data-zh-hant="起草票據——利率、到期日、折讓、上限" data-zh-hans="起草票据——利率、到期日、折让、上限">Draft the note — interest, maturity, discount, cap</li>
+            <li data-en="Board &amp; shareholder approvals" data-zh-hant="董事會與股東批准" data-zh-hans="董事会与股东批准">Board &amp; shareholder approvals</li>
+            <li data-en="Sign, issue &amp; record the debt" data-zh-hant="簽署、發行並記錄該債務" data-zh-hans="签署、发行并记录该债务">Sign, issue &amp; record the debt</li>
+          </ol>
+          <p class="terms" data-en="<b>Key terms:</b> interest · maturity · discount · valuation cap" data-zh-hant="<b>關鍵條款：</b>利率 · 到期日 · 折讓 · 估值上限" data-zh-hans="<b>关键条款：</b>利率 · 到期日 · 折让 · 估值上限"><b>Key terms:</b> interest · maturity · discount · valuation cap</p>
+          <div class="meta">
+            <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee · on request" data-zh-hant="固定費用 · 可查詢" data-zh-hans="固定费用 · 可咨询">Fixed fee · on request</b></div>
+            <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~3–6 weeks" data-zh-hant="約 3–6 週" data-zh-hans="约 3–6 周">~3–6 weeks</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Converts at a qualifying round, or repays at maturity" data-zh-hant="於符合條件的融資輪轉換，或於到期時償還" data-zh-hans="于符合条件的融资轮转换，或于到期时偿还">Converts at a qualifying round, or repays at maturity</b></div>
+          </div>
+        </div>
+        <div class="ip" data-i="eq">
+          <p class="best" data-en="<b>Best when</b> — a priced seed or Series A; investors take shares now." data-zh-hant="<b>適用時機</b>——定價的種子輪或 A 輪；投資人現在就取得股份。" data-zh-hans="<b>适用时机</b>——定价的种子轮或 A 轮；投资人现在就取得股份。"><b>Best when</b> — a priced seed or Series A; investors take shares now.</p>
+          <ol>
+            <li data-en="Term sheet — review &amp; negotiate" data-zh-hant="投資意向書——審閱與談判" data-zh-hans="投资意向书——审阅与谈判">Term sheet — review &amp; negotiate</li>
+            <li data-en="SHA, SPA &amp; Articles — core documents" data-zh-hant="股東協議、股權買賣協議與章程——核心文件" data-zh-hans="股东协议、股权买卖协议与章程——核心文件">SHA, SPA &amp; Articles — core documents</li>
+            <li data-en="Ancillary documents + disclosure schedule" data-zh-hant="附屬文件＋披露清單" data-zh-hans="附属文件＋披露清单">Ancillary documents + disclosure schedule</li>
+            <li data-en="Resolutions &amp; closing documents" data-zh-hant="決議與交割文件" data-zh-hans="决议与交割文件">Resolutions &amp; closing documents</li>
+            <li data-en="Closing &amp; share issue" data-zh-hant="交割與股份發行" data-zh-hans="交割与股份发行">Closing &amp; share issue</li>
+          </ol>
+          <p class="terms" data-en="<b>Key terms:</b> valuation · liquidation preference · board &amp; control rights · pre-emption" data-zh-hant="<b>關鍵條款：</b>估值 · 清算優先權 · 董事會與控制權 · 優先認購權" data-zh-hans="<b>关键条款：</b>估值 · 清算优先权 · 董事会与控制权 · 优先认购权"><b>Key terms:</b> valuation · liquidation preference · board &amp; control rights · pre-emption</p>
+          <div class="meta">
+            <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee + capped hourly · on request" data-zh-hant="固定費用＋計時上限 · 可查詢" data-zh-hans="固定费用＋计时上限 · 可咨询">Fixed fee + capped hourly · on request</b></div>
+            <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~4–12 weeks" data-zh-hant="約 4–12 週" data-zh-hans="约 4–12 周">~4–12 weeks</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Shares issued at closing" data-zh-hant="於交割時發行股份" data-zh-hans="于交割时发行股份">Shares issued at closing</b></div>
+          </div>
+        </div>
+      </div>
+      <p class="note" data-en="No surprises on cost — we work on a fixed fee or capped range, confirmed in writing before we start. Just ask for a quote." data-zh-hant="費用沒有意外——我們採固定費用或設上限的範圍，開始之前以書面確認。歡迎向我們索取報價。" data-zh-hans="费用没有意外——我们采固定费用或设上限的范围，开始之前以书面确认。欢迎向我们索取报价。">No surprises on cost — we work on a fixed fee or capped range, confirmed in writing before we start. Just ask for a quote.</p>
+
+      <div class="sech" data-en="2 · How the round runs" data-zh-hant="2 · 一輪融資如何進行" data-zh-hans="2 · 一轮融资如何进行">2 · How the round runs</div>
+      <div class="banner"><div class="big" data-en="The <i>earlier OLN is on board</i>, the smoother the round." data-zh-hant="OLN <i>越早參與</i>，這輪融資就越順。" data-zh-hans="OLN <i>越早参与</i>，这轮融资就越顺。">The <i>earlier OLN is on board</i>, the smoother the round.</div><div class="sub" data-en="Bring us in at the strategy stage and every step gets faster, cleaner and cheaper — fewer surprises in diligence, fewer concessions you can't undo." data-zh-hant="在策略階段就找我們加入，每一步都更快、更乾淨、更省——盡職調查少些意外，少做些無法挽回的讓步。" data-zh-hans="在策略阶段就找我们加入，每一步都更快、更干净、更省——尽职调查少些意外，少做些无法挽回的让步。">Bring us in at the strategy stage and every step gets faster, cleaner and cheaper — fewer surprises in diligence, fewer concessions you can't undo.</div></div>
+
+      <div class="phase" data-en="Preparation" data-zh-hant="準備" data-zh-hans="准备">Preparation</div>
+      <div class="step early"><div class="sh"><span class="no">01</span><span class="st" data-en="Strategy &amp; structure" data-zh-hant="策略與架構" data-zh-hans="策略与架构">Strategy &amp; structure</span><span class="chev">▸</span></div><div class="sd"><p data-en="Agree negotiation strategy; map the cap table; align co-founder roles, responsibilities and contribution. The best time to bring OLN in." data-zh-hant="議定談判策略；梳理股權結構；對齊共同創辦人的角色、職責與貢獻。這是讓 OLN 加入的最佳時機。" data-zh-hans="议定谈判策略；梳理股权结构；对齐共同创办人的角色、职责与贡献。这是让 OLN 加入的最佳时机。">Agree negotiation strategy; map the cap table; align co-founder roles, responsibilities and contribution. The best time to bring OLN in.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">02</span><span class="st" data-en="Term sheet review &amp; negotiation" data-zh-hant="投資意向書審閱與談判" data-zh-hans="投资意向书审阅与谈判">Term sheet review &amp; negotiation</span><span class="chev">▸</span></div><div class="sd"><p data-en="Review the term sheet, flag key risks and propose mark-ups (up to 2 rounds)." data-zh-hant="審閱投資意向書，標示主要風險並提出修訂建議（最多兩輪）。" data-zh-hans="审阅投资意向书，标示主要风险并提出修订建议（最多两轮）。">Review the term sheet, flag key risks and propose mark-ups (up to 2 rounds).</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip inv" data-en="Investor" data-zh-hant="投資人" data-zh-hans="投资人">Investor</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">03</span><span class="st" data-en="Cap table / declaration of trust" data-zh-hant="股權結構／信託聲明" data-zh-hans="股权结构／信托声明">Cap table / declaration of trust</span><span class="chev">▸</span></div><div class="sd"><p data-en="Declaration of trust for non-HK founders; tidy pre-allotment holdings." data-zh-hant="為非香港創辦人辦理信託聲明；整理配發前的持股。" data-zh-hans="为非香港创办人办理信托声明；整理配发前的持股。">Declaration of trust for non-HK founders; tidy pre-allotment holdings.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="phase" data-en="Documentation" data-zh-hant="文件" data-zh-hans="文件">Documentation</div>
+      <div class="step"><div class="sh"><span class="no">04</span><span class="st" data-en="Core transaction documents" data-zh-hant="核心交易文件" data-zh-hans="核心交易文件">Core transaction documents</span><span class="chev">▸</span></div><div class="sd"><p data-en="Draft / review the SHA, Subscription / SPA and Articles (up to 3 rounds)." data-zh-hant="起草／審閱股東協議、認購／股權買賣協議與公司章程（最多三輪）。" data-zh-hans="起草／审阅股东协议、认购／股权买卖协议与公司章程（最多三轮）。">Draft / review the SHA, Subscription / SPA and Articles (up to 3 rounds).</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip inv" data-en="Investor" data-zh-hant="投資人" data-zh-hans="投资人">Investor</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">05</span><span class="st" data-en="Ancillary documents" data-zh-hant="附屬文件" data-zh-hans="附属文件">Ancillary documents</span><span class="chev">▸</span></div><div class="sd"><p data-en="Founders' service agreements, IP assignment, director indemnity, non-compete and non-solicitation." data-zh-hant="創辦人服務協議、知識產權轉讓、董事彌償、競業禁止與禁止招攬。" data-zh-hans="创办人服务协议、知识产权转让、董事弥偿、竞业禁止与禁止招揽。">Founders' service agreements, IP assignment, director indemnity, non-compete and non-solicitation.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">06</span><span class="st" data-en="Disclosure schedule" data-zh-hant="披露清單" data-zh-hans="披露清单">Disclosure schedule</span><span class="chev">▸</span></div><div class="sd"><p data-en="Prepare the disclosure schedule; founders supply the underlying information." data-zh-hant="編製披露清單；創辦人提供相關底層資料。" data-zh-hans="编制披露清单；创办人提供相关底层资料。">Prepare the disclosure schedule; founders supply the underlying information.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder provides info" data-zh-hant="創辦人提供資料" data-zh-hans="创办人提供资料">Founder provides info</span></div></div></div>
+      <div class="phase" data-en="Closing" data-zh-hant="交割" data-zh-hans="交割">Closing</div>
+      <div class="step"><div class="sh"><span class="no">07</span><span class="st" data-en="Resolutions &amp; completion documents" data-zh-hant="決議與完成文件" data-zh-hans="决议与完成文件">Resolutions &amp; completion documents</span><span class="chev">▸</span></div><div class="sd"><p data-en="Board &amp; shareholder resolutions, closing documents, share certificates and register review." data-zh-hant="董事會與股東決議、交割文件、股票及股東名冊審查。" data-zh-hans="董事会与股东决议、交割文件、股票及股东名册审查。">Board &amp; shareholder resolutions, closing documents, share certificates and register review.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">08</span><span class="st" data-en="Closing assistance" data-zh-hant="交割協助" data-zh-hans="交割协助">Closing assistance</span><span class="chev">▸</span></div><div class="sd"><p data-en="Help all parties sign and complete; confirm conditions precedent are satisfied." data-zh-hant="協助各方簽署並完成；確認先決條件已達成。" data-zh-hans="协助各方签署并完成；确认先决条件已达成。">Help all parties sign and complete; confirm conditions precedent are satisfied.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span><span class="chip inv" data-en="Investor" data-zh-hant="投資人" data-zh-hans="投资人">Investor</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">09</span><span class="st" data-en="Post-closing" data-zh-hant="交割後" data-zh-hans="交割后">Post-closing</span><span class="chev">▸</span></div><div class="sd"><p data-en="Update statutory records and the register; handle necessary filings." data-zh-hant="更新法定記錄與股東名冊；處理必要的申報。" data-zh-hans="更新法定记录与股东名册；处理必要的申报。">Update statutory records and the register; handle necessary filings.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+
+      <div class="sech" data-en="3 · Ask yourself" data-zh-hant="3 · 問問自己" data-zh-hans="3 · 问问自己">3 · Ask yourself</div>
+      <div class="qwrap" id="fr-q">
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you really understand <em>every</em> term in the term sheet — and what each one costs you later?" data-zh-hant="你真的理解投資意向書裡的<em>每一條</em>條款——以及它們日後各自的代價嗎？" data-zh-hans="你真的理解投资意向书里的<em>每一条</em>条款——以及它们日后各自的代价吗？">Do you really understand <em>every</em> term in the term sheet — and what each one costs you later?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you understand the control rights you're giving away — board seats, vetoes, information rights?" data-zh-hant="你清楚自己交出去的控制權嗎——董事席位、否決權、資訊權？" data-zh-hans="你清楚自己交出去的控制权吗——董事席位、否决权、信息权？">Do you understand the control rights you're giving away — board seats, vetoes, information rights?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know how to handle an investor's due diligence requests?" data-zh-hant="你知道如何應對投資人的盡職調查要求嗎？" data-zh-hans="你知道如何应对投资人的尽职调查要求吗？">Do you know how to handle an investor's due diligence requests?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know how a liquidation preference changes what you walk away with?" data-zh-hant="你知道清算優先權會如何改變你最終能拿到多少嗎？" data-zh-hans="你知道清算优先权会如何改变你最终能拿到多少吗？">Do you know how a liquidation preference changes what you walk away with?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you really know how an ESOP works — and whether your team actually feels motivated by it?" data-zh-hant="你真的了解員工持股計劃怎麼運作——以及你的團隊是否真的因此受到激勵嗎？" data-zh-hans="你真的了解员工持股计划怎么运作——以及你的团队是否真的因此受到激励吗？">Do you really know how an ESOP works — and whether your team actually feels motivated by it?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="SAFE, convertible or equity — do you know which one actually fits your stage?" data-zh-hant="SAFE、可轉換債還是股權——你知道哪一種才真正適合你的階段嗎？" data-zh-hans="SAFE、可转换债还是股权——你知道哪一种才真正适合你的阶段吗？">SAFE, convertible or equity — do you know which one actually fits your stage?</div></div>
+        <div class="qfoot" id="fr-qfoot">Tap each one you're confident about. <b>Not sure on any? That's exactly what we handle.</b></div>
+      </div>
+
+      <p class="assume" data-en="<b>Assumptions</b> English documents · Hong Kong law only · scope &amp; rounds as agreed · timelines vary by instrument and round. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · ESOP scheme design · tax advice (incl. stamp duty) · contentious matters." data-zh-hant="<b>假設前提</b>英文文件 · 僅就香港法律 · 範圍與輪次依約定 · 時程因工具與輪次而異。 &nbsp; <b>不包括</b>公司成立及秘書申報 · 員工持股計劃設計 · 稅務意見（含印花稅）· 爭議事項。" data-zh-hans="<b>假设前提</b>英文文件 · 仅就香港法律 · 范围与轮次依约定 · 时程因工具与轮次而异。 &nbsp; <b>不包括</b>公司成立及秘书申报 · 员工持股计划设计 · 税务意见（含印花税）· 争议事项。"><b>Assumptions</b> English documents · Hong Kong law only · scope &amp; rounds as agreed · timelines vary by instrument and round. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · ESOP scheme design · tax advice (incl. stamp duty) · contentious matters.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <div class="container">
+    <h2 class="reveal" data-en="Talk to us before the round, not after." data-zh-hant="在這輪融資開始前，先跟我們談談。" data-zh-hans="在这轮融资开始前，先跟我们谈谈。">Talk to us before the round, not after.</h2>
+    <p class="lead reveal" data-en="Whichever instrument you choose, we lead every step — and keep the investor relationship intact. I quote up front." data-zh-hant="無論你選擇哪種融資工具，我們都會主導每一步——同時守住與投資人的關係。我會事先報價。" data-zh-hans="无论你选择哪种融资工具，我们都会主导每一步——同时守住与投资人的关系。我会事先报价。">Whichever instrument you choose, we lead every step — and keep the investor relationship intact. I quote up front.</p>
+    <div class="cta-row reveal">
+      <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com?subject=Fundraising%20enquiry">cermain.cheung@oln-law.com</a>
+      <a class="cta-pill secondary" href="https://www.linkedin.com/in/cermain-cheung-56476030/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<div class="print-running-footer" aria-hidden="true">
+  <span>Oldham, Li &amp; Nie · In Association with Watson &amp; Band</span>
+  <span class="prf-tag">Practical Legal Solutions — On Time — No Excuses</span>
+  <span>oln-law.com</span>
+</div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="col">
+      <span class="firm" data-en="OLN — Oldham, Li & Nie" data-zh-hant="高李嚴律師行" data-zh-hans="高李严律师行">OLN — Oldham, Li & Nie</span>
+      <span data-en="In Association with Watson & Band" data-zh-hant="與華誠律師事務所聯營" data-zh-hans="与华诚律师事务所联营">In Association with Watson & Band</span>
+      <span class="tagline" data-en="Practical Legal Solutions — On Time — No Excuses" data-zh-hant="務實的法律方案 —— 準時交付 —— 沒有藉口" data-zh-hans="务实的法律方案 —— 准时交付 —— 没有借口">Practical Legal Solutions — On Time — No Excuses</span>
+    </div>
+    <div class="col">
+      <span data-en="Suite 503, St. George's Building" data-zh-hant="香港中環雪廠街 2 號聖佐治大廈 503 室" data-zh-hans="香港中环雪厂街 2 号圣佐治大厦 503 室">Suite 503, St. George's Building</span>
+      <span data-en="2 Ice House Street, Central, Hong Kong" data-zh-hant="香港中環雪廠街 2 號" data-zh-hans="香港中环雪厂街 2 号">2 Ice House Street, Central, Hong Kong</span>
+      <span>Tel +852 2868 0696 · info@oln-law.com</span>
+    </div>
+    <div class="col">
+      <span class="meta" data-en="Fundraising Roadmap · OLN Startup Tech" data-zh-hant="募資路線圖・OLN Startup Tech" data-zh-hans="募资路线图・OLN Startup Tech">Fundraising Roadmap · OLN Startup Tech</span>
+      <span class="meta" data-en="oln-law.com" data-zh-hant="oln-law.com" data-zh-hans="oln-law.com">oln-law.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ----- LANGUAGE TOGGLE -----
+  const STORAGE_KEY = 'oln-brochure-lang';
+  const buttons = document.querySelectorAll('.lang-toggle button');
+
+  function setLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+    const attr = 'data-' + lang;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const val = el.getAttribute(attr);
+      if (val !== null) el.innerHTML = val;
+    });
+    buttons.forEach(b => b.classList.toggle('is-active', b.dataset.lang === lang));
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // Restore last language
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && ['en','zh-hant','zh-hans'].includes(saved)) setLang(saved);
+  } catch (e) {}
+
+  // ----- LENS EXPANSION -----
+  document.querySelectorAll('.lens').forEach(lens => {
+    const head = lens.querySelector('.lens-head');
+    head.addEventListener('click', (e) => {
+      lens.classList.toggle('is-open');
+    });
+  });
+
+  // ----- SCROLL REVEALS -----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  // ----- FUNDRAISING ROADMAP -----
+  (function(){
+    var root = document.getElementById('oln-fr');
+    if (!root) return;
+    root.querySelectorAll('.tab').forEach(function(t){
+      t.addEventListener('click', function(){
+        var i = t.getAttribute('data-i');
+        root.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on', x === t); });
+        root.querySelectorAll('.ip').forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-i') === i); });
+      });
+    });
+    root.querySelectorAll('.step .sh').forEach(function(sh){
+      sh.addEventListener('click', function(){ sh.parentElement.classList.toggle('open'); });
+    });
+    var qs = root.querySelectorAll('#fr-q .q');
+    var foot = document.getElementById('fr-qfoot');
+    var T = {
+      'en': { init: "Tap each one you're confident about. <b>Not sure on any? That's exactly what we handle.</b>",
+              part: function(g,n,u){ return "Confident on "+g+" of "+n+". <b>The other "+u+"? That's exactly what we handle \u2014 let's talk before the round.</b>"; },
+              all: "Confident on all six \u2014 impressive. <b>When you're ready, we'll make sure the paperwork matches.</b>" },
+      'zh-hant': { init: "\u628a\u4f60\u6709\u4fe1\u5fc3\u7684\u90fd\u9ede\u4e00\u4e0b\u3002<b>\u6709\u4efb\u4f55\u4e0d\u78ba\u5b9a\uff1f\u90a3\u6b63\u662f\u6211\u5011\u8655\u7406\u7684\u4e8b\u3002</b>",
+              part: function(g,n,u){ return "\u4f60\u5c0d "+n+" \u9805\u4e2d\u7684 "+g+" \u9805\u6709\u4fe1\u5fc3\u3002<b>\u53e6\u5916 "+u+" \u9805\uff1f\u90a3\u6b63\u662f\u6211\u5011\u8655\u7406\u7684\u4e8b\u2014\u2014\u5728\u9019\u8f2a\u958b\u59cb\u524d\u804a\u804a\u5427\u3002</b>"; },
+              all: "\u516d\u9805\u5168\u90fd\u6709\u4fe1\u5fc3\u2014\u2014\u4e86\u4e0d\u8d77\u3002<b>\u7b49\u4f60\u6e96\u5099\u597d\uff0c\u6211\u5011\u6703\u78ba\u4fdd\u6587\u4ef6\u8ddf\u5f97\u4e0a\u3002</b>" },
+      'zh-hans': { init: "\u628a\u4f60\u6709\u4fe1\u5fc3\u7684\u90fd\u70b9\u4e00\u4e0b\u3002<b>\u6709\u4efb\u4f55\u4e0d\u786e\u5b9a\uff1f\u90a3\u6b63\u662f\u6211\u4eec\u5904\u7406\u7684\u4e8b\u3002</b>",
+              part: function(g,n,u){ return "\u4f60\u5bf9 "+n+" \u9879\u4e2d\u7684 "+g+" \u9879\u6709\u4fe1\u5fc3\u3002<b>\u53e6\u5916 "+u+" \u9879\uff1f\u90a3\u6b63\u662f\u6211\u4eec\u5904\u7406\u7684\u4e8b\u2014\u2014\u5728\u8fd9\u8f6e\u5f00\u59cb\u524d\u804a\u804a\u5427\u3002</b>"; },
+              all: "\u516d\u9879\u5168\u90fd\u6709\u4fe1\u5fc3\u2014\u2014\u4e86\u4e0d\u8d77\u3002<b>\u7b49\u4f60\u51c6\u5907\u597d\uff0c\u6211\u4eec\u4f1a\u786e\u4fdd\u6587\u4ef6\u8ddf\u5f97\u4e0a\u3002</b>" }
+    };
+    function curLang(){ var l = document.documentElement.getAttribute('lang'); return T[l] ? l : 'en'; }
+    function upd(){
+      var t = T[curLang()], n = qs.length, g = root.querySelectorAll('#fr-q .q.got').length, u = n - g;
+      foot.innerHTML = g === 0 ? t.init : (u === 0 ? t.all : t.part(g, n, u));
+    }
+    qs.forEach(function(q){ q.addEventListener('click', function(){ q.classList.toggle('got'); upd(); }); });
+    document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(upd, 0); }); });
+    upd();
+  })();
+</script>
+
+</body>
+</html>
