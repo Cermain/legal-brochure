@@ -315,7 +315,7 @@
     line-height: 1.1;
     margin-bottom: 16px;
   }
-  .section-lead {
+  .section-title em { font-style: italic; color: var(--sage); font-weight: 400; }
     font-size: 18px; line-height: 1.55; color: var(--ink);
     max-width: 680px; margin-bottom: 56px;
   }
@@ -585,9 +585,10 @@
   .cta-bottom h2 {
     font-size: clamp(40px, 4.5vw, 60px);
     font-weight: 300; color: var(--navy);
-    letter-spacing: -0.02em; line-height: 1.05;
+    letter-spacing: -0.02em; line-height: 1.08;
     margin-bottom: 24px;
   }
+  .cta-bottom h2 em { font-style: italic; color: var(--sage); }
   .cta-bottom .lead { color: var(--muted); font-size: 17px; margin-bottom: 44px; }
   .cta-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .cta-pill {
@@ -890,6 +891,7 @@
   }
   @media print { .artsy-ambient { display: none !important; } }
 </style>
+<style>h1,h2,.section-title,.branch-q,.acc-t,.hero-thesis p{text-wrap:balance;}</style>
 </head>
 <body>
 
@@ -924,7 +926,8 @@
   </div>
   <nav class="topic-nav" aria-label="Startup Tech topics">
     <div class="topic-nav-inner">
-      <a class="tnav" href="index.html"><span data-en="How we work" data-zh-hant="合作方式" data-zh-hans="合作方式">How we work</span></a>
+      <a class="tnav" href="index.html"><span data-en="Get to know us better" data-zh-hant="了解我們" data-zh-hans="了解我们">Get to know us better</span></a>
+      <a class="tnav" href="founding.html"><span data-en="Founding" data-zh-hant="合夥" data-zh-hans="合伙">Founding</span></a>
       <a class="tnav" href="fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
       <a class="tnav" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
       <a class="tnav is-current" href="esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
@@ -1015,10 +1018,10 @@
 </style>
 <section class="roadmap" data-screen-label="ESOP roadmap">
   <div class="container">
-    <a class="fr-back" href="index.html" data-en="← Back to how we work" data-zh-hant="← 返回合作方式" data-zh-hans="← 返回合作方式" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--sage);text-decoration:none;font-weight:600;margin-bottom:24px;">← Back to how we work</a>
+    <a class="fr-back" href="index.html" data-en="← Back to Get to know us" data-zh-hant="← 返回了解我們" data-zh-hans="← 返回了解我们" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--sage);text-decoration:none;font-weight:600;margin-bottom:24px;">← Back to Get to know us</a>
     <div class="reveal">
       <p class="section-eyebrow" data-en="ESOP · Step by step" data-zh-hant="員工持股 · 逐步進行" data-zh-hans="员工持股 · 逐步进行">ESOP · Step by step</p>
-      <h2 class="section-title" data-en="Building your ESOP, step by step." data-zh-hant="一步步建立你的員工持股計劃。" data-zh-hans="一步步建立你的员工持股计划。">Building your ESOP, step by step.</h2>
+      <h2 class="section-title" data-en="Building your ESOP, <em>step by step.</em>" data-zh-hant="<em>一步步</em>建立你的員工持股計劃。" data-zh-hans="<em>一步步</em>建立你的员工持股计划。">Building your ESOP, <em>step by step.</em></h2>
       <p class="section-lead" data-en="Equity is the strongest tool a startup has to attract and keep great people — but only when the scheme is built right. Here's how an ESOP comes together with OLN beside you." data-zh-hant="股權是初創公司吸引並留住優秀人才最有力的工具——但前提是方案要設計得當。以下是有 OLN 陪你走，一套員工持股計劃是怎麼建立起來的。" data-zh-hans="股权是初创公司吸引并留住优秀人才最有力的工具——但前提是方案要设计得当。以下是有 OLN 陪你走，一套员工持股计划是怎么建立起来的。">Equity is the strongest tool a startup has to attract and keep great people — but only when the scheme is built right. Here's how an ESOP comes together with OLN beside you.</p>
     </div>
 
@@ -1027,7 +1030,7 @@
 
       <div class="sech" data-en="1 · Choose your scheme" data-zh-hant="1 · 選擇你的方案" data-zh-hans="1 · 选择你的方案">1 · Choose your scheme</div>
       <div class="tabs">
-        <button class="tab on" data-i="safe"><span class="nm" data-en="Share options" data-zh-hant="購股權" data-zh-hans="购股权">Share options</span><span class="tg" data-en="Right to buy shares later" data-zh-hant="日後可購股的權利" data-zh-hans="日后可购股的权利">Right to buy shares later</span></button>
+        <button class="tab on" data-i="safe"><span class="nm" data-en="Share options" data-zh-hant="認股權" data-zh-hans="认股权">Share options</span><span class="tg" data-en="Right to buy shares later" data-zh-hant="日後可購股的權利" data-zh-hans="日后可购股的权利">Right to buy shares later</span></button>
         <button class="tab" data-i="conv"><span class="nm" data-en="Restricted shares / RSU" data-zh-hant="限制性股份／受限股份單位" data-zh-hans="限制性股份／受限股份单位">Restricted shares / RSU</span><span class="tg" data-en="Shares now, vesting over time" data-zh-hant="現在給股，按期歸屬" data-zh-hans="现在给股，按期归属">Shares now, vesting over time</span></button>
         <button class="tab" data-i="eq"><span class="nm" data-en="Phantom / cash-settled" data-zh-hant="影子股權／現金結算" data-zh-hans="影子股权／现金结算">Phantom / cash-settled</span><span class="tg" data-en="Cash that mirrors equity" data-zh-hant="模擬股權價值的現金" data-zh-hans="模拟股权价值的现金">Cash that mirrors equity</span></button>
       </div>
@@ -1037,13 +1040,13 @@
           <ol>
             <li data-en="Set the option pool size and exercise price" data-zh-hant="設定期權池大小與行使價" data-zh-hans="设定期权池大小与行使价">Set the option pool size and exercise price</li>
             <li data-en="Adopt scheme rules and pass board approval" data-zh-hant="採納方案規則並通過董事會批准" data-zh-hans="采纳方案规则并通过董事会批准">Adopt scheme rules and pass board approval</li>
-            <li data-en="Grant option agreements and update the register" data-zh-hant="授予購股權協議並更新登記冊" data-zh-hans="授予购股权协议并更新登记册">Grant option agreements and update the register</li>
+            <li data-en="Grant option agreements and update the register" data-zh-hant="授予認股權協議並更新登記冊" data-zh-hans="授予认股权协议并更新登记册">Grant option agreements and update the register</li>
           </ol>
           <p class="terms" data-en="<b>Key terms:</b> exercise price · vesting · cliff · exercise window · leaver terms" data-zh-hant="<b>關鍵條款：</b>行使價 · 歸屬 · 懸崖期 · 行使窗口 · 離職者條款" data-zh-hans="<b>关键条款：</b>行使价 · 归属 · 悬崖期 · 行使窗口 · 离职者条款"><b>Key terms:</b> exercise price · vesting · cliff · exercise window · leaver terms</p>
           <div class="meta">
             <div><span data-en="Fee" data-zh-hant="費用" data-zh-hans="费用">Fee</span><b data-en="Fixed fee · on request" data-zh-hant="固定費用 · 可查詢" data-zh-hans="固定费用 · 可咨询">Fixed fee · on request</b></div>
             <div><span data-en="Timeline" data-zh-hant="時程" data-zh-hans="时程">Timeline</span><b data-en="~2–4 weeks" data-zh-hant="約 2–4 週" data-zh-hans="约 2–4 周">~2–4 weeks</b></div>
-            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Options vest over time, exercised later" data-zh-hant="購股權按期歸屬，日後行使" data-zh-hans="购股权按期归属，日后行使">Options vest over time, exercised later</b></div>
+            <div><span data-en="Outcome" data-zh-hant="結果" data-zh-hans="结果">Outcome</span><b data-en="Options vest over time, exercised later" data-zh-hant="認股權按期歸屬，日後行使" data-zh-hans="认股权按期归属，日后行使">Options vest over time, exercised later</b></div>
           </div>
         </div>
         <div class="ip" data-i="conv">
@@ -1086,32 +1089,30 @@
       <div class="step"><div class="sh"><span class="no">03</span><span class="st" data-en="Dilution &amp; cap table impact" data-zh-hant="稀釋與股權結構影響" data-zh-hans="稀释与股权结构影响">Dilution &amp; cap table impact</span><span class="chev">▸</span></div><div class="sd"><p data-en="Model how the pool affects founders and investors, and reflect the reserved pool in your cap table." data-zh-hant="模擬期權池對創辦人與投資人的影響，並在股權結構表中反映預留的池子。" data-zh-hans="模拟期权池对创办人与投资人的影响，并在股权结构表中反映预留的池子。">Model how the pool affects founders and investors, and reflect the reserved pool in your cap table.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip inv" data-en="Investor" data-zh-hant="投資人" data-zh-hans="投资人">Investor</span></div></div></div>
       <div class="phase" data-en="Documentation" data-zh-hant="文件" data-zh-hans="文件">Documentation</div>
       <div class="step"><div class="sh"><span class="no">04</span><span class="st" data-en="Scheme rules" data-zh-hant="方案規則" data-zh-hans="方案规则">Scheme rules</span><span class="chev">▸</span></div><div class="sd"><p data-en="Draft the master scheme rules that govern every grant — the single source of truth for the plan." data-zh-hant="起草規範每一筆授予的主方案規則——整套計劃的唯一依據。" data-zh-hans="起草规范每一笔授予的主方案规则——整套计划的唯一依据。">Draft the master scheme rules that govern every grant — the single source of truth for the plan.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
-      <div class="step"><div class="sh"><span class="no">05</span><span class="st" data-en="Grant documents" data-zh-hant="授予文件" data-zh-hans="授予文件">Grant documents</span><span class="chev">▸</span></div><div class="sd"><p data-en="Option agreements, award letters or RSU documents for each recipient, ready to issue." data-zh-hant="為每位獲授人準備購股權協議、授予函或受限股份文件，隨時可發放。" data-zh-hans="为每位获授人准备购股权协议、授予函或受限股份文件，随时可发放。">Option agreements, award letters or RSU documents for each recipient, ready to issue.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">05</span><span class="st" data-en="Grant documents" data-zh-hant="授予文件" data-zh-hans="授予文件">Grant documents</span><span class="chev">▸</span></div><div class="sd"><p data-en="Option agreements, award letters or RSU documents for each recipient, ready to issue." data-zh-hant="為每位獲授人準備認股權協議、授予函或受限股份文件，隨時可發放。" data-zh-hans="为每位获授人准备认股权协议、授予函或受限股份文件，随时可发放。">Option agreements, award letters or RSU documents for each recipient, ready to issue.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
       <div class="step"><div class="sh"><span class="no">06</span><span class="st" data-en="Board &amp; shareholder approvals" data-zh-hant="董事會與股東批准" data-zh-hans="董事会与股东批准">Board &amp; shareholder approvals</span><span class="chev">▸</span></div><div class="sd"><p data-en="Board and, where needed, shareholder approvals to adopt the scheme and reserve the pool." data-zh-hant="取得董事會、以及在需要時的股東批准，以採納方案並預留期權池。" data-zh-hans="取得董事会、以及在需要时的股东批准，以采纳方案并预留期权池。">Board and, where needed, shareholder approvals to adopt the scheme and reserve the pool.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
       <div class="phase" data-en="Rollout" data-zh-hant="推行" data-zh-hans="推行">Rollout</div>
       <div class="step"><div class="sh"><span class="no">07</span><span class="st" data-en="Communicating to the team" data-zh-hant="向團隊說明" data-zh-hans="向团队说明">Communicating to the team</span><span class="chev">▸</span></div><div class="sd"><p data-en="Plain-language summaries so recipients understand the upside — not just the legal terms." data-zh-hant="以淺白語言撰寫摘要，讓獲授人理解其中的回報，而不只是法律條款。" data-zh-hans="以浅白语言撰写摘要，让获授人理解其中的回报，而不只是法律条款。">Plain-language summaries so recipients understand the upside — not just the legal terms.</p><div class="chips"><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
-      <div class="step"><div class="sh"><span class="no">08</span><span class="st" data-en="Granting &amp; records" data-zh-hant="授予與記錄" data-zh-hans="授予与记录">Granting &amp; records</span><span class="chev">▸</span></div><div class="sd"><p data-en="Issue the grants, update the option register and keep statutory records in order." data-zh-hant="發放授予、更新購股權登記冊，並讓法定記錄保持完整。" data-zh-hans="发放授予、更新购股权登记册，并让法定记录保持完整。">Issue the grants, update the option register and keep statutory records in order.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
+      <div class="step"><div class="sh"><span class="no">08</span><span class="st" data-en="Granting &amp; records" data-zh-hant="授予與記錄" data-zh-hans="授予与记录">Granting &amp; records</span><span class="chev">▸</span></div><div class="sd"><p data-en="Issue the grants, update the option register and keep statutory records in order." data-zh-hant="發放授予、更新認股權登記冊，並讓法定記錄保持完整。" data-zh-hans="发放授予、更新认股权登记册，并让法定记录保持完整。">Issue the grants, update the option register and keep statutory records in order.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span></div></div></div>
       <div class="step"><div class="sh"><span class="no">09</span><span class="st" data-en="Ongoing administration" data-zh-hant="持續管理" data-zh-hans="持续管理">Ongoing administration</span><span class="chev">▸</span></div><div class="sd"><p data-en="Handle exercises, leavers, buy-backs and what happens to the pool at an exit." data-zh-hant="處理行使、離職者、回購，以及退出時期權池的處置。" data-zh-hans="处理行使、离职者、回购，以及退出时期权池的处置。">Handle exercises, leavers, buy-backs and what happens to the pool at an exit.</p><div class="chips"><span class="chip oln" data-en="OLN-led" data-zh-hant="OLN 主導" data-zh-hans="OLN 主导">OLN-led</span><span class="chip fdr" data-en="Founder" data-zh-hant="創辦人" data-zh-hans="创办人">Founder</span></div></div></div>
 
       <div class="sech" data-en="3 · Ask yourself" data-zh-hant="3 · 問問自己" data-zh-hans="3 · 问问自己">3 · Ask yourself</div>
       <div class="qwrap" id="fr-q">
         <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know how big your option pool should be — and how it dilutes you and your investors?" data-zh-hant="你知道期權池應該多大——以及它會如何稀釋你和投資人的股權嗎？" data-zh-hans="你知道期权池应该多大——以及它会如何稀释你和投资人的股权吗？">Do you know how big your option pool should be — and how it dilutes you and your investors?</div></div>
         <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you understand vesting, cliffs and what happens when someone leaves — good leaver vs bad leaver?" data-zh-hant="你了解歸屬、懸崖期，以及有人離職時會怎樣嗎——「好離職者」與「壞離職者」之分？" data-zh-hans="你了解归属、悬崖期，以及有人离职时会怎样吗——「好离职者」与「坏离职者」之分？">Do you understand vesting, cliffs and what happens when someone leaves — good leaver vs bad leaver?</div></div>
-        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know the difference between options, restricted shares and phantom equity — and which fits your team?" data-zh-hant="你分得清購股權、限制性股份與影子股權嗎——哪一種最適合你的團隊？" data-zh-hans="你分得清购股权、限制性股份与影子股权吗——哪一种最适合你的团队？">Do you know the difference between options, restricted shares and phantom equity — and which fits your team?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know the difference between options, restricted shares and phantom equity — and which fits your team?" data-zh-hant="你分得清認股權、限制性股份與影子股權嗎——哪一種最適合你的團隊？" data-zh-hans="你分得清认股权、限制性股份与影子股权吗——哪一种最适合你的团队？">Do you know the difference between options, restricted shares and phantom equity — and which fits your team?</div></div>
         <div class="q"><div class="qbox"></div><div class="qt" data-en="Can you explain the scheme to a candidate so it feels like real upside — not just paperwork?" data-zh-hant="你能向應徵者解釋這套方案，讓它感覺像真正的回報，而不只是文件嗎？" data-zh-hans="你能向应聘者解释这套方案，让它感觉像真正的回报，而不只是文件吗？">Can you explain the scheme to a candidate so it feels like real upside — not just paperwork?</div></div>
-        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know when and how options get exercised — and what it costs the employee and the company?" data-zh-hant="你知道購股權在何時、如何行使——以及這對員工和公司各有什麼成本嗎？" data-zh-hans="你知道购股权在何时、如何行使——以及这对员工和公司各有什么成本吗？">Do you know when and how options get exercised — and what it costs the employee and the company?</div></div>
+        <div class="q"><div class="qbox"></div><div class="qt" data-en="Do you know when and how options get exercised — and what it costs the employee and the company?" data-zh-hant="你知道認股權在何時、如何行使——以及這對員工和公司各有什麼成本嗎？" data-zh-hans="你知道认股权在何时、如何行使——以及这对员工和公司各有什么成本吗？">Do you know when and how options get exercised — and what it costs the employee and the company?</div></div>
         <div class="q"><div class="qbox"></div><div class="qt" data-en="Have you thought about what happens to unvested equity at an exit, acquisition or down round?" data-zh-hant="你想過在退出、被收購或估值下調時，未歸屬的股權會怎樣嗎？" data-zh-hans="你想过在退出、被收购或估值下调时，未归属的股权会怎样吗？">Have you thought about what happens to unvested equity at an exit, acquisition or down round?</div></div>
         <div class="qfoot" id="fr-qfoot">Tap each one you're confident about. <b>Not sure on any? That's exactly what we handle.</b></div>
       </div>
-
-      <p class="assume" data-en="<b>Assumptions</b> English documents · Hong Kong law only · scope as agreed · timelines vary by scheme type. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · tax advice for the company or employees (incl. stamp duty) · payroll set-up · contentious matters." data-zh-hant="<b>假設前提</b>英文文件 · 僅就香港法律 · 範圍依約定 · 時程因方案類型而異。 &nbsp; <b>不包括</b>公司成立及秘書申報 · 公司或員工的稅務意見（含印花稅）· 薪資系統設置 · 爭議事項。" data-zh-hans="<b>假设前提</b>英文文件 · 仅就香港法律 · 范围依约定 · 时程因方案类型而异。 &nbsp; <b>不包括</b>公司成立及秘书申报 · 公司或员工的税务意见（含印花税）· 薪资系统设置 · 争议事项。"><b>Assumptions</b> English documents · Hong Kong law only · scope as agreed · timelines vary by scheme type. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · tax advice for the company or employees (incl. stamp duty) · payroll set-up · contentious matters.</p>
     </div>
   </div>
 </section>
 
 <section class="cta-bottom">
   <div class="container">
-    <h2 class="reveal" data-en="Set up the scheme before you promise the equity." data-zh-hant="<span style='white-space:nowrap'>在承諾股權之前，</span><span style='white-space:nowrap'>先把方案建好。</span>" data-zh-hans="<span style='white-space:nowrap'>在承诺股权之前，</span><span style='white-space:nowrap'>先把方案建好。</span>">Set up the scheme before you promise the equity.</h2>
+    <h2 class="reveal" data-en="Set up the scheme<br><em>before you promise the equity.</em>" data-zh-hant="在承諾股權之前，<br><em>先把方案建好。</em>" data-zh-hans="在承诺股权之前，<br><em>先把方案建好。</em>">Set up the scheme<br><em>before you promise the equity.</em></h2>
     <p class="lead reveal" data-en="Whichever scheme fits, we design it, document it and keep it clean as your team grows. I quote up front." data-zh-hant="無論哪一種方案適合，我們都會為你設計、撰寫，並在團隊成長時維持清晰。我會事先報價。" data-zh-hans="无论哪一种方案适合，我们都会为你设计、撰写，并在团队成长时维持清晰。我会事先报价。">Whichever scheme fits, we design it, document it and keep it clean as your team grows. I quote up front.</p>
     <div class="cta-row reveal">
       <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com?subject=ESOP%20enquiry">cermain.cheung@oln-law.com</a>
@@ -1128,6 +1129,10 @@
 
 </main>
 
+<section class="disclaimer" style="background:#f5f3ee;border-top:1px solid #e7e6e2;padding:24px 32px;text-align:center;">
+  <p style="max-width:780px;margin:0 auto;font-size:12.5px;line-height:1.65;color:#6b6f78;" data-en="<b>Educational material only — not legal advice.</b> For advice on your own matter, speak to us directly." data-zh-hant="<b>僅供教育用途，並非法律意見。</b>就你自己的事項如需意見，請直接與我們聯絡。" data-zh-hans="<b>仅供教育用途，并非法律意见。</b>就你自己的事项如需意见，请直接与我们联络。"><b>Educational material only — not legal advice.</b> For advice on your own matter, speak to us directly.</p>
+</section>
+
 <footer>
   <div class="container">
     <div class="col">
@@ -1143,6 +1148,7 @@
     <div class="col">
       <span class="meta" data-en="ESOP Roadmap · OLN Startup Tech" data-zh-hant="員工持股計劃・OLN Startup Tech" data-zh-hans="员工持股计划・OLN Startup Tech">ESOP Roadmap · OLN Startup Tech</span>
       <span class="meta" data-en="oln-law.com" data-zh-hant="oln-law.com" data-zh-hans="oln-law.com">oln-law.com</span>
+      <span class="meta">© 2026 Cermain Cheung Chiu Nam</span>
     </div>
   </div>
 </footer>

@@ -585,9 +585,10 @@
   .cta-bottom h2 {
     font-size: clamp(40px, 4.5vw, 60px);
     font-weight: 300; color: var(--navy);
-    letter-spacing: -0.02em; line-height: 1.05;
+    letter-spacing: -0.02em; line-height: 1.08;
     margin-bottom: 24px;
   }
+  .cta-bottom h2 .cta-accent { color: var(--sage); font-style: italic; }
   .cta-bottom .lead { color: var(--muted); font-size: 17px; margin-bottom: 44px; }
   .cta-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .cta-pill {
@@ -890,6 +891,7 @@
   }
   @media print { .artsy-ambient { display: none !important; } }
 </style>
+<style>h1,h2,.section-title,.branch-q,.acc-t,.hero-thesis p{text-wrap:balance;}</style>
 </head>
 <body>
 
@@ -924,7 +926,8 @@
   </div>
   <nav class="topic-nav" aria-label="Startup Tech topics">
     <div class="topic-nav-inner">
-      <a class="tnav" href="index.html"><span data-en="How we work" data-zh-hant="合作方式" data-zh-hans="合作方式">How we work</span></a>
+      <a class="tnav" href="index.html"><span data-en="Get to know us better" data-zh-hant="了解我們" data-zh-hans="了解我们">Get to know us better</span></a>
+      <a class="tnav" href="founding.html"><span data-en="Founding" data-zh-hant="合夥" data-zh-hans="合伙">Founding</span></a>
       <a class="tnav is-current" href="fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
       <a class="tnav" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
       <a class="tnav" href="esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
@@ -1015,7 +1018,7 @@
 </style>
 <section class="roadmap" data-screen-label="Fundraising roadmap">
   <div class="container">
-    <a class="fr-back" href="index.html" data-en="← Back to how we work" data-zh-hant="← 返回合作方式" data-zh-hans="← 返回合作方式" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--sage);text-decoration:none;font-weight:600;margin-bottom:24px;">← Back to how we work</a>
+    <a class="fr-back" href="index.html" data-en="← Back to Get to know us" data-zh-hant="← 返回了解我們" data-zh-hans="← 返回了解我们" style="display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.04em;color:var(--sage);text-decoration:none;font-weight:600;margin-bottom:24px;">← Back to Get to know us</a>
     <div class="reveal">
       <p class="section-eyebrow" data-en="Fundraising roadmap" data-zh-hant="募資路線圖" data-zh-hans="募资路线图">Fundraising roadmap</p>
       <h2 class="section-title" data-en="Raising your round, step by step." data-zh-hant="一步步完成你的融資。" data-zh-hans="一步步完成你的融资。">Raising your round, step by step.</h2>
@@ -1105,15 +1108,13 @@
         <div class="q"><div class="qbox"></div><div class="qt" data-en="SAFE, convertible or equity — do you know which one actually fits your stage?" data-zh-hant="SAFE、可轉換債還是股權——你知道哪一種才真正適合你的階段嗎？" data-zh-hans="SAFE、可转换债还是股权——你知道哪一种才真正适合你的阶段吗？">SAFE, convertible or equity — do you know which one actually fits your stage?</div></div>
         <div class="qfoot" id="fr-qfoot">Tap each one you're confident about. <b>Not sure on any? That's exactly what we handle.</b></div>
       </div>
-
-      <p class="assume" data-en="<b>Assumptions</b> English documents · Hong Kong law only · scope &amp; rounds as agreed · timelines vary by instrument and round. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · ESOP scheme design · tax advice (incl. stamp duty) · contentious matters." data-zh-hant="<b>假設前提</b>英文文件 · 僅就香港法律 · 範圍與輪次依約定 · 時程因工具與輪次而異。 &nbsp; <b>不包括</b>公司成立及秘書申報 · 員工持股計劃設計 · 稅務意見（含印花稅）· 爭議事項。" data-zh-hans="<b>假设前提</b>英文文件 · 仅就香港法律 · 范围与轮次依约定 · 时程因工具与轮次而异。 &nbsp; <b>不包括</b>公司成立及秘书申报 · 员工持股计划设计 · 税务意见（含印花税）· 争议事项。"><b>Assumptions</b> English documents · Hong Kong law only · scope &amp; rounds as agreed · timelines vary by instrument and round. &nbsp; <b>Not included</b> company incorporation &amp; secretarial filings · ESOP scheme design · tax advice (incl. stamp duty) · contentious matters.</p>
     </div>
   </div>
 </section>
 
 <section class="cta-bottom">
   <div class="container">
-    <h2 class="reveal" data-en="Talk to us before the round, not after." data-zh-hant="在這輪融資開始前，先跟我們談談。" data-zh-hans="在这轮融资开始前，先跟我们谈谈。">Talk to us before the round, not after.</h2>
+    <h2 class="reveal" data-en="Talk to us before the round,<br><span class=&quot;cta-accent&quot;>not after.</span>" data-zh-hant="在這輪融資開始前，<br><span class=&quot;cta-accent&quot;>先跟我們談談。</span>" data-zh-hans="在这轮融资开始前，<br><span class=&quot;cta-accent&quot;>先跟我们谈谈。</span>">Talk to us before the round,<br><span class="cta-accent">not after.</span></h2>
     <p class="lead reveal" data-en="Whichever instrument you choose, we lead every step — and keep the investor relationship intact. I quote up front." data-zh-hant="無論你選擇哪種融資工具，我們都會主導每一步——同時守住與投資人的關係。我會事先報價。" data-zh-hans="无论你选择哪种融资工具，我们都会主导每一步——同时守住与投资人的关系。我会事先报价。">Whichever instrument you choose, we lead every step — and keep the investor relationship intact. I quote up front.</p>
     <div class="cta-row reveal">
       <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com?subject=Fundraising%20enquiry">cermain.cheung@oln-law.com</a>
@@ -1130,6 +1131,10 @@
 
 </main>
 
+<section class="disclaimer" style="background:#f5f3ee;border-top:1px solid #e7e6e2;padding:24px 32px;text-align:center;">
+  <p style="max-width:780px;margin:0 auto;font-size:12.5px;line-height:1.65;color:#6b6f78;" data-en="<b>Educational material only — not legal advice.</b> For advice on your own matter, speak to us directly." data-zh-hant="<b>僅供教育用途，並非法律意見。</b>就你自己的事項如需意見，請直接與我們聯絡。" data-zh-hans="<b>仅供教育用途，并非法律意见。</b>就你自己的事项如需意见，请直接与我们联络。"><b>Educational material only — not legal advice.</b> For advice on your own matter, speak to us directly.</p>
+</section>
+
 <footer>
   <div class="container">
     <div class="col">
@@ -1145,6 +1150,7 @@
     <div class="col">
       <span class="meta" data-en="Fundraising Roadmap · OLN Startup Tech" data-zh-hant="募資路線圖・OLN Startup Tech" data-zh-hans="募资路线图・OLN Startup Tech">Fundraising Roadmap · OLN Startup Tech</span>
       <span class="meta" data-en="oln-law.com" data-zh-hant="oln-law.com" data-zh-hans="oln-law.com">oln-law.com</span>
+      <span class="meta">© 2026 Cermain Cheung Chiu Nam</span>
     </div>
   </div>
 </footer>
