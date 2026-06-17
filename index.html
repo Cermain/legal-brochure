@@ -300,6 +300,8 @@
     font-weight: 400;
   }
   .hero-sub em { color: var(--navy); font-style: italic; }
+  .hero-support { margin-top: 22px; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; color: var(--sage-deep); font-weight: 500; max-width: 34em; letter-spacing: -0.005em; }
+  :lang(zh-hant) .hero-support, :lang(zh-hans) .hero-support { letter-spacing: 0.02em; }
 
   .hero-meta {
     margin-top: 48px;
@@ -1102,6 +1104,22 @@
   .tnav.blog-tab:hover{ color:var(--navy); }
   .tnav.blog-tab.is-current{ color:var(--navy); border-bottom-color:var(--sage); }
 </style>
+<style id="mobile-safeguards">
+  @media (max-width:560px){
+    .chrome-inner{ padding:11px 18px; gap:12px; }
+    .chrome .brand{ gap:10px !important; }
+    .chrome-avatar{ width:38px !important; height:38px !important; }
+    .chrome .brand .wm-name{ font-size:17px !important; }
+    .chrome .brand .wm-rule{ display:none; }
+    .chrome .brand .wm-tag{ display:none; }
+    .lang-toggle button{ padding:4px 9px; font-size:11px; }
+    .topic-nav-inner{ padding:0 18px; }
+  }
+  @media (max-width:420px){
+    .chrome .brand .wm-name{ font-size:16px !important; }
+    .blog-empty-sub,.hero-sub{ font-size:15px; }
+  }
+</style>
 </head>
 <body class="aud-startup">
 
@@ -1206,12 +1224,12 @@
 
   <div class="hero-grid">
     <div class="hero-text">
-      <p class="hero-eyebrow reveal" data-en="A new way of legal work — for everyone" data-zh-hant="一種新的法律合作方式——適合每一位" data-zh-hans="一种新的法律合作方式——适合每一位">A new way of legal work — for everyone</p>
       <h1 class="hero-statement reveal">
         <span class="l l1" data-en="Massage the relationship." data-zh-hant="顧好關係。" data-zh-hans="顾好关系。">Massage the relationship.</span>
         <span class="l l2" data-en="Manage the risk." data-zh-hant="管好風險。" data-zh-hans="管好风险。">Manage the risk.</span>
       </h1>
-      <p class="hero-sub reveal" data-en="I'm a corporate lawyer in Hong Kong. Also a founder. Wife of an entrepreneur. Mother of three. <em>The mix is most of why people come back.</em>" data-zh-hant="我是香港的執業律師、也是一位創業者、同時也是創業者的太太、三個孩子的媽媽。<em>這幾個角色疊加起來的角度，是讓大家認為可以信任我的原因。</em>" data-zh-hans="我是香港的执业律师、也是一位创业者、同时也是创业者的太太、三个孩子的妈妈。<em>这几个角色叠加起来的角度，是让大家认为可以信任我的原因。</em>">I'm a corporate lawyer in Hong Kong. Also a founder. Wife of an entrepreneur. Mother of three. <em>The mix is most of why people come back.</em></p>
+      <p class="hero-support reveal" data-en="Modern counsel for what you&rsquo;re building — managing legal risk, with the relationship in mind." data-zh-hant="為你打造、與時並進的法律顧問——管理法律風險，同時顧及彼此的關係。" data-zh-hans="为你打造、与时并进的法律顾问——管理法律风险，同时顾及彼此的关系。">Modern counsel for what you&rsquo;re building — managing legal risk, with the relationship in mind.</p>
+      <p class="hero-sub reveal" data-en="I&rsquo;m a corporate lawyer in Hong Kong — and a founder myself. <em>The mix is most of why people come back.</em>" data-zh-hant="我是香港的執業律師，自己也是創業者。<em>這份疊加的視角，是許多人一再回來的原因。</em>" data-zh-hans="我是香港的执业律师，自己也是创业者。<em>这份叠加的视角，是许多人一再回来的原因。</em>">I&rsquo;m a corporate lawyer in Hong Kong — and a founder myself. <em>The mix is most of why people come back.</em></p>
       <p class="hero-sign reveal"><span data-en="Cermain Cheung" data-zh-hant="蔣昭嵐" data-zh-hans="蒋昭岚">Cermain Cheung</span> <span class="role" data-en="· Consultant, OLN · Corporate &amp; Commercial" data-zh-hant="· 顧問，OLN · 公司及商業部" data-zh-hans="· 顾问，OLN · 公司及商业部">· Consultant, OLN Startup Tech</span></p>
       <div class="hero-meta reveal">
         <div>
@@ -1251,12 +1269,12 @@
         </div>
       </div>
 
-      <p class="section-lead aud-lead aud-only s" data-en="Most start-ups don't sense they have a legal problem — until they suddenly have an expensive one. You want a commercial lawyer on your side, not a defensive one running a meter. Here's what we see coming, and what we do about it." data-zh-hant="多數初創本來以為沒有法律問題——直到突然冒出一個代價很高的問題。你要的是一位站在你這邊、講商業邏輯的律師，而不是一位只會防禦、計時收費的律師。以下是我們最常看到的狀況，以及我們的對應方式。" data-zh-hans="多数初创本来以为没有法律问题——直到突然冒出一个代价很高的问题。你要的是一位站在你这边、讲商业逻辑的律师，而不是一位只会防御、计时收费的律师。以下是我们最常看到的状况，以及我们的对应方式。">Most start-ups don't sense they have a legal problem — until they suddenly have an expensive one. You want a commercial lawyer on your side, not a defensive one running a meter. Here's what we see coming, and what we do about it.</p>
+      <p class="section-lead aud-lead aud-only s" data-en="Most start-ups don't realise they have a legal problem — until they suddenly have an expensive one. You want a commercial lawyer on your side, not a defensive one running a meter. Here's what we see coming, and what we do about it." data-zh-hant="多數初創本來以為沒有法律問題——直到突然冒出一個代價很高的問題。你要的是一位站在你這邊、講商業邏輯的律師，而不是一位只會防禦、計時收費的律師。以下是我們最常看到的狀況，以及我們的對應方式。" data-zh-hans="多数初创本来以为没有法律问题——直到突然冒出一个代价很高的问题。你要的是一位站在你这边、讲商业逻辑的律师，而不是一位只会防御、计时收费的律师。以下是我们最常看到的状况，以及我们的对应方式。">Most start-ups don't realise they have a legal problem — until they suddenly have an expensive one. You want a commercial lawyer on your side, not a defensive one running a meter. Here's what we see coming, and what we do about it.</p>
 
       <p class="section-lead aud-lead aud-only c" data-en="You don't always need an international name — you need an agile firm that's responsive, senior, and works like part of your team. Here's where established companies bring us in, and what we take off your plate." data-zh-hant="你需要的未必是一個國際品牌——而是一家靈活敷捷、回應及時、由資深律師親自處理、像你團隊一份子般運作的律師行。以下是成熟企業最常找我們介入的環節，以及我們替你分擔的工作。" data-zh-hans="你需要的未必是一个国际品牌——而是一家灵活敏捷、回应及时、由资深律师亲自处理、像你团队一份子般运作的律师行。以下是成熟企业最常找我们介入的环节，以及我们替你分担的工作。">You don't always need an international name — you need an agile firm that's responsive, senior, and works like part of your team. Here's where established companies bring us in, and what we take off your plate.</p>
     </div>
 
-    <p class="bridge-hint reveal" data-en="Tap any card to see how we bridge it" data-zh-hant="點擊任一張卡，看我們怎麣補上落差" data-zh-hans="点击任一张卡，看我们怎么补上落差">Tap any card to see how we bridge it</p>
+    <p class="bridge-hint reveal" data-en="Open any card to see how we help" data-zh-hant="點擊任一張卡，看我們怎麣補上落差" data-zh-hans="点击任一张卡，看我们怎么补上落差">Open any card to see how we help</p>
 
     <ul class="bridge-list reveal aud-only s">
       <li class="bridge-row">
@@ -1440,8 +1458,8 @@
         </div>
         <div class="lens-body">
           <div class="lens-body-inner">
-            <p data-en="Most lawyers sell the last deal. <strong>I'm here for the next ten years of risk you haven't met yet.</strong> The first contract is the easy one. The third, the fifth, the one you sign with your old co-founder when you both decide to part — those need someone who remembers the original. Relationships compound. AI can't compound. People can." data-zh-hant="多數律師賣的是上一筆交易。<strong>我準備好的是你未來十年還沒遇過的風險。</strong>第一份合約最簡單。第三份、第五份、還有你和當年共同創辦人決定拆夥時要簽的那份——這些都需要一個還記得當初是怎麼回事的人。關係會累積。AI不會累積。人會。" data-zh-hans="多数律师卖的是上一笔交易。<strong>我准备好的是你未来十年还没遇过的风险。</strong>第一份合约最简单。第三份、第五份、还有你和当年共同创办人决定拆伙时要签的那份——这些都需要一个还记得当初是怎么回事的人。关系会累积。AI不会累积。人会。">
-              Most lawyers sell the last deal. <strong>I'm here for the next ten years of risk you haven't met yet.</strong> The first contract is the easy one. The third, the fifth, the one you sign with your old co-founder when you both decide to part — those need someone who remembers the original. Relationships compound. AI can't compound. People can.
+            <p data-en="Most lawyers sell the last deal. <strong>I'm here for the next ten years of risk you haven't met yet.</strong> The first contract is easy; the one you sign with your co-founder when you decide to part needs someone who remembers the original. Relationships compound. AI can't. People can." data-zh-hant="多數律師賣的是上一筆交易。<strong>我準備好的，是你未來十年還沒遇過的風險。</strong>第一份合約最簡單；真正需要人的，是你和共同創辦人決定拆夥時要簽的那一份——需要一個還記得當初的人。關係會累積，AI 不會，人會。" data-zh-hans="多数律师卖的是上一笔交易。<strong>我准备好的，是你未来十年还没遇过的风险。</strong>第一份合约最简单；真正需要人的，是你和共同创办人决定拆伙时要签的那一份——需要一个还记得当初的人。关系会累积，AI 不会，人会。">
+              Most lawyers sell the last deal. <strong>I'm here for the next ten years of risk you haven't met yet.</strong> The first contract is easy; the one you sign with your co-founder when you decide to part needs someone who remembers the original. Relationships compound. AI can't. People can.
             </p></div>
         </div>
       </li>
@@ -1457,8 +1475,8 @@
         </div>
         <div class="lens-body">
           <div class="lens-body-inner">
-            <p data-en="I read your deal commercially — what risk you can take, what you can't, what's worth fighting over and what isn't. I'll ask what you actually pay yourself and what you'd do if this round didn't close, because that's the conversation that changes the advice. <strong>Software can tell you what's legal. I'll tell you what's smart.</strong>" data-zh-hant="我從商業角度讀你的案子——哪些風險你能扛、哪些不能、哪些值得爭、哪些不需要。我會問你實際給自己發多少薪水、這輪要是沒成你怎麼辦——因為這些才會真正改變我的建議。<strong>軟體告訴你什麼合法。我告訴你什麼聰明。</strong>" data-zh-hans="我从商业角度读你的案子——哪些风险你能扛、哪些不能、哪些值得争、哪些不需要。我会问你实际给自己发多少薪水、这轮要是没成你怎么办——因为这些才会真正改变我的建议。<strong>软件告诉你什么合法。我告诉你什么聪明。</strong>">
-              I read your deal commercially — what risk you can take, what you can't, what's worth fighting over and what isn't. I'll ask what you actually pay yourself and what you'd do if this round didn't close, because that's the conversation that changes the advice. <strong>Software can tell you what's legal. I'll tell you what's smart.</strong>
+            <p data-en="I read your deal commercially — what risk you can take, what's worth fighting over and what isn't. I'll ask what you'd do if this round didn't close, because that's the conversation that changes the advice. <strong>Software can tell you what's legal. I'll tell you what's smart.</strong>" data-zh-hant="我從商業角度讀你的案子——哪些風險你能扛、哪些值得爭、哪些不必。我會問你：這輪要是沒成，你會怎麼辦？因為那才真正改變我的建議。<strong>軟體告訴你什麼合法。我告訴你什麼聰明。</strong>" data-zh-hans="我从商业角度读你的案子——哪些风险你能扛、哪些值得争、哪些不必。我会问你：这轮要是没成，你会怎么办？因为那才真正改变我的建议。<strong>软件告诉你什么合法。我告诉你什么聪明。</strong>">
+              I read your deal commercially — what risk you can take, what's worth fighting over and what isn't. I'll ask what you'd do if this round didn't close, because that's the conversation that changes the advice. <strong>Software can tell you what's legal. I'll tell you what's smart.</strong>
             </p></div>
         </div>
       </li>
@@ -1474,8 +1492,8 @@
         </div>
         <div class="lens-body">
           <div class="lens-body-inner">
-            <p data-en="Most people think contracts are for suing. <strong>Most cases aren't.</strong> A contract is the document where everyone at the table agrees, in advance, how they'll handle the things that haven't happened yet — founders, co-founders, investors, future hires, the company itself. That's the work. And it's why I'm not happy at court: most disputes are communications failures dressed up as legal ones. When a deal must end, I help it end so the parties can still call each other in five years." data-zh-hant="多數人以為簽了合約，打官司就能保護自己。<strong>現實是，多數案子根本走不到訴訟——太麻煩，太貴了。</strong>合約的真正意義是：所有坐在桌邊的人，事先說好「遇到還沒發生的事該怎麼辦」——創辦人、共同創辦人、投資人、未來的員工、公司本身。這才是合約精神。多數爭議，本質是溝通失敗。合作真要到了結束那一天，一起讓它結束得體面——五年後大家還能打電話給對方。" data-zh-hans="多数人以为签了合约，打官司就能保护自己。<strong>现实是，多数案子根本走不到诉讼——太麻烦，太贵了。</strong>合约的真正意义是：所有坐在桌边的人，事先说好「遇到还没发生的事该怎么办」——创办人、共同创办人、投资人、未来的员工、公司本身。这才是合约精神。多数争议，本质是沟通失败。合作真要到了结束那一天，一起让它结束得体面——五年后大家还能打电话给对方。">
-              Most people think contracts are for suing. <strong>Most cases aren't.</strong> A contract is the document where everyone at the table agrees, in advance, how they'll handle the things that haven't happened yet — founders, co-founders, investors, future hires, the company itself. That's the work. And it's why I'm not happy at court: most disputes are communications failures dressed up as legal ones. When a deal must end, I help it end so the parties can still call each other in five years.
+            <p data-en="Most people think contracts are for suing. <strong>Most cases aren't.</strong> A contract is where everyone agrees, in advance, how they'll handle what hasn't happened yet — founders, investors, future hires, the company itself. Most disputes are communication failures dressed up as legal ones. When a deal must end, I help it end so the parties can still call each other in five years." data-zh-hant="多數人以為合約是用來打官司的。<strong>其實多數案子都走不到那一步。</strong>合約真正的意義，是讓桌邊每個人事先說好：還沒發生的事該怎麼辦——創辦人、投資人、未來的員工、公司本身。多數爭議，本質是溝通失敗。合作真要結束的那天，我幫它好好結束——五年後大家還能打電話給對方。" data-zh-hans="多数人以为合约是用来打官司的。<strong>其实多数案子都走不到那一步。</strong>合约真正的意义，是让桌边每个人事先说好：还没发生的事该怎么办——创办人、投资人、未来的员工、公司本身。多数争议，本质是沟通失败。合作真要结束的那天，我帮它好好结束——五年后大家还能打电话给对方。">
+              Most people think contracts are for suing. <strong>Most cases aren't.</strong> A contract is where everyone agrees, in advance, how they'll handle what hasn't happened yet — founders, investors, future hires, the company itself. Most disputes are communication failures dressed up as legal ones. When a deal must end, I help it end so the parties can still call each other in five years.
             </p></div>
         </div>
       </li>
@@ -1491,8 +1509,8 @@
         </div>
         <div class="lens-body">
           <div class="lens-body-inner">
-            <p data-en="Most lawyers are scared of AI. <strong>I'm relieved.</strong> Half of what founders used to pay lawyers for is pattern — first NDAs, standard reviews, routine resolutions — and AI does pattern beautifully now. So I show you where to use it: what you can safely run yourselves, what to check, and where the model quietly gets it wrong. <strong>The point isn't to bill you for less — it's to spend your legal budget where it actually changes the outcome:</strong> judgement under uncertainty, with multiple parties, when everyone is tired and someone is unhappy. Use the tool for the routine; keep me for the decisions that matter." data-zh-hant="多數律師怕 AI。<strong>我反而鬆一口氣。</strong>創業者過去付律師費的工作裡，有一半是重複性高的東西——第一份 NDA、常規審閱、例行決議——這些 AI 現在做得很好。所以我會直接告訴你哪裡該用它：哪些事你可以自己安全地處理、要檢查什麼、模型又會在哪裡悄悄出錯。<strong>重點不是少收你錢——而是讓你的法律預算花在真正改變結果的地方：</strong>變數一堆、多方參與、大家都很累又有人不高興時，還要做的那種判斷。日常的事交給工具；真正重要的決定，留給我。" data-zh-hans="多数律师怕 AI。<strong>我反而松一口气。</strong>创业者过去付律师费的工作里，有一半是重复性高的东西——第一份 NDA、常规审阅、例行决议——这些 AI 现在做得很好。所以我会直接告诉你哪里该用它：哪些事你可以自己安全地处理、要检查什么、模型又会在哪里悄悄出错。<strong>重点不是少收你钱——而是让你的法律预算花在真正改变结果的地方：</strong>变数一堆、多方参与、大家都很累又有人不高兴时，还要做的那种判断。日常的事交给工具；真正重要的决定，留给我。">
-              Most lawyers are scared of AI. <strong>I'm relieved.</strong> Half of what founders used to pay lawyers for is pattern — first NDAs, standard reviews, routine resolutions — and AI does pattern beautifully now. So I show you where to use it: what you can safely run yourselves, what to check, and where the model quietly gets it wrong. <strong>The point isn't to bill you for less — it's to spend your legal budget where it actually changes the outcome:</strong> judgement under uncertainty, with multiple parties, when everyone is tired and someone is unhappy. Use the tool for the routine; keep me for the decisions that matter.
+            <p data-en="Most lawyers are scared of AI. <strong>I'm relieved.</strong> Half of what founders used to pay for is pattern — first NDAs, standard reviews, routine resolutions — and AI does pattern beautifully now. So I show you where to use it: what you can run yourselves, what to check, where the model quietly gets it wrong. <strong>The point isn't to bill less — it's to spend your legal budget where it changes the outcome:</strong> judgement under uncertainty, when everyone's tired and someone's unhappy. Use the tool for the routine; keep me for the decisions that matter." data-zh-hant="多數律師怕 AI。<strong>我反而鬆一口氣。</strong>創業者過去付的律師費裡，有一半是重複性的工作——第一份 NDA、常規審閱、例行決議——這些 AI 現在做得很好。所以我直接告訴你哪裡該用它：哪些你能自己處理、要檢查什麼、模型又會在哪裡悄悄出錯。<strong>重點不是少收你錢——而是把法律預算花在真正改變結果的地方：</strong>變數多、多方參與、大家都累又有人不高興時的那種判斷。日常的事交給工具；重要的決定，留給我。" data-zh-hans="多数律师怕 AI。<strong>我反而松一口气。</strong>创业者过去付的律师费里，有一半是重复性的工作——第一份 NDA、常规审阅、例行决议——这些 AI 现在做得很好。所以我直接告诉你哪里该用它：哪些你能自己处理、要检查什么、模型又会在哪里悄悄出错。<strong>重点不是少收你钱——而是把法律预算花在真正改变结果的地方：</strong>变数多、多方参与、大家都累又有人不高兴时的那种判断。日常的事交给工具；重要的决定，留给我。">
+              Most lawyers are scared of AI. <strong>I'm relieved.</strong> Half of what founders used to pay for is pattern — first NDAs, standard reviews, routine resolutions — and AI does pattern beautifully now. So I show you where to use it: what you can run yourselves, what to check, where the model quietly gets it wrong. <strong>The point isn't to bill less — it's to spend your legal budget where it changes the outcome:</strong> judgement under uncertainty, when everyone's tired and someone's unhappy. Use the tool for the routine; keep me for the decisions that matter.
             </p></div>
         </div>
       </li>
@@ -1768,7 +1786,7 @@
   </div>
   <div class="container">
     <h2 class="reveal" data-en="What can I do for you?" data-zh-hant="我能為你做什麼？" data-zh-hans="我能为你做什么？">What can I do for you?</h2>
-    <p class="lead reveal" data-en="Email. DM. Call. I quote up front." data-zh-hant="郵件、私訊、打電話都可以。我會事先報價。" data-zh-hans="邮件、私信、打电话都可以。我会事先报价。">Email. DM. Call. I quote up front.</p>
+    <p class="lead reveal" data-en="Email. Call. I quote up front." data-zh-hant="郵件、私訊、打電話都可以。我會事先報價。" data-zh-hans="邮件、私信、打电话都可以。我会事先报价。">Email. Call. I quote up front.</p>
     <div class="cta-row reveal">
       <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com">cermain.cheung@oln-law.com</a>
       <a class="cta-pill secondary" href="https://www.linkedin.com/in/cermain-cheung-56476030/" target="_blank" rel="noopener">LinkedIn</a>

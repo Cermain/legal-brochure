@@ -431,6 +431,22 @@
   .blog-empty-sub{ font-size:16px; line-height:1.65; color:var(--muted); max-width:52ch; margin:0 auto; }
   :lang(zh-hant) .blog-empty-title,:lang(zh-hans) .blog-empty-title{ font-family:'Noto Serif TC','Noto Serif SC','Lora',serif; }
 </style>
+<style id="mobile-safeguards">
+  @media (max-width:560px){
+    .chrome-inner{ padding:11px 18px; gap:12px; }
+    .chrome .brand{ gap:10px !important; }
+    .chrome-avatar{ width:38px !important; height:38px !important; }
+    .chrome .brand .wm-name{ font-size:17px !important; }
+    .chrome .brand .wm-rule{ display:none; }
+    .chrome .brand .wm-tag{ display:none; }
+    .lang-toggle button{ padding:4px 9px; font-size:11px; }
+    .topic-nav-inner{ padding:0 18px; }
+  }
+  @media (max-width:420px){
+    .chrome .brand .wm-name{ font-size:16px !important; }
+    .blog-empty-sub,.hero-sub{ font-size:15px; }
+  }
+</style>
 </head>
 <body>
 
