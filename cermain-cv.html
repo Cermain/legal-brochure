@@ -59,6 +59,7 @@
   .foot .tagline{color:var(--ink-3);font-style:italic;display:block;margin-top:2px}
   .foot .r{text-align:right}
   .foot .r b{color:var(--ink-2);font-weight:600}
+  .foot .r .ver{display:block;font-size:7pt;color:var(--ink-5);margin-top:1.5px;letter-spacing:0.06em;font-weight:500}
 
   /* Hero header */
   .hero{
@@ -102,6 +103,10 @@
   }
   .hero-r .contact b{color:var(--ink-4);font-weight:600;font-size:7.5pt;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:1mm}
   .hero-r .contact a{color:var(--navy);text-decoration:none}
+  .hero-r .motto{margin-top:2.6mm;font-size:10pt;font-style:italic;color:var(--navy);font-weight:400;letter-spacing:-0.01em;line-height:1.2}
+  .hero-r .motto b{color:var(--sage-deep);font-weight:600;font-style:normal}
+  .hero-r .motto .m1{color:var(--navy)}
+  .hero-r .motto .m2{color:var(--sage-deep)}
 
   /* Body grid */
   .body{display:grid;grid-template-columns:8fr 1fr 3fr;column-gap:0;flex:1}
@@ -225,10 +230,20 @@
   .side .appointments .item b{font-size:8.5pt;color:var(--ink);font-weight:600;display:block;line-height:1.2}
   .side .appointments .item span{font-size:7.5pt;color:var(--ink-3);display:block;margin-top:0.4mm;line-height:1.25}
 
+  .exp-group{margin-bottom:2.4mm}
+  .exp-group:last-child{margin-bottom:0}
+  .grp{font-size:7.5pt;letter-spacing:0.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin:0 0 1mm;display:flex;align-items:center;gap:9px}
+  .grp::after{content:"";flex:1;height:0.5pt;background:var(--rule-2)}
+  .dense .exp .item{padding:0.85mm 0;grid-template-columns:34mm 1fr;gap:5mm}
+  .dense .exp .body-text{font-size:8.25pt;line-height:1.38}
+  .dense h2{margin-bottom:1.1mm}
+  .dense section{margin-bottom:2mm}
+  .cont{font-size:7.5pt;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-4);font-weight:600;font-style:normal}
+
   @page { size: A4; margin: 0; }
   @media print{
     body{background:var(--paper)}
-    .page{margin:0;box-shadow:none;page-break-after:always}
+    .page{margin:0;height:296mm;box-shadow:none;page-break-after:always;break-after:page;overflow:hidden}
     .page:last-child{page-break-after:auto}
   }
 </style>
@@ -259,6 +274,7 @@
       <h1>Cermain Cheung</h1>
       <div class="role">Consultant · Corporate &amp; Commercial</div>
       <div class="practice">Founders, funds, and regional businesses on M&amp;A, venture capital, and cross-border transactions — from seed rounds to multi-billion-yuan acquisitions.</div>
+      <div class="motto"><span class="m1">Massage the relationship.</span> <span class="m2">Manage the risk.</span></div>
       <div class="contact">
         <div><b>Direct</b>+852 9822 2278</div>
         <div><b>Email</b><a href="mailto:cermain.cheung@oln-law.com">cermain.cheung@oln-law.com</a></div>
@@ -272,7 +288,7 @@
 
       <section class="about">
         <h2><span class="n">§ 01</span> About</h2>
-        <p>Cermain has practised in Hong Kong since 2009, advising founders, funds, regional businesses, universities, and private clients on M&amp;A, venture capital, cross-border transactions, and personal investment matters. Her practice spans seed rounds for first-time founders to multi-billion-yuan acquisitions for HKEX-listed companies — always on the company and founder side. Many of her clients she has acted for over a decade. She co-leads OLN's Startup Tech team, chairs the Women Initiative APEC of GlobaLaw, and lectures part-time in commercial contract drafting at HKU Law School.</p>
+        <p>Cermain has practised in Hong Kong since 2009, advising founders, funds, regional businesses, universities, and private clients on M&amp;A, venture capital, cross-border transactions, and personal investment matters. Her practice spans seed rounds for first-time founders to multi-billion-yuan acquisitions for HKEX-listed companies — always on the company and founder side. Many of her clients she has acted for over a decade. She co-leads OLN's Startup Tech team, chairs the Women Initiative APEC of GlobaLaw, and from 2023 to 2025 lectured part-time in commercial contract drafting at HKU Law School.</p>
         <p class="pull">"Contracts should be clear, fair, and built for real relationships — not weapons stockpiled for the day the relationship ends."</p>
       </section>
 
@@ -281,19 +297,19 @@
         <div class="exp">
           <div class="item">
             <span class="tag">M&amp;A · Deal of the Year</span>
-            <div class="body-text">Led <b>10+ private acquisitions and JV formations</b> for an HKEX-listed Chinese warehousing company. Most recent: acquisition of <b>30+ overseas subsidiaries at RMB 4B+</b>, named <em>Deal of the Year</em> by <em>China Business Law Journal</em>.</div>
+            <div class="body-text">Led <b>10+ private acquisitions and JV formations</b> for an HKEX-listed Chinese logistics group — 10+ deals over a decade. Most recent: <b>30+ overseas subsidiaries at RMB 4B+</b>, named <em>Deal of the Year</em> by <em>China Business Law Journal</em>.</div>
           </div>
           <div class="item">
-            <span class="tag">Family Office · Investment arm</span>
-            <div class="body-text"><b>Structured the startup incubation and investment arm</b> of a prominent Hong Kong private family business — investment policy, governance, and the standard investment paper template.</div>
+            <span class="tag">Pre-IPO · WFOE / VIE</span>
+            <div class="body-text"><b>Pre-IPO restructuring</b> of a Shanghai-listed company's Hong Kong operations — WFOE and VIE build-out, with capital investment <b>exceeding RMB 2B</b>.</div>
           </div>
           <div class="item">
             <span class="tag">Series C · Tech</span>
-            <div class="body-text">Lead counsel on a <b>USD 60M Series C</b> for a Chinese knowledge-sharing platform — company-side negotiation of subscription, shareholders' agreement, and SAFE-to-equity conversion mechanics.</div>
+            <div class="body-text">Lead counsel on a <b>USD 60M Series C</b> for a Chinese knowledge-sharing platform — company-side subscription, shareholders' agreement, and SAFE-to-equity conversion.</div>
           </div>
           <div class="item">
-            <span class="tag">Universities · OKT</span>
-            <div class="body-text">Legal counsel to Hong Kong universities and their <b>Offices of Knowledge Transfer (OKT)</b> on startup and incubation matters. Appointed counsel for university teams selected under the <b>Raise+ scheme</b>.</div>
+            <span class="tag">Strategic M&amp;A · USD 62.5M</span>
+            <div class="body-text"><b>Global sports-apparel brand acquisition</b> for a PRC sportswear group — diligence, deal structuring, and execution.</div>
           </div>
         </div>
       </section>
@@ -366,15 +382,14 @@
       OLN — Oldham, Li &amp; Nie · Suite 503, St. George's Building, 2 Ice House Street, Central, Hong Kong
       <span class="tagline">Practical Legal Solutions — On Time — No Excuses</span>
     </div>
-    <div class="r">Page 1 · <b>Cermain Cheung — CV</b></div>
+    <div class="r">Page 1 of 3 · <b>Cermain Cheung — CV</b><span class="ver">Version 1.0 · June 2026</span></div>
   </footer>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
      PAGE 2
      ════════════════════════════════════════════════════════════════════ -->
-<section class="page">
-
+<section class="page dense" data-screen-label="CV — experience">
   <div class="top">
     <div class="brand">
       <span class="sw"></span>
@@ -384,34 +399,121 @@
       <span class="sep">·</span>
       <span>Curriculum Vitae</span>
     </div>
-    <div class="top-right">Page 2 of 2</div>
+    <div class="top-right">Page 2 of 3</div>
   </div>
 
   <div style="margin-top:4mm;flex:1;display:flex;flex-direction:column">
 
-    <section style="margin-bottom:2mm">
-      <h2><span class="n">§ 03</span> Practice — typical work</h2>
-      <ul class="acts">
-        <li><span class="cohort">M&amp;A</span><div>Private acquisitions, joint ventures, and divestitures — company-side and founder-side, including post-acquisition integration.</div></li>
-        <li><span class="cohort">Cross-border investments &amp; expansion</span><div>HK–PRC and outbound structuring, regional commercial agreements, market-entry into Europe, Japan, and ASEAN.</div></li>
-        <li><span class="cohort">Data protection</span><div>PDPO compliance, data-handling provisions in commercial contracts, cross-border data transfer, breach response.</div></li>
-        <li><span class="cohort">Employment</span><div>Executive service agreements, founder service agreements, share schemes, and restrictive covenants.</div></li>
-        <li><span class="cohort">Licensing</span><div>Technology and brand licensing, IP commercialisation, distribution and reseller arrangements.</div></li>
-        <li><span class="cohort">Web 3 regulatory advice</span><div>Token and exchange structuring, VATP regime, stablecoin and digital-asset regulatory matters.</div></li>
-        <li><span class="cohort">Regulatory &amp; compliance</span><div>SFC and HKMA touchpoints, sector-specific licensing, and ongoing compliance for operating businesses.</div></li>
-      </ul>
+    <section>
+      <h2><span class="n">§ 03</span> Experience by area</h2>
+
+      <div class="exp-group">
+        <h6 class="grp">Major M&amp;A &amp; strategic</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">Deal of the Year</span><div class="body-text">10+ acquisitions and JV formations over a decade for an <b>HKEX-listed PRC logistics group</b>; latest acquired <b>30+ overseas subsidiaries at RMB 4B+</b> — <em>Deal of the Year, China Business Law Journal</em>.</div></div>
+          <div class="item"><span class="tag">Sports apparel · USD 62.5M</span><div class="body-text"><b>Global sports-apparel brand acquisition</b> for a PRC sportswear group — diligence, deal structuring, and execution.</div></div>
+          <div class="item"><span class="tag">Largest M&amp;A · 2022</span><div class="body-text">A <b>leading logistics &amp; real-asset group</b> on the group’s largest M&amp;A of 2022.</div></div>
+          <div class="item"><span class="tag">Strategic investment</span><div class="body-text">A <b>major China internet group</b> on a strategic investment in Tokyo.</div></div>
+          <div class="item"><span class="tag">Acquisition</span><div class="body-text">A <b>PRC wealth-management group</b> on the acquisition of Hong Kong entities — deal structure, due diligence, and transaction documents.</div></div>
+          <div class="item"><span class="tag">Exit / buyout</span><div class="body-text">A <b>payments / POS company</b> on the majority investment into it by a Hong Kong telecom group — a founder-side exit.</div></div>
+          <div class="item"><span class="tag">Spin-off / carve-out</span><div class="body-text">Spin-off of an <b>innovative business unit</b> from a traditional professional-services firm into a standalone company.</div></div>
+        </div>
+      </div>
+
+      <div class="exp-group">
+        <h6 class="grp">Cross-border &amp; structuring</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">Pre-IPO · RMB 2B</span><div class="body-text"><b>Pre-IPO restructuring</b> of a Shanghai-listed company’s HK operations — WFOE / VIE build-out, capital investment exceeding <b>RMB 2B</b>.</div></div>
+          <div class="item"><span class="tag">Cross-border JVs</span><div class="body-text">China–UK fashion; Japan–HK/PRC climate control; Shenzhen–Europe software.</div></div>
+          <div class="item"><span class="tag">Holding structures</span><div class="body-text">Cross-border structuring with <b>HK holdcos</b> and <b>BVI / Cayman top-cos</b>.</div></div>
+          <div class="item"><span class="tag">Family office</span><div class="body-text">Structured the <b>startup-incubation and investment arm</b> of a prominent HK private family business — policy, governance, and investment-paper template.</div></div>
+          <div class="item"><span class="tag">Investment advisory</span><div class="body-text">A <b>US-listed PRC internet group</b> on investment advisory across multiple China tech sectors.</div></div>
+          <div class="item"><span class="tag">Offshore structuring</span><div class="body-text">An <b>unmanned-aerial-systems manufacturer</b> — offshore structuring and general corporate advice.</div></div>
+          <div class="item"><span class="tag">Notes offering</span><div class="body-text">A <b>PRC property group’s HK subsidiary</b> on a notes offering exchanged into Europe-listed notes.</div></div>
+          <div class="item"><span class="tag">Fund investment</span><div class="body-text">An <b>overseas venture fund</b> on a proposed investment into a PRC consumer company — structuring, due diligence, and PRC-counsel coordination.</div></div>
+        </div>
+      </div>
+
+      <div class="exp-group">
+        <h6 class="grp">Venture &amp; emerging companies</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">Series C · USD 60M</span><div class="body-text">Lead counsel on a <b>USD 60M Series C</b> for a knowledge-sharing platform — subscription, SHA, and SAFE-to-equity conversion. Founder-side financing from <b>seed through Series C</b> across AI, fintech, and Web3.</div></div>
+          <div class="item"><span class="tag">University schemes</span><div class="body-text">Appointed counsel to <b>RAISE+ founder teams</b> at more than one HK university, and to university Offices of Knowledge Transfer (OKT).</div></div>
+          <div class="item"><span class="tag">Founder governance</span><div class="body-text">Co-founder arrangements, <b>vesting, and ESOP design</b> across numerous founder matters.</div></div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer class="foot">
+    <div class="l">
+      OLN — Oldham, Li &amp; Nie · Suite 503, St. George's Building, 2 Ice House Street, Central, Hong Kong
+      <span class="tagline">Practical Legal Solutions — On Time — No Excuses</span>
+    </div>
+    <div class="r">Page 2 of 3 · <b>Cermain Cheung — CV</b><span class="ver">Version 1.0 · June 2026</span></div>
+  </footer>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     PAGE 3
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page dense" data-screen-label="CV — credentials">
+  <div class="top">
+    <div class="brand">
+      <span class="sw"></span>
+      <span class="word">OLN</span>
+      <span class="sep">·</span>
+      <b>Cermain Cheung</b>
+      <span class="sep">·</span>
+      <span>Curriculum Vitae</span>
+    </div>
+    <div class="top-right">Page 3 of 3</div>
+  </div>
+
+  <div style="margin-top:4mm;flex:1;display:flex;flex-direction:column">
+
+    <section>
+      <h2><span class="n">§ 03</span> Experience by area <span class="cont">— continued</span></h2>
+
+      <div class="exp-group">
+        <h6 class="grp">Regulatory, licensing &amp; compliance</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">SFC compliance</span><div class="body-text">An <b>alternative-investment platform</b> on regulatory compliance and SFC rules advice.</div></div>
+          <div class="item"><span class="tag">Licensing</span><div class="body-text">A <b>technology company’s business expansion</b> — SFC and MSO licensing, among other matters.</div></div>
+          <div class="item"><span class="tag">Virtual assets</span><div class="body-text"><b>Virtual-asset / Web3 businesses</b> — VATP licence applications and general regulatory advisory.</div></div>
+        </div>
+      </div>
+
+      <div class="exp-group">
+        <h6 class="grp">Market entry into Hong Kong</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">PRC tech &amp; consumer</span><div class="body-text"><b>Leading PRC consumer, e-commerce, and tech companies</b> on establishing and structuring HK operations — strategy, local knowledge, operational contracts.</div></div>
+          <div class="item"><span class="tag">Consumer / F&amp;B</span><div class="body-text">An <b>international consumer / F&amp;B brand</b> on HK market entry and expansion.</div></div>
+          <div class="item"><span class="tag">F&amp;B franchise</span><div class="body-text"><b>Multiple chain F&amp;B brands</b> on franchise design, corporate structures, and multi-outlet expansion.</div></div>
+          <div class="item"><span class="tag">General counsel</span><div class="body-text">A <b>Korean-listed entertainment group’s HK subsidiary</b> — multi-year general legal adviser.</div></div>
+        </div>
+      </div>
+
+      <div class="exp-group">
+        <h6 class="grp">Corporate, employment &amp; special situations</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">Restructuring</span><div class="body-text">A <b>co-working business</b> — shareholding restructuring and overseas expansion.</div></div>
+          <div class="item"><span class="tag">Employment</span><div class="body-text">Compliance and dispute advisory for listed companies and multinationals.</div></div>
+          <div class="item"><span class="tag">Special situations</span><div class="body-text">Advised a <b>founder in distress</b> on transferring certain investor interests to another platform during a difficult period — pre-dispute planning and risk management.</div></div>
+        </div>
+      </div>
+
+      <div class="exp-group">
+        <h6 class="grp">Government VC</h6>
+        <div class="exp">
+          <div class="item"><span class="tag">ITVFC · former</span><div class="body-text">VC advisory to the <b>HKSAR Innovation and Technology Venture Fund (ITVFC)</b> — a past engagement.</div></div>
+        </div>
+      </div>
     </section>
 
-    <section style="margin-bottom:2mm">
-      <h2><span class="n">§ 04</span> Further experience</h2>
-      <ul class="qual">
-        <li><span class="year">Seed</span><div><b>USD 1.75M seed</b> for a craft beer startup; angel + follow-on rounds for an influencer e-commerce company; multiple bridge / SAFE / convertible note rounds for AI and fintech startups across the region.</div></li>
-        <li><span class="year">Cross-border</span><div><b>JVs and strategic partnerships:</b> China–UK fashion; Japan–HK/PRC climate control; Shenzhen–Europe software; commercial agreements with European, Japanese, and ASEAN counterparties.</div></li>
-      </ul>
-    </section>
-
-    <section style="margin-bottom:2mm">
-      <h2><span class="n">§ 05</span> Qualifications &amp; admissions</h2>
+    <section>
+      <h2><span class="n">§ 04</span> Qualifications &amp; admissions</h2>
       <ul class="qual">
         <li><span class="year">2009</span><div><b>Admitted as a Solicitor</b> of the High Court of Hong Kong</div></li>
         <li><span class="year">2007</span><div><b>Postgraduate Certificate in Laws (PCLL)</b>, University of Hong Kong</div></li>
@@ -419,38 +521,35 @@
       </ul>
     </section>
 
-    <section style="margin-bottom:2mm">
-      <h2><span class="n">§ 06</span> Teaching &amp; thought leadership</h2>
+    <section>
+      <h2><span class="n">§ 05</span> Teaching &amp; thought leadership</h2>
       <ul class="qual">
-        <li><span class="year">2023–2024</span><div><b>Part-time Lecturer in Commercial Contract Drafting</b>, University of Hong Kong Law School. Designed and delivered the practical drafting module for the LLM and PCLL programmes.</div></li>
-        <li><span class="year">Ongoing</span><div><b>Invited speaker</b> at Hong Kong universities on entrepreneurship law, and at industry roundtables on founder structuring, vesting mechanics, and the practical enforceability of restrictive covenants.</div></li>
+        <li><span class="year">2023–2025</span><div><b>Part-time Lecturer in Commercial Contract Drafting</b>, University of Hong Kong Law School.</div></li>
+        <li><span class="year">Ongoing</span><div><b>Editorial Director</b>, <em>Legal Industry Review</em> (China &amp; Hong Kong); invited speaker on founder structuring, vesting, and the enforceability of restrictive covenants.</div></li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="n">§ 07</span> Appointments, public service &amp; recognition</h2>
+      <h2><span class="n">§ 06</span> Appointments, public service &amp; recognition</h2>
       <div class="two-col">
         <div>
           <div class="appt-group">
             <div class="grp-label">Public service</div>
             <ul>
+              <li><span class="year">Latest</span><div><b>Member, Appeal Panel</b> (Basic Housing Units)</div></li>
               <li><span class="year">Current</span><div><b>Adjudicator</b>, Registration of Persons Tribunal</div></li>
-              <li><span class="year">Current</span><div><b>Panel Member</b>, Appeal Panel (Basic Housing Units)</div></li>
+              <li><span class="year">Current</span><div><b>Member</b>, Immigration Tribunal (Security Bureau)</div></li>
             </ul>
           </div>
           <div class="appt-group">
             <div class="grp-label">Profession &amp; editorial</div>
             <ul>
               <li><span class="year">Current</span><div><b>Chair, Women Initiative APEC</b> — GlobaLaw</div></li>
-              <li><span class="year">2024–</span><div><b>Editorial Director</b>, <em>Legal Industry Review</em> (China &amp; Hong Kong)</div></li>
+              <li><span class="year">Current</span><div><b>Member</b>, The Law Society of Hong Kong</div></li>
             </ul>
           </div>
         </div>
         <div>
-          <h5>Member of</h5>
-          <ul style="margin:0 0 4mm;padding:0;list-style:none;font-size:9pt;color:var(--ink-2);line-height:1.65">
-            <li>The Law Society of Hong Kong</li>
-          </ul>
           <h5>Industry recognition</h5>
           <ul style="margin:0;padding:0;list-style:none;font-size:9pt;color:var(--ink-2);line-height:1.65">
             <li><em>China Business Law Journal</em> — Deal of the Year</li>
@@ -467,7 +566,7 @@
       OLN — Oldham, Li &amp; Nie · Suite 503, St. George's Building, 2 Ice House Street, Central, Hong Kong
       <span class="tagline">Practical Legal Solutions — On Time — No Excuses</span>
     </div>
-    <div class="r">Page 2 · <b>Cermain Cheung — CV</b></div>
+    <div class="r">Page 3 of 3 · <b>Cermain Cheung — CV</b><span class="ver">Version 1.0 · June 2026</span></div>
   </footer>
 </section>
 
