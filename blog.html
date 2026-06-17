@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ESOP — Cermain Cheung</title>
-<meta name="description" content="The five decisions behind an employee share scheme that actually retains people — made in order, before you promise the equity.">
+<title>Blog — Cermain Cheung</title>
+<meta name="description" content="Notes from practice — practical, founder-side writing on fundraising, founder equity, ESOPs and cross-border structuring from a Hong Kong corporate lawyer.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ESOP — Cermain Cheung">
-<meta property="og:description" content="The five decisions behind an employee share scheme that actually retains people — made in order, before you promise the equity.">
+<meta property="og:title" content="Founding — Cermain Cheung">
+<meta property="og:description" content="Get the foundation right: founder equity splits, vesting, the founders’ agreement and IP — settled while it’s still unemotional.">
 <meta property="og:site_name" content="Cermain Cheung">
 <meta name="twitter:card" content="summary">
 
@@ -353,6 +353,41 @@
   }
   @media print { .artsy-ambient { display: none !important; } }
 </style>
+<style>
+  .acc { list-style:none; margin-top:46px; border-top:1px solid var(--rule); }
+  .acc-item { border-bottom:1px solid var(--rule); }
+  .acc-head { width:100%; background:none; border:none; cursor:pointer; font-family:inherit; display:grid; grid-template-columns:auto 1fr auto; gap:22px; align-items:center; padding:26px 4px; text-align:left; }
+  .acc-n { font-family:'Lora',Georgia,serif; font-style:italic; font-size:24px; color:var(--sage); line-height:1; }
+  .acc-t { font-size:clamp(18px,1.9vw,23px); font-weight:500; color:var(--navy); letter-spacing:-0.01em; }
+  .acc-chev { font-size:26px; color:var(--sage); font-weight:300; line-height:1; transition:transform .25s ease; }
+  .acc-item.open .acc-chev { transform:rotate(45deg); }
+  .acc-head:hover .acc-t { color:var(--sage-deep); }
+  .acc-body { max-height:0; overflow:hidden; transition:max-height .32s ease; }
+  .acc-item.open .acc-body { max-height:360px; }
+  .acc-body-inner { padding:0 4px 30px 62px; }
+  .acc-body p { font-size:16px; line-height:1.65; color:var(--muted); max-width:64ch; }
+  .acc-body p em { color:var(--sage-deep); font-style:italic; }
+  .hero h1, .section-title, .comms h2, .tension h2, .cta-bottom h2, .insight p { text-wrap:balance; }
+  /* ---- pull-quote band (the "hats" moment) ---- */
+  .insight { background:var(--cream-warm); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); text-align:center; padding-top:88px; padding-bottom:88px; }
+  .insight .container { max-width:840px; }
+  .insight .kicker { color:var(--sage); }
+  .insight p:first-of-type::before { content:'\201C'; display:block; font-family:'Lora',Georgia,serif; font-size:66px; line-height:0.4; color:var(--sage); opacity:.45; margin-bottom:22px; }
+  .insight .sub { margin-left:auto; margin-right:auto; }
+  /* ---- refined accordion ---- */
+  .acc { margin-top:52px; }
+  .acc-item { position:relative; transition:background .22s ease; }
+  .acc-item::after { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--sage); transform:scaleY(0); transform-origin:top; transition:transform .25s ease; }
+  .acc-item.open::after { transform:scaleY(1); }
+  .acc-item.open { background:linear-gradient(90deg, var(--sage-soft), rgba(122,155,142,0) 72%); }
+  .acc-head { padding:27px 16px 27px 22px; }
+  .acc-item.open .acc-n { color:var(--sage-deep); }
+  .acc-body-inner { padding:0 16px 30px 74px; }
+  .comms-xref { display:inline-flex; align-items:center; gap:9px; margin-top:30px; color:#fff; text-decoration:none; font-weight:600; font-size:15px; border-bottom:1px solid var(--sage); padding-bottom:4px; transition:gap .2s ease; }
+  .comms-xref:hover { gap:14px; }
+  :lang(zh-hant) .acc-t, :lang(zh-hans) .acc-t { font-family:'Noto Serif TC','Noto Serif SC','Lora',Georgia,serif; }
+  @media print { .acc-body { max-height:none !important; } .acc-chev { display:none; } .comms-xref { color:var(--navy); } }
+</style>
 <style>h1,h2,.section-title,.branch-q,.acc-t,.hero-thesis p{text-wrap:balance;}</style>
 <style id="oln-rebrand">
   .chrome .brand{display:flex !important;flex-direction:column;align-items:stretch;gap:6px;text-align:left}
@@ -368,6 +403,33 @@
   .tnav.blog-tab::before{ content:""; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--sage); margin-right:7px; vertical-align:middle; }
   .tnav.blog-tab:hover{ color:var(--navy); }
   .tnav.blog-tab.is-current{ color:var(--navy); border-bottom-color:var(--sage); }
+</style>
+<style id="blog-styles">
+  .blog-hero{ padding:118px 32px 12px; }
+  .blog-hero .container{ max-width:820px; margin:0 auto; }
+  .blog-eyebrow{ font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-deep); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+  .blog-eyebrow::before{ content:""; width:22px; height:1px; background:var(--sage); }
+  .blog-hero h1{ font-family:'Lora',Georgia,serif; font-weight:400; font-size:clamp(40px,5vw,64px); line-height:1.04; letter-spacing:-.02em; color:var(--navy); }
+  .blog-hero h1 em{ font-style:italic; color:var(--sage-deep); }
+  .blog-hero .lead{ margin-top:18px; font-size:18px; line-height:1.6; color:var(--muted); max-width:60ch; }
+  .blog-sec{ padding:30px 32px 100px; }
+  .blog-list{ max-width:820px; margin:0 auto; }
+  .post{ display:block; padding:32px 0; border-top:1px solid var(--rule); text-decoration:none; }
+  .post:last-child{ border-bottom:1px solid var(--rule); }
+  .post-top{ display:flex; gap:14px; align-items:center; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; color:var(--muted); }
+  .post-cat{ color:var(--sage-deep); display:inline-flex; align-items:center; gap:7px; }
+  .post-cat::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--sage); }
+  .post h3{ font-family:'Lora',Georgia,serif; font-weight:500; font-size:25px; line-height:1.25; color:var(--navy); letter-spacing:-.01em; margin:11px 0 8px; transition:color .15s ease; }
+  .post:hover h3{ color:var(--sage-deep); }
+  .post p{ font-size:16px; line-height:1.62; color:var(--muted); max-width:64ch; }
+  .post .more{ display:inline-block; margin-top:12px; font-size:13px; font-weight:600; letter-spacing:.02em; color:var(--navy); }
+  .post:hover .more{ color:var(--sage-deep); }
+  :lang(zh-hant) .post h3,:lang(zh-hans) .post h3,:lang(zh-hant) .blog-hero h1,:lang(zh-hans) .blog-hero h1{ font-family:'Noto Serif TC','Noto Serif SC','Lora',serif; }
+  .blog-empty{ max-width:680px; margin:0 auto; text-align:center; padding:30px 32px 40px; }
+  .blog-empty-mark{ display:inline-block; font-size:30px; color:var(--sage); border:1px solid var(--sage-line,#cfdcd5); width:64px; height:64px; line-height:64px; border-radius:50%; margin-bottom:24px; }
+  .blog-empty-title{ font-family:'Lora',Georgia,serif; font-size:26px; color:var(--navy); font-weight:500; margin-bottom:12px; }
+  .blog-empty-sub{ font-size:16px; line-height:1.65; color:var(--muted); max-width:52ch; margin:0 auto; }
+  :lang(zh-hant) .blog-empty-title,:lang(zh-hans) .blog-empty-title{ font-family:'Noto Serif TC','Noto Serif SC','Lora',serif; }
 </style>
 </head>
 <body>
@@ -407,10 +469,10 @@
       <a class="tnav" href="index.html"><span data-en="How we work" data-zh-hant="了解我們" data-zh-hans="了解我们">How we work</span></a>
       <a class="tnav" href="founding.html"><span data-en="Founding" data-zh-hant="合夥" data-zh-hans="合伙">Founding</span></a>
       <a class="tnav" href="fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
-      <a class="tnav is-current" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
+      <a class="tnav" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
       <a class="tnav" href="esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
       <a class="tnav" href="experience.html"><span data-en="Experience" data-zh-hant="經驗" data-zh-hans="经验">Experience</span></a>
-      <a class="tnav blog-tab" href="blog.html"><span data-en="Blog" data-zh-hant="網誌" data-zh-hans="博客">Blog</span></a>
+      <a class="tnav blog-tab is-current" href="blog.html"><span data-en="Blog" data-zh-hant="網誌" data-zh-hans="博客">Blog</span></a>
       <span class="tnav soon"><span data-en="Agreements" data-zh-hant="合約審閱" data-zh-hans="合约审阅">Agreements</span> <i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
       <span class="tnav soon"><span data-en="Hiring" data-zh-hant="聘用" data-zh-hans="聘用">Hiring</span> <i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
       <span class="tnav soon"><span data-en="Collaboration" data-zh-hant="合作" data-zh-hans="合作">Collaboration</span> <i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
@@ -421,215 +483,19 @@
 
 <main>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-inner">
-    <a class="back-overview reveal" href="index.html" data-en="← Back to Get to know us" data-zh-hant="← 返回了解我們" data-zh-hans="← 返回了解我们">← Back to Get to know us</a>
-    <p class="hero-eyebrow reveal" data-en="ESOP · How do employee shares actually work?" data-zh-hant="員工持股 · 員工股權到底怎麼運作？" data-zh-hans="员工持股 · 员工股权到底怎么运作？">ESOP · How do employee shares actually work?</p>
-    <h1 class="reveal" data-en="How to think about equity <em>before you give it away.</em>" data-zh-hant="在送出股權之前，<em>先想清楚怎麼分。</em>" data-zh-hans="在送出股权之前，<em>先想清楚怎么分。</em>">How to think about equity <em>before you give it away.</em></h1>
-    <div class="hero-thesis reveal">
-      <p data-en="Hong Kong has minted its own unicorns — and the best of them made people genuinely rich through equity. Every founder draws the same lesson — <span class='q'>equity is how you glue a team together.</span>" data-zh-hant="香港也孕育出自己的獨角獸——當中最出色的，靠股權讓員工真正富起來。每位創辦人都得出同一個結論——<span class='q'>股權是把團隊黏在一起的方法。</span>" data-zh-hans="香港也孕育出自己的独角兽——当中最出色的，靠股权让员工真正富起来。每位创办人都得出同一个结论——<span class='q'>股权是把团队黏在一起的方法。</span>">Hong Kong has minted its own unicorns — and the best of them made people genuinely rich through equity. Every founder draws the same lesson — <span class="q">equity is how you glue a team together.</span></p>
-      <p class="small" data-en="Is it, though? Look at what was actually built, not the headline: a deliberate mix of instruments, a real path to cash before any exit, adjusted as the company grew. <em>An omelette — not a boiled egg.</em> Most founders treat an ESOP as a document to copy. It isn't. It's five decisions that pull against each other — and one thing that sits beneath all of them. This is the map I walk founders through." data-zh-hant="真的是這樣嗎？要看的是實際怎麼建，而不是新聞標題：刻意搭配的多種工具、在退出之前就有真正套現的路徑、並隨公司成長不斷調整。<em>那是一碟蛋餅——不是一隻白煮蛋。</em>多數創辦人把員工持股當成一份照抄的文件。它不是。它是五個互相拉扯的決定——以及一件貫穿全部的根本。這就是我帶創辦人走過的地圖。" data-zh-hans="真的是这样吗？要看的是实际怎么建，而不是新闻标题：刻意搭配的多种工具、在退出之前就有真正套现的路径、并随公司成长不断调整。<em>那是一碟蛋饼——不是一只白煮蛋。</em>多数创办人把员工持股当成一份照抄的文件。它不是。它是五个互相拉扯的决定——以及一件贯穿全部的根本。这就是我带创办人走过的地图。">Is it, though? Look at what was actually built, not the headline: a deliberate mix of instruments, a real path to cash before any exit, adjusted as the company grew. <em>An omelette — not a boiled egg.</em> Most founders treat an ESOP as a document to copy. It isn't. It's five decisions that pull against each other — and one thing that sits beneath all of them. This is the map I walk founders through.</p>
-    </div>
-    <div class="hero-byline reveal">
-      <span><b>Cermain Cheung</b> · 蔣昭嵐</span>
-      <span class="sep">·</span>
-      <span data-en="Corporate · Startup · Founder governance" data-zh-hant="公司 · 初創 · 創辦人治理" data-zh-hans="公司 · 初创 · 创办人治理">Corporate · Startup · Founder governance</span>
-      <span class="sep">·</span>
-      <span data-en="Founder side only" data-zh-hant="只代表創辦人一方" data-zh-hans="只代表创办人一方">Founder side only</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== THE MAP ===== -->
-<section class="map">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-eyebrow" data-en="The decision map" data-zh-hant="決策地圖" data-zh-hans="决策地图">The decision map</p>
-      <h2 class="section-title" data-en="Five decisions, made in order." data-zh-hant="五個決定，按次序做。" data-zh-hans="五个决定，按次序做。">Five decisions, made in order.</h2>
-      <p class="section-lead" data-en="Each decision constrains the next. The mistake founders make is jumping straight to the instrument — <em>&quot;options or RSUs?&quot;</em> — without answering <em>why</em> and <em>who</em> first, and skipping the structure entirely." data-zh-hant="每個決定都框住下一個。創辦人常犯的錯，是直接跳到工具——<em>「用認股權還是受限股份單位？」</em>——卻沒先回答<em>為什麼</em>和<em>給誰</em>，更完全略過了結構。" data-zh-hans="每个决定都框住下一个。创办人常犯的错，是直接跳到工具——<em>「用认股权还是受限股份单位？」</em>——却没先回答<em>为什么</em>和<em>给谁</em>，更完全略过了结构。">Each decision constrains the next. The mistake founders make is jumping straight to the instrument — <em>"options or RSUs?"</em> — without answering <em>why</em> and <em>who</em> first, and skipping the structure entirely.</p>
-    </div>
-
-
-    <div class="wheel-wrap reveal">
-      <div class="wheel" role="tablist" aria-label="The five decisions, in order">
-        <svg class="wheel-svg" viewBox="0 0 100 100" aria-hidden="true"><defs><marker id="esop-arr" markerUnits="userSpaceOnUse" markerWidth="5" markerHeight="5" refX="2.4" refY="2.5" orient="auto"><path d="M0 0 L5 2.5 L0 5 Z" fill="#7A9B8E"></path></marker></defs><path d="M50 8 A42 42 0 1 1 10.06 36.99" fill="none" stroke="#7A9B8E" stroke-width="0.9" stroke-linecap="round" opacity="0.5" marker-end="url(#esop-arr)"></path></svg>
-        <button class="wnode" data-i="0" role="tab" aria-selected="false"><span class="dot">01</span><span class="wlabel" data-en="Why" data-zh-hant="為什麼" data-zh-hans="为什么">Why</span></button>
-        <button class="wnode" data-i="1" role="tab" aria-selected="false"><span class="dot">02</span><span class="wlabel" data-en="Who" data-zh-hant="給誰" data-zh-hans="给谁">Who</span></button>
-        <button class="wnode" data-i="2" role="tab" aria-selected="false"><span class="dot">03</span><span class="wlabel" data-en="What" data-zh-hant="用什麼" data-zh-hans="用什么">What</span></button>
-        <button class="wnode" data-i="3" role="tab" aria-selected="false"><span class="dot">04</span><span class="wlabel" data-en="Terms" data-zh-hant="條款" data-zh-hans="条款">Terms</span></button>
-        <button class="wnode" data-i="4" role="tab" aria-selected="false"><span class="dot">05</span><span class="wlabel" data-en="Vehicle" data-zh-hant="載體" data-zh-hans="载体">Vehicle</span></button>
-        <div class="wheel-hub" aria-hidden="true"><span class="hub-k" data-en="Decision" data-zh-hant="決策" data-zh-hans="决策">Decision</span><span class="hub-num">01</span><span class="hub-of" data-en="of five · in order" data-zh-hant="五者之一 · 按次序" data-zh-hans="五者之一 · 按次序">of five · in order</span></div>
-      </div>
-      <div class="wheel-panels">
-    <div class="wpanel" data-i="0">
-      <div class="branch-head">
-        <span class="branch-num">01</span>
-        <span class="branch-tag" data-en="Why · Purpose" data-zh-hant="為什麼 · 目的" data-zh-hans="为什么 · 目的">Why · Purpose</span>
-        <h3 class="branch-q" data-en="What is this equity actually for?" data-zh-hant="這份股權，到底為了什麼？" data-zh-hans="这份股权，到底为了什么？">What is this equity actually for?</h3>
-        <p class="branch-frame" data-en="The decision everyone skips. Purpose dictates instrument, terms and vehicle — get this wrong and the rest is guesswork." data-zh-hant="人人都跳過的決定。目的決定工具、條款與架構——這一步錯了，後面全是猜測。" data-zh-hans="人人都跳过的决定。目的决定工具、条款与架构——这一步错了，后面全是猜测。">The decision everyone skips. Purpose dictates instrument, terms and vehicle — get this wrong and the rest is guesswork.</p>
-      </div>
-      <ul class="branch-list">
-        <li><span class="lt" data-en="Retain" data-zh-hant="留人" data-zh-hans="留人">Retain</span><span class="ld" data-en="Long build, no near exit → long vesting + a liquidity path" data-zh-hant="建立期長、短期內不會退出 → 長歸屬期 ＋ 套現途徑" data-zh-hans="建立期长、短期内不会退出 → 长归属期 ＋ 套现途径">Long build, no near exit → long vesting + a liquidity path</span></li>
-        <li><span class="lt" data-en="Recruit" data-zh-hant="招募" data-zh-hans="招募">Recruit</span><span class="ld" data-en="Can't match market salary → equity's future value as part of the package" data-zh-hant="薪資開不到市場水平 → 讓股權以後的價值成為待遇的一部分" data-zh-hans="薪资开不到市场水平 → 让股权以后的价值成为待遇的一部分">Can't match market salary → equity's future value as part of the package</span></li>
-        <li><span class="lt" data-en="Reward" data-zh-hant="回報" data-zh-hans="回报">Reward</span><span class="ld" data-en="Pay back early risk → weighting toward first believers" data-zh-hant="回報早期承擔的風險 → 回饋最先投信任票的人" data-zh-hans="回报早期承担的风险 → 回馈最先投信任票的人">Pay back early risk → weighting toward first believers</span></li>
-        <li><span class="lt" data-en="Align" data-zh-hant="對齊" data-zh-hans="对齐">Align</span><span class="ld" data-en="Get everyone pulling one way → broad, understood ownership" data-zh-hant="讓大家往同一方向使力 → 廣泛而且被理解的持股" data-zh-hans="让大家往同一方向使力 → 广泛而且被理解的持股">Get everyone pulling one way → broad, understood ownership</span></li>
-      </ul>
-    </div>
-
-    
-    <div class="wpanel" data-i="1">
-      <div class="branch-head">
-        <span class="branch-num">02</span>
-        <span class="branch-tag" data-en="Who · Selection" data-zh-hant="給誰 · 篩選" data-zh-hans="给谁 · 筛选">Who · Selection</span>
-        <h3 class="branch-q" data-en="Who gets a grant — and can you defend it?" data-zh-hant="誰能拿到授予——你守得住這個決定嗎？" data-zh-hans="谁能拿到授予——你守得住这个决定吗？">Who gets a grant — and can you defend it?</h3>
-        <p class="branch-frame" data-en="The branch that turns personal later. Two failure modes: everyone gets the same regardless of contribution, or grants by gut with no logic you can stand behind when asked." data-zh-hant="日後最容易牽動情緒的一環。兩種失敗：不論貢獻人人一樣，或憑感覺發放、被問起時拿不出站得住腳的邏輯。" data-zh-hans="日后最容易牽动情绪的一环。两种失败：不论贡献人人一样，或凭感觉发放、被问起时拿不出站得住脚的逻辑。">The branch that turns personal later. Two failure modes: everyone gets the same regardless of contribution, or grants by gut with no logic you can stand behind when asked.</p>
-      </div>
-      <ul class="branch-list">
-        <li><span class="lt" data-en="Identify" data-zh-hant="辨識" data-zh-hans="辨识">Identify</span><span class="ld" data-en="Who actually moves the company — not just who's senior or early" data-zh-hant="真正推動公司的人——不只是資深或早來的人" data-zh-hans="真正推动公司的人——不只是资深或早来的人">Who actually moves the company — not just who's senior or early</span></li>
-        <li><span class="lt" data-en="Differentiate" data-zh-hant="區分" data-zh-hans="区分">Differentiate</span><span class="ld" data-en="A defensible logic for why one number differs from another" data-zh-hant="一套能說明為何此數字不同於彼數字的邏輯" data-zh-hans="一套能说明为何此数字不同于彼数字的逻辑">A defensible logic for why one number differs from another</span></li>
-        <li><span class="lt" data-en="Tier" data-zh-hant="分層" data-zh-hans="分层">Tier</span><span class="ld" data-en="Founders, key hires, broad base — different instruments fit different tiers" data-zh-hant="創辦人、關鍵人才、廣泛基層員工——不同層級適合不同工具" data-zh-hans="创办人、关键人才、广泛基层员工——不同层级适合不同工具">Founders, key hires, broad base — different instruments fit different tiers</span></li>
-        <li><span class="lt" data-en="Refresh" data-zh-hant="續授" data-zh-hans="续授">Refresh</span><span class="ld" data-en="Who gets a second grant, and on what trigger" data-zh-hant="誰能拿到第二次授予，以什麼條件觸發" data-zh-hans="谁能拿到第二次授予，以什么条件触发">Who gets a second grant, and on what trigger</span></li>
-      </ul>
-    </div>
-
-    
-    <div class="wpanel" data-i="2">
-      <div class="branch-head">
-        <span class="branch-num">03</span>
-        <span class="branch-tag" data-en="What · Instrument" data-zh-hant="用什麼 · 工具" data-zh-hans="用什么 · 工具">What · Instrument</span>
-        <h3 class="branch-q" data-en="Which instrument fits the purpose?" data-zh-hant="哪一種工具切合目的？" data-zh-hans="哪一种工具切合目的？">Which instrument fits the purpose?</h3>
-        <p class="branch-frame" data-en="The layer everyone fixates on. Each carries a trade-off between cash cost to the employee, tax timing, and dilution." data-zh-hant="人人最執著的一層。每種工具都在員工的現金成本、課稅時點與攝薄之間取捨。" data-zh-hans="人人最执着的一层。每种工具都在员工的现金成本、课税时点与摄薄之间取舍。">The layer everyone fixates on. Each carries a trade-off between cash cost to the employee, tax timing, and dilution.</p>
-      </div>
-      <ul class="branch-list">
-        <li><span class="lt" data-en="Share options" data-zh-hant="認股權" data-zh-hans="认股权">Share options</span><span class="ld" data-en="Right to buy later at today's price." data-zh-hant="日後以今天的價格買入的權利。" data-zh-hans="日后以今天的价格买入的权利。">Right to buy later at today's price.</span></li>
-        <li><span class="lt" data-en="RSUs" data-zh-hant="受限股份單位" data-zh-hans="受限股份单位">RSUs</span><span class="ld" data-en="Shares on vesting — no cash to exercise" data-zh-hant="歸屬時取得股份——無須付現行使" data-zh-hans="归属时取得股份——无需付现行使">Shares on vesting — no cash to exercise</span></li>
-        <li><span class="lt" data-en="Restricted share awards" data-zh-hant="限制性股份授予" data-zh-hans="限制性股份授予">Restricted share awards</span><span class="ld" data-en="Real shares now, subject to buy-back" data-zh-hant="立刻發放股份，但可以被回購" data-zh-hans="立刻发放股份，但可以被回购">Real shares now, subject to buy-back</span></li>
-        <li><span class="lt" data-en="Phantom / cash-settled" data-zh-hant="影子股權／現金結算" data-zh-hans="影子股权／现金结算">Phantom / cash-settled</span><span class="ld" data-en="Upside without touching the cap table — often right for SMEs" data-zh-hant="維持股權結構，同時也能讓員工享有升值——常常適合中小企" data-zh-hans="维持股权结构，同时也能让员工享有升值——常常适合中小企">Upside without touching the cap table — often right for SMEs</span></li>
-        <li><span class="lt" data-en="Growth / hurdle shares" data-zh-hant="增值／門檻股份" data-zh-hans="增值／门槛股份">Growth / hurdle shares</span><span class="ld" data-en="Only value created above a threshold" data-zh-hant="只就超過門檻後創造的價值" data-zh-hans="只就超过门槛后创造的价值">Only value created above a threshold</span></li>
-      </ul>
-    </div>
-
-    
-    <div class="wpanel" data-i="3">
-      <div class="branch-head">
-        <span class="branch-num">04</span>
-        <span class="branch-tag" data-en="How much · On what terms" data-zh-hant="多少 · 什麼條款" data-zh-hans="多少 · 什么条款">How much · On what terms</span>
-        <h3 class="branch-q" data-en="The terms that decide if it works." data-zh-hant="決定成敗的那些條款。" data-zh-hans="决定成败的那些条款。">The terms that decide if it works.</h3>
-        <p class="branch-frame" data-en="Where good intentions become a plan — or a trap. The cells founders copy from US templates without checking local reality." data-zh-hant="好意在這裡變成方案——或變成陷阱。創辦人常照抄美國範本，卻沒核對本地實況。" data-zh-hans="好意在这里变成方案——或变成陷阱。创办人常照抄美国范本，却没核对本地实况。">Where good intentions become a plan — or a trap. The cells founders copy from US templates without checking local reality.</p>
-      </div>
-      <ul class="branch-list">
-        <li><span class="lt" data-en="Pool size" data-zh-hant="期權池大小" data-zh-hans="期权池大小">Pool size</span><span class="ld" data-en="% set aside + how it's topped up" data-zh-hant="預留的百分比 ＋ 如何補充" data-zh-hans="预留的百分比 ＋ 如何补充">% set aside + how it's topped up</span></li>
-        <li><span class="lt" data-en="Vesting" data-zh-hant="歸屬" data-zh-hans="归属">Vesting</span><span class="ld" data-en="Cliff, schedule, time vs milestone" data-zh-hant="懸崖期、時間表、按時間還是按里程碑" data-zh-hans="悬崖期、时间表、按时间还是按里程碑">Cliff, schedule, time vs milestone</span></li>
-        <li><span class="lt" data-en="Strike price" data-zh-hant="行使價" data-zh-hans="行使价">Strike price</span><span class="ld" data-en="How it's set — valuation discipline matters" data-zh-hant="如何訂定——估值的邏輯很重要" data-zh-hans="如何订定——估值的逻辑很重要">How it's set — valuation discipline matters</span></li>
-        <li><span class="lt" data-en="Leaver terms" data-zh-hant="離職條款" data-zh-hans="离职条款">Leaver terms</span><span class="ld" data-en="Good vs bad leaver; vested vs unvested" data-zh-hant="善意離職與惡意離職；已歸屬與未歸屬" data-zh-hans="善意离职与恶意离职；已归属与未归属">Good vs bad leaver; vested vs unvested</span></li>
-        <li><span class="lt" data-en="Liquidity" data-zh-hant="套現" data-zh-hans="套现">Liquidity</span><span class="ld" data-en="Buyback, secondary, tender — or wait for exit" data-zh-hant="回購、二級轉讓、要約——或等待退出" data-zh-hans="回购、二级转让、要约——或等待退出">Buyback, secondary, tender — or wait for exit</span></li>
-      </ul>
-    </div>
-
-    
-    <div class="wpanel feature" data-i="4">
-      <div class="branch-head">
-        <span class="branch-num">05</span>
-        <span class="branch-tag" data-en="Through what structure · Vehicle" data-zh-hant="透過什麼架構 · 載體" data-zh-hans="透过什么架构 · 载体">Through what structure · Vehicle</span>
-        <h3 class="branch-q" data-en="Where does the equity <em>actually sit?</em>" data-zh-hant="股權<em>實際放在哪裡？</em>" data-zh-hans="股权<em>实际放在哪里？</em>">Where does the equity <em>actually sit?</em></h3>
-        <p class="branch-frame" data-en="The branch most founder advice ignores — and the one that quietly governs your cap table, your tax, and your next raise." data-zh-hant="多數創辦人建議忽略的一環——卻悄悄左右你的股權結構、稅務與下一輪募資。" data-zh-hans="多数创办人建议忽略的一环——却悄悄左右你的股权结构、税务与下一轮募资。">The branch most founder advice ignores — and the one that quietly governs your cap table, your tax, and your next raise.</p>
-        <span class="branch-flag-lead" data-en="The differentiator" data-zh-hant="真正的分野" data-zh-hans="真正的分野">The differentiator</span>
-      </div>
-      <ul class="branch-list">
-        <li><span class="lt" data-en="Direct on OpCo" data-zh-hant="直接放在營運公司" data-zh-hans="直接放在营运公司">Direct on OpCo</span><span class="ld" data-en="Simplest — but every holder touches the real cap table" data-zh-hant="最簡單——但每位持有人都進入真實的股權結構" data-zh-hans="最简单——但每位持有人都进入真实的股权结构">Simplest — but every holder touches the real cap table</span></li>
-        <li><span class="lt" data-en="HoldCo / ParentCo" data-zh-hant="控股／母公司" data-zh-hans="控股／母公司">HoldCo / ParentCo</span><span class="ld" data-en="Grant above the operating entity; OpCo stays clean" data-zh-hant="在營運實體之上授予；營運公司保持乾淨" data-zh-hans="在营运实体之上授予；营运公司保持干净">Grant above the operating entity; OpCo stays clean</span></li>
-        <li><span class="lt" data-en="ESOP trust / nominee" data-zh-hant="員工持股信託／代名人" data-zh-hans="员工持股信托／代名人">ESOP trust / nominee</span><span class="ld" data-en="Trustee holds shares, staff hold beneficial interest" data-zh-hant="受託人持有股份，員工持有實益權益" data-zh-hans="受托人持有股份，员工持有实益权益">Trustee holds shares, staff hold beneficial interest</span></li>
-        <li><span class="lt" data-en="Pooling SPV / LP" data-zh-hant="彙集型 SPV／有限合夥" data-zh-hans="汇集型 SPV／有限合伙">Pooling SPV / LP</span><span class="ld" data-en="Many small holders → one line on the cap table" data-zh-hant="眾多小持有人 → 股權結構上只佔一行" data-zh-hans="众多小持有人 → 股权结构上只占一行">Many small holders → one line on the cap table</span></li>
-        <li><span class="lt" data-en="Offshore parent" data-zh-hant="離岸母公司" data-zh-hans="离岸母公司">Offshore parent</span><span class="ld" data-en="Cayman / BVI vs HK — ties into red-chip / dual-track" data-zh-hant="開曼／BVI 對比香港——牽涉紅籌／雙軌" data-zh-hans="开曼／BVI 对比香港——牽涉红筹／双轨">Cayman / BVI vs HK — ties into red-chip / dual-track</span></li>
-      </ul>
-    </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== COMMUNICATION FOUNDATION ===== -->
-<section class="comms">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-eyebrow" data-en="Beneath all five — the part no document fixes" data-zh-hant="貫穿五者之下——沒有文件能解決的那部分" data-zh-hans="贯穿五者之下——没有文件能解决的那部分">Beneath all five — the part no document fixes</p>
-      <h2 data-en="Equity is a relationship, <em>communicated.</em> Not a grant letter, filed." data-zh-hant="股權是一段<em>被溝通的</em>關係。不是一封歸檔的授予信。" data-zh-hans="股权是一段<em>被沟通的</em>关系。不是一封归档的授予信。">Equity is a relationship, <em>communicated.</em> Not a grant letter, filed.</h2>
-      <p class="lead" data-en="You can get instrument, terms, vehicle and selection all right and still have equity fail — because the person holding it doesn't understand what they have. <em>A grant nobody understands builds no loyalty.</em> This layer runs under every branch above." data-zh-hant="工具、條款、載體、篩選全做對，股權仍可能失敗——因為持有的人不明白自己拿到了什麼。<em>沒人看懂的授予，建立不了忠誠。</em>這一層貫穿上面每一個分支。" data-zh-hans="工具、条款、载体、筛选全做对，股权仍可能失败——因为持有的人不明白自己拿到了什么。<em>没人看懂的授予，建立不了忠诚。</em>这一层贯穿上面每一个分支。">You can get instrument, terms, vehicle and selection all right and still have equity fail — because the person holding it doesn't understand what they have. <em>A grant nobody understands builds no loyalty.</em> This layer runs under every branch above.</p>
-    </div>
-    <ul class="comms-grid reveal">
-      <li>
-        <span class="k" data-en="Communicate the plan" data-zh-hant="溝通方案" data-zh-hans="沟通方案">Communicate the plan</span>
-        <h4 data-en="What they actually hold" data-zh-hant="他們實際持有什麼" data-zh-hans="他们实际持有什么">What they actually hold</h4>
-        <p data-en="What the instrument is, what it could be worth, what it could cost them to realise — and the honest risks. Plain language, not the plan summary." data-zh-hant="工具是什麼、可能值多少、實現時可能要付出什麼成本——以及誠實的風險。用白話，不是方案摘要。" data-zh-hans="工具是什么、可能值多少、实现时可能要付出什么成本——以及诚实的风险。用白话，不是方案摘要。">What the instrument is, what it could be worth, what it could cost them to realise — and the honest risks. Plain language, not the plan summary.</p>
-      </li>
-      <li>
-        <span class="k" data-en="Communicate the decision" data-zh-hant="溝通決定" data-zh-hans="沟通决定">Communicate the decision</span>
-        <h4 data-en="Why this number, for them" data-zh-hant="為何是這個數字、為何是他" data-zh-hans="为何是这个数字、为何是他">Why this number, for them</h4>
-        <p data-en="The logic of their grant relative to others — so people feel fairness is taken seriously, not just the size of the number itself." data-zh-hant="他的授予相對於他人的邏輯。讓大家感覺公平被重視——而不只是數字本身的大小。" data-zh-hans="他的授予相对于他人的逻辑。让大家感觉公平被重视——而不只是数字本身的大小。">The logic of their grant relative to others — so people feel fairness is taken seriously, not just the size of the number itself.</p>
-      </li>
-      <li>
-        <span class="k" data-en="Communicate expectations" data-zh-hant="溝通期望" data-zh-hans="沟通期望">Communicate expectations</span>
-        <h4 data-en="What it's in return for" data-zh-hant="這是為了換取什麼" data-zh-hans="这是为了换取什么">What it's in return for</h4>
-        <p data-en="What ownership asks of them, over what horizon. Equity is a two-way document — most founders only state one side." data-zh-hant="持股對他的要求是什麼、時間多長。股權是一份雙向文件——多數創辦人只說了一面。" data-zh-hans="持股对他的要求是什么、时间多长。股权是一份双向文件——多数创办人只说了一面。">What ownership asks of them, over what horizon. Equity is a two-way document — most founders only state one side.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== TENSION ===== -->
-<section class="tension">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-eyebrow" data-en="The decision underneath the decision" data-zh-hant="決定背後的決定" data-zh-hans="决定背后的决定">The decision underneath the decision</p>
-      <h2 data-en="Three things every incentive structure must weigh." data-zh-hant="激勵架構必須考慮的三大事宜。" data-zh-hans="激励架构必须考虑的三大事宜。">Three things every incentive structure must weigh.</h2>
-      <p class="tension-lead" data-en="No right or wrong — only what fits. <em>Different stage, different choice.</em>" data-zh-hant="沒有對錯，只有是否合適。<em>不同階段，選擇不同。</em>" data-zh-hans="没有对错，只有是否合适。<em>不同阶段，选择不同。</em>">No right or wrong — only what fits. <em>Different stage, different choice.</em></p>
-    </div>
-    <ul class="tri reveal">
-      <li>
-        <h4 data-en="Cap-table cleanliness" data-zh-hant="股權結構的乾淨度" data-zh-hans="股权结构的干净度">Cap-table cleanliness</h4>
-        <p data-en="How many small shareholders you carry, how investors perceive it, and whether it complicates administration or a future buy-back." data-zh-hant="小股東的數量、對投資人觀感的影響，以及是否牽動管理與日後可能的回購計劃。" data-zh-hans="小股东的数量、对投资人观感的影响，以及是否牵动管理与日后可能的回购计划。">How many small shareholders you carry, how investors perceive it, and whether it complicates administration or a future buy-back.</p>
-      </li>
-      <li>
-        <h4 data-en="Tax efficiency" data-zh-hant="稅務效率" data-zh-hans="税务效率">Tax efficiency</h4>
-        <p data-en="For the company and the employee — and the timing of the taxable moment, which differs by instrument." data-zh-hant="對公司與員工而言——以及課稅時點，因工具而異。" data-zh-hans="对公司与员工而言——以及课税时点，因工具而异。">For the company and the employee — and the timing of the taxable moment, which differs by instrument.</p>
-      </li>
-      <li>
-        <h4 data-en="Financing &amp; exit readiness" data-zh-hant="融資與退出準備" data-zh-hans="融资与退出准备">Financing &amp; exit readiness</h4>
-        <p data-en="Whether the structure helps or hinders the next raise, a cross-border flip, or an eventual listing." data-zh-hant="架構會幫助還是妨礙下一輪募資、跨境重組，或最終上市。" data-zh-hans="架构会帮助还是妨碍下一轮募资、跨境重组，或最终上市。">Whether the structure helps or hinders the next raise, a cross-border flip, or an eventual listing.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== INSIGHT ===== -->
-<section class="insight">
+<section class="blog-hero">
   <div class="container reveal">
-    <p class="kicker" data-en="The point most founder advice misses" data-zh-hant="多數創辦人建議錯過的重點" data-zh-hans="多数创办人建议错过的重点">The point most founder advice misses</p>
-    <p data-en="Founders fixate on whether to grant shares or options — but <em>the structure matters just as much</em>. It governs the next round, a cross-border restructuring, and your tax exposure." data-zh-hant="創辦人只關注要給股權還是期權，<em>但架構同樣重要</em>——這關乎下一輪募資、架構重組與稅務等考量。" data-zh-hans="创办人只关注给股权还是期权，<em>但架构同样重要</em>——这关乎下一轮融资、架构重组和税务等考量。">Founders fixate on whether to grant shares or options — but <em>the structure matters just as much</em>. It governs the next round, a cross-border restructuring, and your tax exposure.</p>
-    <p class="sub" data-en="The omelette-vs-boiled-egg point applies to <strong>structure</strong>, not just the instrument. Get the structure right and every other decision has room to breathe." data-zh-hant="蛋餅與白煮蛋的道理，講的是<strong>結構</strong>，不只是工具。結構對了，其他每個決定才有喘息空間。" data-zh-hans="蛋饼与白煮蛋的道理，讲的是<strong>结构</strong>，不只是工具。结构对了，其他每个决定才有喘息空间。">The omelette-vs-boiled-egg point applies to <strong>structure</strong>, not just the instrument. Get the structure right and every other decision has room to breathe.</p>
+    <p class="blog-eyebrow" data-en="Blog · notes from practice" data-zh-hant="網誌 · 實務筆記" data-zh-hans="博客 · 实务笔记">Blog · notes from practice</p>
+    <h1 data-en="Writing on <em>the legal side of building.</em>" data-zh-hant="關於<em>創業路上的法律</em>的書寫。" data-zh-hans="关于<em>创业路上的法律</em>的书写。">Writing on <em>the legal side of building.</em></h1>
+    <p class="lead" data-en="Short, practical pieces on the decisions founders and growing companies actually face — written plainly, from the company and founder side." data-zh-hant="關於創辦人與成長型企業真正會面對的決定的短文——以淺白的語言，站在公司與創辦人一方書寫。" data-zh-hans="关于创办人与成长型企业真正会面对的决定的短文——以浅白的语言，站在公司与创办人一方书写。">Short, practical pieces on the decisions founders and growing companies actually face — written plainly, from the company and founder side.</p>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<section class="cta-bottom">
-  <div class="container">
-    <h2 class="reveal" data-en="Get these wrong and equity not only fails to keep anyone.<br><em>It quietly breeds doubt.</em>" data-zh-hant="這些做錯了，股權不單留不住人才。<br><em>反而悄悄滋生疑惑。</em>" data-zh-hans="这些做错了，股权不单留不住人才。<br><em>反而悄悄滋生疑惑。</em>">Get these wrong and equity not only fails to keep anyone.<br><em>It quietly breeds doubt.</em></h2>
-    <p class="lead reveal" data-en="If you're designing or refreshing your equity plan and want to think it through for your stage, your team, and your structure — that's a conversation I'm always happy to have." data-zh-hant="如果你正在設計或調整股權方案，想針對你的階段、團隊與架構好好想清楚——這正是我樂意與你詳談的事。" data-zh-hans="如果你正在设计或调整股权方案，想针对你的阶段、团队与架构好好想清楚——这正是我乐意与你详谈的事。">If you're designing or refreshing your equity plan and want to think it through for your stage, your team, and your structure — that's a conversation I'm always happy to have.</p>
-    <div class="cta-row reveal">
-      <a class="cta-pill primary" href="mailto:cermain.cheung@oln-law.com?subject=ESOP%20enquiry" data-en="Talk it through <span class='arrow'>→</span>" data-zh-hant="詳細聊聊 <span class='arrow'>→</span>" data-zh-hans="详细聊聊 <span class='arrow'>→</span>">Talk it through <span class="arrow">→</span></a>
-      <a class="cta-pill secondary" href="esop-roadmap.html" data-en="See how a scheme comes together <span class='arrow'>→</span>" data-zh-hant="看方案如何成形 <span class='arrow'>→</span>" data-zh-hans="看方案如何成形 <span class='arrow'>→</span>">See how a scheme comes together <span class="arrow">→</span></a>
-      <button class="cta-pill secondary cta-print" onclick="window.print()" data-en="Download PDF <span class='arrow'>↓</span>" data-zh-hant="下載 PDF <span class='arrow'>↓</span>" data-zh-hans="下载 PDF <span class='arrow'>↓</span>">Download PDF <span class="arrow">↓</span></button>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DISCLAIMER ===== -->
-<section class="disclaimer">
-  <div class="container reveal">
-    <div class="legend">
-      <span><i class="sw" style="background:var(--sage)"></i> <span data-en="Structure layer — the differentiator" data-zh-hant="結構層——真正的分野" data-zh-hans="结构层——真正的分野">Structure layer — the differentiator</span></span>
-    </div>
-    <p data-en="<b>For information only — not legal advice.</b> For advice on your own matter, speak to us directly." data-zh-hant="<b>僅供一般資訊，並非法律意見。</b>就你自己的事項如需意見，請直接與我們聯絡。" data-zh-hans="<b>仅供一般资讯，并非法律意见。</b>就你自己的事项如需意见，请直接与我们联络。"><b>For information only — not legal advice.</b> For advice on your own matter, speak to us directly.</p>
+<section class="blog-sec">
+  <div class="blog-empty reveal">
+    <span class="blog-empty-mark" aria-hidden="true">✎</span>
+    <p class="blog-empty-title" data-en="First pieces coming soon." data-zh-hant="首批文章即將刊出。" data-zh-hans="首批文章即将刊出。">First pieces coming soon.</p>
+    <p class="blog-empty-sub" data-en="Short, practical notes on fundraising, founder equity, ESOPs and cross-border structuring — written from the company and founder side." data-zh-hant="關於募資、創辦人股權、員工持股與跨境架構的簡短實務筆記——站在公司與創辦人一方書寫。" data-zh-hans="关于募资、创办人股权、员工持股与跨境架构的简短实务笔记——站在公司与创办人一方书写。">Short, practical notes on fundraising, founder equity, ESOPs and cross-border structuring — written from the company and founder side.</p>
   </div>
 </section>
 
@@ -712,6 +578,15 @@
     });
   });
   setActive(0);
+})();
+</script>
+<script>
+(function(){
+  var heads = document.querySelectorAll('.acc-head');
+  if(!heads.length) return;
+  heads.forEach(function(h){
+    h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+  });
 })();
 </script>
 </body>
