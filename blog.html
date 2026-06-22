@@ -447,6 +447,36 @@
     .blog-empty-sub,.hero-sub{ font-size:15px; }
   }
 </style>
+<style id="blog-streams-css">
+  /* Personal / Mirror stream palette — pastel pink, yellow, grey */
+  :root{ --ps-pink:#D98AA0; --ps-pink-deep:#B65F7B; --ps-yellow:#E3C24F; --ps-grey:#54575E; }
+  /* stream toggle */
+  .stream-toggle{ max-width:820px; margin:0 auto 4px; display:flex; gap:8px; padding:0 0 6px; }
+  .stream-btn{ font-family:inherit; cursor:pointer; font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; color:var(--muted); background:transparent; border:1px solid var(--rule); border-radius:999px; padding:8px 16px; transition:all .15s ease; }
+  .stream-btn:hover{ color:var(--navy); border-color:var(--sage); }
+  .stream-btn.on{ background:var(--navy); color:#fff; border-color:var(--navy); }
+  .stream-btn[data-stream="personal"].on{ background:var(--ps-grey); border-color:var(--ps-grey); }
+  .stream-count{ opacity:.6; font-weight:500; margin-left:6px; }
+  /* a Personal/Mirror post card, distinct but same masthead */
+  .post.is-personal{ background:linear-gradient(90deg, rgba(217,138,160,.13), rgba(217,138,160,0) 70%); border-radius:12px; padding-left:20px; padding-right:20px; margin:0 -20px; border-top:1px solid rgba(217,138,160,.30); }
+  .post.is-personal .post-cat{ color:var(--ps-pink-deep); }
+  .post.is-personal .post-cat::before{ background:var(--ps-pink); }
+  .post.is-personal:hover h3{ color:var(--ps-pink-deep); }
+  .post-topics{ display:flex; flex-wrap:wrap; gap:7px; margin-top:13px; }
+  .post-topic{ font-size:11px; letter-spacing:.04em; color:var(--sage-deep); background:var(--sage-soft); border:1px solid var(--sage-line); border-radius:999px; padding:3px 10px; }
+  .post.is-personal .post-topic{ color:var(--ps-pink-deep); background:rgba(227,194,79,.16); border-color:rgba(217,138,160,.34); }
+  .stream-group[hidden]{ display:none; }
+  .stream-empty{ text-align:center; color:var(--muted); font-size:15px; padding:40px 0; }
+  /* beehiiv subscribe band */
+  .subscribe-band{ background:#EFE8D6; color:var(--navy); padding:0 0 64px; }
+  .subscribe-banner{ display:block; width:100%; max-width:1180px; margin:0 auto 8px; height:auto; }
+  .subscribe-band .container{ max-width:680px; margin:0 auto; text-align:center; padding:0 32px; }
+  .subscribe-band .eyebrow{ font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--sage-deep); font-weight:600; margin-bottom:16px; }
+  .subscribe-band h2{ font-family:'Lora',Georgia,serif; font-weight:400; font-size:clamp(26px,3vw,38px); line-height:1.12; letter-spacing:-.01em; margin-bottom:14px; color:var(--navy); }
+  .subscribe-band p{ color:var(--muted); font-size:16px; line-height:1.6; max-width:52ch; margin:0 auto 26px; }
+  .subscribe-embed{ display:flex; justify-content:center; }
+  :lang(zh-hant) .subscribe-band h2,:lang(zh-hans) .subscribe-band h2{ font-family:'Noto Serif TC','Noto Serif SC','Lora',serif; }
+</style>
 </head>
 <body>
 
@@ -508,10 +538,31 @@
 </section>
 
 <section class="blog-sec">
-  <div class="blog-empty reveal">
-    <span class="blog-empty-mark" aria-hidden="true">✎</span>
-    <p class="blog-empty-title" data-en="First pieces coming soon." data-zh-hant="首批文章即將刊出。" data-zh-hans="首批文章即将刊出。">First pieces coming soon.</p>
-    <p class="blog-empty-sub" data-en="Short, practical notes on fundraising, founder equity, ESOPs and cross-border structuring — written from the company and founder side." data-zh-hant="關於募資、創辦人股權、員工持股與跨境架構的簡短實務筆記——站在公司與創辦人一方書寫。" data-zh-hans="关于募资、创办人股权、员工持股与跨境架构的简短实务笔记——站在公司与创办人一方书写。">Short, practical notes on fundraising, founder equity, ESOPs and cross-border structuring — written from the company and founder side.</p>
+  <div class="blog-list">
+    <div class="stream-toggle reveal" role="tablist" aria-label="Filter writing">
+      <button class="stream-btn on" data-stream="all" role="tab" aria-selected="true" data-en="All" data-zh-hant="全部" data-zh-hans="全部">All</button>
+      <button class="stream-btn" data-stream="practice" role="tab" aria-selected="false" data-en="Practice" data-zh-hant="實務" data-zh-hans="实务">Practice</button>
+      <button class="stream-btn" data-stream="personal" role="tab" aria-selected="false" data-en="Personal" data-zh-hant="隨筆" data-zh-hans="随笔">Personal</button>
+    </div>
+
+    <!-- BLOG_POSTS_START -->
+    <div class="blog-empty reveal">
+      <span class="blog-empty-mark" aria-hidden="true">✎</span>
+      <p class="blog-empty-title" data-en="First pieces coming soon." data-zh-hant="首批文章即將刊出。" data-zh-hans="首批文章即将刊出。">First pieces coming soon.</p>
+      <p class="blog-empty-sub" data-en="Short, practical notes on fundraising, founder equity, ESOPs and cross-border structuring — written from the company and founder side." data-zh-hant="關於募資、創辦人股權、員工持股與跨境架構的簡短實務筆記——站在公司與創辦人一方書寫。" data-zh-hans="关于募资、创办人股权、员工持股与跨境架构的简短实务笔记——站在公司与创办人一方书写。">Short, practical notes on fundraising, founder equity, ESOPs and cross-border structuring — written from the company and founder side.</p>
+    </div>
+    <!-- BLOG_POSTS_END -->
+  </div>
+</section>
+
+<section class="subscribe-band">
+  <img class="subscribe-banner" src="blog-assets/beyond-the-split-banner.png" alt="Beyond the Split — past the %, to what exactly keeps the founders together">
+  <div class="container">
+    <h2 data-en="Get new pieces in your inbox." data-zh-hant="新文章，直接寄到你的信箱。" data-zh-hans="新文章，直接寄到你的信箱。">Get new pieces in your inbox.</h2>
+    <p data-en="Occasional notes on the legal side of building — and the personal side of it too. No spam; unsubscribe anytime." data-zh-hant="關於創業路上的法律，以及生活的偶爾隨筆。絕不濫發，隨時可取消訂閱。" data-zh-hans="关于创业路上的法律，以及生活的偶尔随笔。绝不滥发，随时可取消订阅。">Occasional notes on the legal side of building — and the personal side of it too. No spam; unsubscribe anytime.</p>
+    <div class="subscribe-embed">
+      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="0b8f9996-27d7-4510-b317-9e8ec5cec36a"></script>
+    </div>
   </div>
 </section>
 
@@ -566,6 +617,29 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ----- STREAM FILTER (All / Practice / Personal) -----
+  (function(){
+    var btns = document.querySelectorAll('.stream-btn');
+    if(!btns.length) return;
+    function apply(stream){
+      btns.forEach(function(b){
+        var on = b.dataset.stream === stream;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('.post').forEach(function(p){
+        var s = p.dataset.stream || 'practice';
+        p.hidden = !(stream === 'all' || stream === s);
+      });
+      var empty = document.querySelector('.stream-empty');
+      if(empty){
+        var anyVisible = [].some.call(document.querySelectorAll('.post'), function(p){ return !p.hidden; });
+        empty.hidden = anyVisible;
+      }
+    }
+    btns.forEach(function(b){ b.addEventListener('click', function(){ apply(b.dataset.stream); }); });
+  })();
 </script>
 
 <script>
