@@ -1,0 +1,13 @@
+{
+  "name": "cermain-blog-build",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build-time generator: Notion DB -> static blog.html + /blog/*.html for cermain.com",
+  "scripts": {
+    "build": "node build-blog.mjs"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15"
+  }
+}
