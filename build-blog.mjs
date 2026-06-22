@@ -373,4 +373,5 @@ ${post.bodyHtml}
 </main>`;
 
   return head + '\n<body>\n' + chrome + '\n' + article + '\n' + shellFoot;
-}.catch(err => { console.error(err); process.exit(1); });
+}
+main().catch(err => { console.error(err); process.exit(1); });
