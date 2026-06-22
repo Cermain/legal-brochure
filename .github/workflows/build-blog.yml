@@ -25,13 +25,12 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        working-directory: scripts
         run: npm ci || npm install
 
       - name: Build blog from Notion
         env:
           NOTION_BLOG_TOKEN: ${{ secrets.NOTION_BLOG_TOKEN }}
-        run: node scripts/build-blog.mjs
+        run: node build-blog.mjs
 
       - name: Commit regenerated files
         run: |
