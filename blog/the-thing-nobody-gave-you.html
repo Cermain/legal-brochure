@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog — Cermain Cheung</title>
-<meta name="description" content="Notes from practice — practical, founder-side writing on fundraising, founder equity, ESOPs and cross-border structuring from a Hong Kong corporate lawyer.">
+<title>The thing you're holding that nobody gave you — Cermain Cheung</title>
+<meta name="description" content="Most founders think the agreement is the protection. The part that actually breaks them was never written down — what one founder was carrying, that the split never recorded.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Founding — Cermain Cheung">
-<meta property="og:description" content="Get the foundation right: founder equity splits, vesting, the founders’ agreement and IP — settled while it’s still unemotional.">
+<meta property="og:title" content="The thing you're holding that nobody gave you">
+<meta property="og:description" content="Most founders think the agreement is the protection. The part that actually breaks them was never written down — what one founder was carrying, that the split never recorded.">
 <meta property="og:site_name" content="Cermain Cheung">
 <meta name="twitter:card" content="summary">
 
@@ -477,8 +477,37 @@
   .subscribe-embed{ display:flex; justify-content:center; }
   :lang(zh-hant) .subscribe-band h2,:lang(zh-hans) .subscribe-band h2{ font-family:'Noto Serif TC','Noto Serif SC','Lora',serif; }
 </style>
+<style id="post-article-css">
+  .post-article{ padding:64px 32px 40px; }
+  .post-article-inner{ max-width:680px; margin:0 auto; }
+  .post-article .back-overview{ margin-bottom:26px; }
+  .post-article-top{ display:flex; gap:14px; align-items:center; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:600; color:var(--muted); }
+  .post-article-top .post-cat{ color:var(--sage-deep); display:inline-flex; align-items:center; gap:7px; }
+  .post-article-top .post-cat::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--sage); }
+  .post-article-title{ font-family:'Lora',Georgia,serif; font-weight:400; font-size:clamp(32px,4.4vw,52px); line-height:1.08; letter-spacing:-.02em; color:var(--navy); margin:14px 0 0; }
+  .post-article-standfirst{ font-size:20px; line-height:1.5; color:var(--muted); margin-top:18px; font-weight:300; }
+  .post-body{ margin-top:34px; font-size:18px; line-height:1.72; color:var(--ink); }
+  .post-body > * + *{ margin-top:22px; }
+  .post-body p{ max-width:68ch; }
+  .post-h1{ font-family:'Lora',Georgia,serif; font-weight:500; font-size:30px; color:var(--navy); letter-spacing:-.01em; margin-top:46px; line-height:1.2; }
+  .post-h2{ font-family:'Lora',Georgia,serif; font-weight:500; font-size:24px; color:var(--navy); margin-top:38px; line-height:1.25; }
+  .post-h3{ font-weight:700; font-size:18px; color:var(--navy); margin-top:30px; letter-spacing:.01em; }
+  .post-list{ padding-left:24px; max-width:66ch; }
+  .post-list li{ margin:8px 0; }
+  .post-quote{ border-left:2px solid var(--sage); padding:6px 0 6px 24px; font-family:'Lora',Georgia,serif; font-style:italic; font-size:22px; line-height:1.45; color:var(--navy); max-width:60ch; }
+  .post-divider{ border:none; border-top:1px solid var(--rule); width:54px; margin:40px 0; }
+  .post-code{ background:var(--cream-warm); border:1px solid var(--rule); border-radius:8px; padding:16px 18px; overflow:auto; font-size:14px; line-height:1.6; }
+  .post-figure{ margin:30px 0; }
+  .post-figure img{ width:100%; height:auto; border-radius:10px; display:block; }
+  .post-figure figcaption{ font-size:13px; color:var(--muted); margin-top:10px; text-align:center; }
+  .post-foot-embed{ margin-top:56px; padding-top:34px; border-top:1px solid var(--rule); text-align:center; }
+  .post-foot-embed .post-foot-k{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--sage-deep); font-weight:600; margin-bottom:18px; }
+  :lang(zh-hant) .post-article-title,:lang(zh-hans) .post-article-title,:lang(zh-hant) .post-h1,:lang(zh-hans) .post-h1,:lang(zh-hant) .post-h2,:lang(zh-hans) .post-h2{ font-family:'Noto Serif TC','Noto Serif SC','Lora',serif; }
+</style>
+<meta property="og:image" content="https://cermain.com/blog-assets/beyond-the-split-default.png">
 </head>
 <body>
+
 
 <div class="artsy-ambient" aria-hidden="true">
   <svg viewBox="0 0 1440 1024" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -512,13 +541,13 @@
   </div>
   <nav class="topic-nav" aria-label="Startup Tech topics">
     <div class="topic-nav-inner">
-      <a class="tnav" href="index.html"><span data-en="How we work" data-zh-hant="了解我們" data-zh-hans="了解我们">How we work</span></a>
-      <a class="tnav" href="founding.html"><span data-en="Founding" data-zh-hant="合夥" data-zh-hans="合伙">Founding</span></a>
-      <a class="tnav" href="fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
-      <a class="tnav" href="esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
-      <a class="tnav" href="esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
-      <a class="tnav" href="experience.html"><span data-en="Experience" data-zh-hant="經驗" data-zh-hans="经验">Experience</span></a>
-      <a class="tnav blog-tab is-current" href="blog.html"><span data-en="Blog" data-zh-hant="網誌" data-zh-hans="博客">Blog</span></a>
+      <a class="tnav" href="../index.html"><span data-en="How we work" data-zh-hant="了解我們" data-zh-hans="了解我们">How we work</span></a>
+      <a class="tnav" href="../founding.html"><span data-en="Founding" data-zh-hant="合夥" data-zh-hans="合伙">Founding</span></a>
+      <a class="tnav" href="../fundraising.html"><span data-en="Fundraising" data-zh-hant="募資" data-zh-hans="募资">Fundraising</span></a>
+      <a class="tnav" href="../esop-framework.html"><span data-en="ESOP · Framework" data-zh-hant="員工持股 · 框架" data-zh-hans="员工持股 · 框架">ESOP · Framework</span></a>
+      <a class="tnav" href="../esop-roadmap.html"><span data-en="ESOP · Roadmap" data-zh-hant="員工持股 · 路線圖" data-zh-hans="员工持股 · 路线图">ESOP · Roadmap</span></a>
+      <a class="tnav" href="../experience.html"><span data-en="Experience" data-zh-hant="經驗" data-zh-hans="经验">Experience</span></a>
+      <a class="tnav blog-tab is-current" href="../blog.html"><span data-en="Blog" data-zh-hant="網誌" data-zh-hans="博客">Blog</span></a>
       <span class="tnav soon"><span data-en="Agreements" data-zh-hant="合約審閱" data-zh-hans="合约审阅">Agreements</span> <i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
       <span class="tnav soon"><span data-en="Hiring" data-zh-hant="聘用" data-zh-hans="聘用">Hiring</span> <i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
       <span class="tnav soon"><span data-en="Collaboration" data-zh-hant="合作" data-zh-hans="合作">Collaboration</span> <i data-en="soon" data-zh-hant="即將" data-zh-hans="即将">soon</i></span>
@@ -527,53 +556,43 @@
   </nav>
 </div>
 
+
 <main>
-
-<section class="blog-hero">
-  <div class="container reveal">
-    <p class="blog-eyebrow" data-en="Blog · notes from practice" data-zh-hant="網誌 · 實務筆記" data-zh-hans="博客 · 实务笔记">Blog · notes from practice</p>
-    <h1 data-en="Writing on <em>the legal side of building.</em>" data-zh-hant="關於<em>創業路上的法律</em>的書寫。" data-zh-hans="关于<em>创业路上的法律</em>的书写。">Writing on <em>the legal side of building.</em></h1>
-    <p class="lead" data-en="Short, practical pieces on the decisions founders and growing companies actually face — written plainly, from the company and founder side." data-zh-hant="關於創辦人與成長型企業真正會面對的決定的短文——以淺白的語言，站在公司與創辦人一方書寫。" data-zh-hans="关于创办人与成长型企业真正会面对的决定的短文——以浅白的语言，站在公司与创办人一方书写。">Short, practical pieces on the decisions founders and growing companies actually face — written plainly, from the company and founder side.</p>
-  </div>
-</section>
-
-<section class="blog-sec">
-  <div class="blog-list">
-    <div class="stream-toggle reveal" role="tablist" aria-label="Filter writing">
-      <button class="stream-btn on" data-stream="all" role="tab" aria-selected="true" data-en="All" data-zh-hant="全部" data-zh-hans="全部">All</button>
-      <button class="stream-btn" data-stream="practice" role="tab" aria-selected="false" data-en="Practice" data-zh-hant="實務" data-zh-hans="实务">Practice</button>
-      <button class="stream-btn" data-stream="personal" role="tab" aria-selected="false" data-en="Personal" data-zh-hant="隨筆" data-zh-hans="随笔">Personal</button>
+<article class="post-article">
+  <div class="post-article-inner">
+    <a class="back-overview" href="../blog.html">← Back to Blog</a>
+    <div class="post-article-top">
+      <span class="post-cat">Practice</span>
+      <span class="post-date">24 June 2026</span>
+      <span class="post-rt">4 min read</span>
     </div>
+    <h1 class="post-article-title">The thing you're holding that nobody gave you</h1>
+    <p class="post-article-standfirst">Most founders think the agreement is the protection. The part that actually breaks them was never written down — what one founder was carrying, that the split never recorded.</p>
+    <div class="post-topics"><span class="post-topic">Partnership</span><span class="post-topic">Equity/SHA</span></div>
+    <div class="post-body">
+<p>Most people who call me want a shareholders' agreement. What they actually want is a price.</p>
+<p>They ask what it costs, and whether there's a cheaper way to do it, and underneath both questions is the same belief: that as long as an agreement exists, it will hold. That the document is the protection. I understand why they think this. The document is the part you can see.</p>
+<p>I never close that work in one call. Not because I am difficult, but because the agreement is the easy part, and the part that matters takes longer than a phone call to find.</p>
+<p>I once acted in a dispute between founders who were, by any measure, the smartest people in the room. They had done everything right except the one thing that counted. They had an agreement. They had signed it. What they did not have was anything underneath it. There was no logic to how they had divided the company beyond who had put in money at the start. There was no way to decide when they disagreed. There was no way for any of them to leave. They had the shape of a deal and none of its substance, and for a few good years that was enough, because nothing had gone wrong yet.</p>
+<p>Here is how it went wrong, and I want to be careful, because there is no villain in it.</p>
+<p>The founders who had put in the money held the larger share. They did not run the company day to day, so they did not carry the daily knowledge of it — what was actually working, what a decision would really cost, where the company was soft. The one who ran it held less, and knew the most. For a long time that imbalance was invisible, because the company was moving and nobody had to test it.</p>
+<p>Then a decision came that mattered, and their shares pulled them into it. The ones who held more felt entitled to weigh in, and were, by the numbers. But they were deciding on a company they could no longer see clearly. The one running it understood exactly what was at stake and had the smaller say, and he felt undermined, because he was being overruled by people who knew less than he did. Both of them were right from where they sat. That is what made it impossible. The structure had arranged things so that neither of them could be wrong.</p>
+<p>What no one had ever named was what the one running it had been carrying. Not his share — that was on paper. The years. The accountability. The weight of being the person the whole thing quietly rested on. The split had recorded the money. It had never recorded that, and because it was never recorded, it was never quite real to the others.</p>
+<p>Then a buyer appeared. It was the moment to sell, and they missed it. The ones who held more thought the offer was too low. The one who ran it thought it was right, and wanted a little more than his share, for the years he had carried. There was no way to break the deadlock and no way for anyone to step out and let the others take it. So the window closed, the sale didn't happen, and what they were left fighting over was whether one of them could squeeze the other out — each of them afraid of the legal fight, each of them starting it anyway.</p>
+<p>I have thought about why this keeps happening, and the closest I have come is this. People enter a marriage knowing it is about responsibility — that the promise is for the bad days as much as the good ones. People enter a business partnership and see only the harvest. They picture the upside and divide it, and they never picture the morning it stops being easy, because to picture it feels like distrust.</p>
+<p>I could have taken those founders' first call, quoted a low price, drafted the cheap agreement they asked for, secured the work, and waited for the day they found out it did not hold. That feeling stings. I don't work that way. The cheap agreement is not the safe one. It is the one a person signs instead of having the conversation they could still have today, while it is small enough to have.</p>
+<p>Because the split was only ever written for the good times. Not for who would be accountable. Not for whose time and contribution would change as the years passed. Not for how someone could leave. So when the hard day came, the split they had agreed to became the other kind of split — and two people who had built something together stopped speaking.</p>
+<p>I built mimicu so founders could see that second split coming while the first one was still just a number on a page.</p>
 
-    <!-- BLOG_POSTS_START -->
-      <a class="post reveal" data-stream="practice" href="blog/the-thing-nobody-gave-you.html">
-        <div class="post-top">
-          <span class="post-cat">Practice</span>
-          <span class="post-date">24 June 2026</span>
-          <span class="post-rt">4 min read</span>
-        </div>
-        <h3>The thing you're holding that nobody gave you</h3>
-        <p>Most founders think the agreement is the protection. The part that actually breaks them was never written down — what one founder was carrying, that the split never recorded.</p>
-        <div class="post-topics"><span class="post-topic">Partnership</span><span class="post-topic">Equity/SHA</span></div>
-        <span class="more">Read →</span>
-      </a>
-      <p class="stream-empty" hidden>Nothing in this stream yet.</p>
-    <!-- BLOG_POSTS_END -->
-  </div>
-</section>
-
-<section class="subscribe-band">
-  <img class="subscribe-banner" src="beyond-the-split-banner.png" alt="Beyond the Split — past the %, to what exactly keeps the founders together">
-  <div class="container">
-    <h2 data-en="Get new pieces in your inbox." data-zh-hant="新文章，直接寄到你的信箱。" data-zh-hans="新文章，直接寄到你的信箱。">Get new pieces in your inbox.</h2>
-    <p data-en="Occasional notes on the legal side of building — and the personal side of it too. No spam; unsubscribe anytime." data-zh-hant="關於創業路上的法律，以及生活的偶爾隨筆。絕不濫發，隨時可取消訂閱。" data-zh-hans="关于创业路上的法律，以及生活的偶尔随笔。绝不滥发，随时可取消订阅。">Occasional notes on the legal side of building — and the personal side of it too. No spam; unsubscribe anytime.</p>
-    <div class="subscribe-embed">
+    </div>
+    <div class="post-foot-embed">
+      <p class="post-foot-k">Beyond the Split — the newsletter</p>
       <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="0b8f9996-27d7-4510-b317-9e8ec5cec36a"></script>
     </div>
   </div>
-</section>
-
+</article>
 </main>
+
 
 <footer>
   <div class="container">
